@@ -1,0 +1,84 @@
+{
+ "title": "Sir Thomas Roe at Jahangir's court (1615)",
+ "targetSeconds": 20,
+ "script": "In sixteen fifteen, King James the First sends Sir Thomas Roe to India. After months at sea, he lands at Surat, then rides inland to the court of Emperor Jahangir. The emperor is one of the richest rulers on earth, and he keeps the envoy waiting for years. In the end, Roe wins trading rights at Surat. The Company's foothold is set.",
+ "beats": [
+  {
+   "id": "b1",
+   "text": "In sixteen fifteen, King James the First sends Sir Thomas Roe to India.",
+   "visual": "video",
+   "queries": [
+    "sailing ship ocean",
+    "tall ship sea",
+    "tall ships sailing",
+    "replica galleon"
+   ],
+   "exclude": [
+    "Vissersvloot",
+    "YHONA",
+    "UnitedByPost"
+   ]
+  },
+  {
+   "id": "b2",
+   "text": "After months at sea, he lands at Surat, then rides inland to the court of Emperor Jahangir.",
+   "visual": "map+video",
+   "queries": [
+    "Agra Fort",
+    "Red Fort Delhi",
+    "Fatehpur Sikri",
+    "Amber Fort Jaipur",
+    "Mughal fort India",
+    "Surat castle",
+    "Ajmer"
+   ],
+   "exclude": [
+    "Arundhati",
+    "Kennedy",
+    "Cow Humps",
+    "Bairam"
+   ]
+  },
+  {
+   "id": "b3",
+   "text": "The emperor is one of the richest rulers on earth, and he keeps the envoy waiting for years.",
+   "visual": "image",
+   "queries": [
+    "Jahangir durbar",
+    "Jahangir Mughal painting",
+    "Mughal emperor audience",
+    "Jahangir Bichitr"
+   ],
+   "exclude": [
+    "Sikh soldiers",
+    "Audience Robe",
+    "Pilgrim and an ascetic"
+   ]
+  },
+  {
+   "id": "b4",
+   "text": "In the end, Roe wins trading rights at Surat. The Company's foothold is set.",
+   "visual": "image",
+   "queries": [
+    "Thomas Roe",
+    "Jahangir Roe",
+    "Mughal ambassador English"
+   ],
+   "exclude": [
+    "Zoe, Maid",
+    "Robert Adam",
+    "Works in Architecture",
+    "Muhlenbergia",
+    "Chrysothamnus",
+    "Tetradymia",
+    "Ericameria",
+    "roe buck",
+    "Chestnut Mare",
+    "T.H. Barry",
+    "patriots of Ireland",
+    "Rowlandson",
+    "Man's Audience Robe"
+   ]
+  }
+ ]
+}
