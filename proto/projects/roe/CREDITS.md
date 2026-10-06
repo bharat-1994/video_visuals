@@ -6,7 +6,7 @@ Every asset in this video, with source and license. Items marked **attribution r
   Source: Wikimedia Commons <https://commons.wikimedia.org/wiki/File:LARGE_SAILING_SHIPS_AT_SEA,_4K_%E2%80%A2_ISOT_PURJELAIVAT_MERELL%C3%84.webm>  
   License: CC BY 3.0 **(attribution required)**  
   Used in beat b1 as `public/roe/ship.mp4` — masts + sky only; excludes harbour and burned-in watermark
-- **Jahangir Preferring a Sufi Shaikh to Kings, from the St. Petersburg albumtitle QS:P1476,en:"Jahangir Preferring a Sufi Shaikh to Kings, from the St. Petersburg album"label QS:Len,"Jahangir Preferring a Sufi Shaikh to Kings, from the St. Petersburg album"** — Bichitr, from 1615 until 1618date QS:P571,+1615-00-00T00:00:00Z/8,P580,+1615-00-00T00:00:00Z/9,P582,+1618-00-00T00:00:00Z/9  
+- **Jahangir Preferring a Sufi Shaikh to Kings, from the St. Petersburg album** — Bichitr, from 1615 until 1618  
   Source: Wikimedia Commons <https://commons.wikimedia.org/wiki/File:Bichitr_-_Jahangir_Preferring_a_Sufi_Shaikh_to_Kings,_from_the_St._Petersburg_album_-_Google_Art_Project.jpg>  
   License: Public domain  
   Used in beat b3 as `public/roe/bichitr.jpg`

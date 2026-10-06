@@ -51,4 +51,4 @@ export async function download(url, dest) {
   return dest;
 }
 
-export const strip = (s) => (s || '').replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
+export const strip = (s) => (s || '').replace(/<[^>]+>/g, '').replace(/(title|label|date)\s*QS:.*$/i, '').replace(/QS:\S+/g, '').replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
