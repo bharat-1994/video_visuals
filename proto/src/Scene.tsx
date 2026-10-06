@@ -6,22 +6,22 @@ import land50 from 'world-atlas/land-50m.json';
 import countries50 from 'world-atlas/countries-50m.json';
 import words from './words.json';
 
-const W = 1920;
-const H = 1080;
-const BAR = 118; // cinematic letterbox
-const GOLD = '#e6c27a';
-const INK = '#07121a';
+export const W = 1920;
+export const H = 1080;
+export const BAR = 118; // cinematic letterbox
+export const GOLD = '#e6c27a';
+export const INK = '#07121a';
 
-const land = feature(land50 as any, (land50 as any).objects.land) as any;
+export const land = feature(land50 as any, (land50 as any).objects.land) as any;
 const countries = (feature(countries50 as any, (countries50 as any).objects.countries) as any).features as any[];
-const india = countries.find((c) => c.properties.name === 'India');
-const graticule = geoGraticule10();
+export const india = countries.find((c) => c.properties.name === 'India');
+export const graticule = geoGraticule10();
 
 // ---------- helpers ----------
-const clamp01 = (x: number) => Math.min(1, Math.max(0, x));
-const ease = Easing.bezier(0.45, 0, 0.55, 1);
-const win = (t: number, a: number, b: number) => ease(clamp01((t - a) / (b - a)));
-const fadeInOut = (t: number, a: number, b: number, c: number, d: number) => win(t, a, b) * (1 - win(t, c, d));
+export const clamp01 = (x: number) => Math.min(1, Math.max(0, x));
+export const ease = Easing.bezier(0.45, 0, 0.55, 1);
+export const win = (t: number, a: number, b: number) => ease(clamp01((t - a) / (b - a)));
+export const fadeInOut = (t: number, a: number, b: number, c: number, d: number) => win(t, a, b) * (1 - win(t, c, d));
 
 // smooth camera: cardinal spline through keyframes (no stop-start between keys)
 type Key = {t: number; lon: number; lat: number; z: number};
@@ -61,7 +61,7 @@ const camera = (t: number) => {
 const waypoints: [number, number][] = [
   [-4.1, 50.35], [-9.5, 43.5], [-16, 31], [-18, 16], [-12, 2], [1, -22], [17, -36], [33, -31], [44, -14], [56, 4], [66, 15], [72.75, 21.1],
 ];
-const catmull = (pts: [number, number][], per = 40) => {
+export const catmull = (pts: [number, number][], per = 40) => {
   const out: [number, number][] = [];
   for (let i = 0; i < pts.length - 1; i++) {
     const p0 = pts[Math.max(0, i - 1)], p1 = pts[i], p2 = pts[i + 1], p3 = pts[Math.min(pts.length - 1, i + 2)];
@@ -90,10 +90,10 @@ const sentences: Word[][] = [];
   if (cur.length) sentences.push(cur);
 }
 
-const serif = "'Cormorant Garamond', Georgia, serif";
-const sans = "'Inter', system-ui, sans-serif";
+export const serif = "'Cormorant Garamond', Georgia, serif";
+export const sans = "'Inter', system-ui, sans-serif";
 
-const fonts = `
+export const fonts = `
 @font-face{font-family:'Cormorant Garamond';font-weight:500;src:url(${staticFile('fonts/cormorant-garamond-latin-500-normal.woff2')}) format('woff2');}
 @font-face{font-family:'Cormorant Garamond';font-weight:600;src:url(${staticFile('fonts/cormorant-garamond-latin-600-normal.woff2')}) format('woff2');}
 @font-face{font-family:'Inter';font-weight:400;src:url(${staticFile('fonts/inter-latin-400-normal.woff2')}) format('woff2');}
@@ -281,13 +281,13 @@ export const Scene: React.FC = () => {
   );
 };
 
-const MapLabel: React.FC<{p: [number, number]; text: string; o: number; size?: number; spacing?: number; dx?: number; dy?: number}> = ({p, text, o, size = 30, spacing = 14, dx = 0, dy = 0}) => (
+export const MapLabel: React.FC<{p: [number, number]; text: string; o: number; size?: number; spacing?: number; dx?: number; dy?: number}> = ({p, text, o, size = 30, spacing = 14, dx = 0, dy = 0}) => (
   <div style={{position: 'absolute', left: p[0] + dx, top: p[1] + dy, transform: 'translate(-50%,-50%)', opacity: o, fontFamily: serif, fontWeight: 500, fontSize: size, letterSpacing: spacing, color: '#e9dcbd', textShadow: '0 2px 18px #000', whiteSpace: 'nowrap', pointerEvents: 'none'}}>
     {text}
   </div>
 );
 
-const DateStamp: React.FC<{text: string; sub: string; o: number; red?: boolean}> = ({text, sub, o, red}) => (
+export const DateStamp: React.FC<{text: string; sub: string; o: number; red?: boolean}> = ({text, sub, o, red}) => (
   <div style={{position: 'absolute', left: 150, top: 175, opacity: o, transform: `translateY(${(1 - o) * 16}px)`}}>
     <div style={{fontFamily: serif, fontWeight: 600, fontSize: 210, lineHeight: 0.9, color: red ? '#ff7a6b' : GOLD, textShadow: `0 0 50px ${red ? '#c0272d' : '#b8862e'}88, 0 6px 30px #000`}}>{text}</div>
     <div style={{fontFamily: sans, fontWeight: 600, fontSize: 21, letterSpacing: 7, color: '#d9d2c0', marginTop: 14, paddingLeft: 6, textShadow: '0 2px 12px #000'}}>{sub}</div>
@@ -304,7 +304,7 @@ const GoodsTag: React.FC<{text: string; t0: number; t1: number; t: number; x: nu
   );
 };
 
-const Caption: React.FC<{sent: Word[]; t: number}> = ({sent, t}) => {
+export const Caption: React.FC<{sent: Word[]; t: number}> = ({sent, t}) => {
   const o = clamp01((t - (sent[0].s - 0.15)) / 0.2) * (1 - clamp01((t - (sent[sent.length - 1].e + 0.15)) / 0.3));
   return (
     <div style={{position: 'absolute', left: 0, right: 0, bottom: 0, height: BAR, display: 'flex', alignItems: 'center', justifyContent: 'center', opacity: o}}>
@@ -320,7 +320,7 @@ const Caption: React.FC<{sent: Word[]; t: number}> = ({sent, t}) => {
 };
 
 // dust motes, vignette, light bloom, film grain
-const Atmosphere: React.FC<{t: number; frame: number}> = ({t, frame}) => {
+export const Atmosphere: React.FC<{t: number; frame: number}> = ({t, frame}) => {
   const motes = useMemo(() => Array.from({length: 46}, (_, i) => {
     const r = (n: number) => { const x = Math.sin(i * 127.1 + n * 311.7) * 43758.5453; return x - Math.floor(x); };
     return {x: r(1) * W, y: r(2) * H, s: 1 + r(3) * 2.6, v: 6 + r(4) * 18, ph: r(5) * 6.28, a: 0.15 + r(6) * 0.35};
