@@ -1,0 +1,12 @@
+{
+  "b1": [{"id": "commons:98352635", "as": "ship.mp4", "start": 296, "duration": 8, "crop": "1920:1080:1500:0", "note": "masts + sky only; excludes harbour and burned-in watermark"}],
+  "b3": [
+    {"id": "commons:13318804", "as": "bichitr.jpg"},
+    {"id": "commons:22568170", "as": "darbar.jpg"}
+  ],
+  "b4": [
+    {"id": "commons:6829122", "as": "roe.jpg"},
+    {"id": "commons:19173659", "as": "dutch.jpg"},
+    {"id": "met:446266", "as": "elephant.jpg"}
+  ]
+}
