@@ -1,0 +1,75 @@
+sheets 3 tiles 48
+[vost#0:0/rawvideo @ 0x55f01f9de700] Error submitting a packet to the muxer: Broken pipe
+[out#0/rawvideo @ 0x55f01f940a40] Error muxing a packet
+[vost#0:0/rawvideo @ 0x555fa8c16200] Error submitting a packet to the muxer: Broken pipe
+[out#0/rawvideo @ 0x555fa8b9ba80] Error muxing a packet
+[vost#0:0/rawvideo @ 0x5637b29a5800] Error submitting a packet to the muxer: Broken pipe
+[out#0/rawvideo @ 0x5637b28be280] Error muxing a packet
+[out#0/rawvideo @ 0x555fa8b9ba80] Error writing trailer: Broken pipe
+[out#0/rawvideo @ 0x555fa8b9ba80] Error closing file: Broken pipe
+[vost#0:0/rawvideo @ 0x560e212779c0] Error submitting a packet to the muxer: Broken pipe
+[out#0/rawvideo @ 0x560e21202a80] Error muxing a packet
+[vost#0:0/rawvideo @ 0x56514829c280] Error submitting a packet to the muxer: Broken pipe
+[out#0/rawvideo @ 0x5651481b4580] Error muxing a packet
+[vost#0:0/rawvideo @ 0x56000f73ce00] Error submitting a packet to the muxer: Broken pipe
+[out#0/rawvideo @ 0x56000f4f42c0] Error muxing a packet
+[vost#0:0/rawvideo @ 0x56416b0e6200] Error submitting a packet to the muxer: Broken pipe
+[out#0/rawvideo @ 0x56416ae9d640] Error muxing a packet
+[out#0/rawvideo @ 0x55f01f940a40] Error writing trailer: Broken pipe
+[out#0/rawvideo @ 0x55f01f940a40] Error closing file: Broken pipe
+[out#0/rawvideo @ 0x5651481b4580] Error writing trailer: Broken pipe
+[out#0/rawvideo @ 0x5651481b4580] Error closing file: Broken pipe
+[out#0/rawvideo @ 0x560e21202a80] Error writing trailer: Broken pipe
+[out#0/rawvideo @ 0x560e21202a80] Error closing file: Broken pipe
+[out#0/rawvideo @ 0x56000f4f42c0] Error writing trailer: Broken pipe
+[out#0/rawvideo @ 0x56000f4f42c0] Error closing file: Broken pipe
+[out#0/rawvideo @ 0x56416ae9d640] Error writing trailer: Broken pipe
+[out#0/rawvideo @ 0x56416ae9d640] Error closing file: Broken pipe
+[out#0/rawvideo @ 0x5637b28be280] Error writing trailer: Broken pipe
+[out#0/rawvideo @ 0x5637b28be280] Error closing file: Broken pipe
+sheets 2 tiles 32
+[vost#0:0/rawvideo @ 0x55aeae58a0c0] Error submitting a packet to the muxer: Broken pipe
+[out#0/rawvideo @ 0x55aeae4a8480] Error muxing a packet
+[out#0/rawvideo @ 0x55aeae4a8480] Error writing trailer: Broken pipe
+[out#0/rawvideo @ 0x55aeae4a8480] Error closing file: Broken pipe
+[vost#0:0/rawvideo @ 0x5644a3c56200] Error submitting a packet to the muxer: Broken pipe
+[out#0/rawvideo @ 0x5644a3bdba80] Error muxing a packet
+[vost#0:0/rawvideo @ 0x55883b13f200] Error submitting a packet to the muxer: Broken pipe
+[out#0/rawvideo @ 0x55883b0c4400] Error muxing a packet
+[vost#0:0/rawvideo @ 0x5624cc8d5040] Error submitting a packet to the muxer: Broken pipe
+[out#0/rawvideo @ 0x5624cc7ed9c0] Error muxing a packet
+[vost#0:0/rawvideo @ 0x558ce179e3c0] Error submitting a packet to the muxer: Broken pipe
+[out#0/rawvideo @ 0x558ce16a2a00] Error muxing a packet
+[vost#0:0/rawvideo @ 0x55f448413540] Error submitting a packet to the muxer: Broken pipe
+[out#0/rawvideo @ 0x55f4482ca1c0] Error muxing a packet
+[out#0/rawvideo @ 0x5624cc7ed9c0] Error writing trailer: Broken pipe
+[out#0/rawvideo @ 0x5624cc7ed9c0] Error closing file: Broken pipe
+[out#0/rawvideo @ 0x5644a3bdba80] Error writing trailer: Broken pipe
+[out#0/rawvideo @ 0x5644a3bdba80] Error closing file: Broken pipe
+[vost#0:0/rawvideo @ 0x557c8b16eec0] Error submitting a packet to the muxer: Broken pipe
+[out#0/rawvideo @ 0x557c8b0d21c0] Error muxing a packet
+[vost#0:0/rawvideo @ 0x55acb8c93780] Error submitting a packet to the muxer: Broken pipe
+[out#0/rawvideo @ 0x55acb8bb2300] Error muxing a packet
+[out#0/rawvideo @ 0x55acb8bb2300] Error writing trailer: Broken pipe
+[out#0/rawvideo @ 0x55acb8bb2300] Error closing file: Broken pipe
+[out#0/rawvideo @ 0x558ce16a2a00] Error writing trailer: Broken pipe
+[out#0/rawvideo @ 0x558ce16a2a00] Error closing file: Broken pipe
+[out#0/rawvideo @ 0x55f4482ca1c0] Error writing trailer: Broken pipe
+[out#0/rawvideo @ 0x55f4482ca1c0] Error closing file: Broken pipe
+[out#0/rawvideo @ 0x55883b0c4400] Error writing trailer: Broken pipe
+[out#0/rawvideo @ 0x55883b0c4400] Error closing file: Broken pipe
+[out#0/rawvideo @ 0x557c8b0d21c0] Error writing trailer: Broken pipe
+[out#0/rawvideo @ 0x557c8b0d21c0] Error closing file: Broken pipe
+sheets 2 tiles 32
+[vost#0:0/rawvideo @ 0x5605860cf4c0] Error submitting a packet to the muxer: Broken pipe
+[out#0/rawvideo @ 0x560585e861c0] Error muxing a packet
+[vost#0:0/rawvideo @ 0x556483679940] Error submitting a packet to the muxer: Broken pipe
+[out#0/rawvideo @ 0x556483563a40] Error muxing a packet
+[out#0/rawvideo @ 0x560585e861c0] Error writing trailer: Broken pipe
+[out#0/rawvideo @ 0x560585e861c0] Error closing file: Broken pipe
+[vost#0:0/rawvideo @ 0x56234ae66940] Error submitting a packet to the muxer: Broken pipe
+[out#0/rawvideo @ 0x56234adf1a00] Error muxing a packet
+[out#0/rawvideo @ 0x56234adf1a00] Error writing trailer: Broken pipe
+[out#0/rawvideo @ 0x56234adf1a00] Error closing file: Broken pipe
+[out#0/rawvideo @ 0x556483563a40] Error writing trailer: Broken pipe
+[out#0/rawvideo @ 0x556483563a40] Error closing file: Broken pipe

@@ -1,0 +1,14 @@
+assets/footage/
+assets/mixkit/
+assets/flickr/*.jpg
+assets/flickr/*.JPG
+assets/stills/
+assets/maps/
+build/parts/
+build/out/
+build/*.npy
+build/__pycache__/
+render/__pycache__/
+*.part
+*.tmp.mp4
+__pycache__/

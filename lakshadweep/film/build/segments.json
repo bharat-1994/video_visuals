@@ -1,0 +1,810 @@
+{
+ "01_introduction": {
+  "duration": 46.95,
+  "segs": [
+   {
+    "te": "లక్షద్వీప్. పేరు వినగానే \"లక్ష దీవులు ఉంటాయేమో\" అనిపిస్తుంది కదా?",
+    "en": "Lakshadweep. Just hearing the name, it feels like there must be a lakh of islands, right?",
+    "start": 0.12,
+    "end": 4.78
+   },
+   {
+    "te": "కానీ నిజం వేరు.",
+    "en": "But the truth is different.",
+    "start": 4.88,
+    "end": 6.18
+   },
+   {
+    "te": "ఇక్కడ ఉన్నవి మొత్తం 36 దీవులు.",
+    "en": "There are a total of 36 islands here.",
+    "start": 6.26,
+    "end": 8.84
+   },
+   {
+    "te": "వాటిలో ప్రజలు నివసించేవి కేవలం 10.",
+    "en": "Out of which only 10 are inhabited by people.",
+    "start": 8.9,
+    "end": 11.15
+   },
+   {
+    "te": "ఇంకో ఆశ్చర్యం ఏంటంటే, ఈ దీవులన్నిటి land area కలిపినా సుమారు 32 చదరపు కిలోమీటర్లే.",
+    "en": "Another surprise is that the combined land area of all these islands is only about 32 square kilometres.",
+    "start": 11.16,
+    "end": 18.47
+   },
+   {
+    "te": "అంటే హైదరాబాద్ నగరంలో ఇరవయ్యో వంతు కూడా లేదు.",
+    "en": "That means it is not even one-twentieth the size of Hyderabad city.",
+    "start": 18.5,
+    "end": 22.07
+   },
+   {
+    "te": "కానీ దీని చుట్టూ ఉన్న సముద్రం? దాదాపు నాలుగు లక్షల చదరపు కిలోమీటర్లు.",
+    "en": "But the sea around it? Almost four lakh square kilometres.",
+    "start": 22.14,
+    "end": 27.06
+   },
+   {
+    "te": "అంటే భూమి కొంచెం, సముద్రం అపారం.",
+    "en": "Meaning the land is little, the sea is vast.",
+    "start": 27.09,
+    "end": 30.12
+   },
+   {
+    "te": "అందుకే ఈ ప్రదేశం కథ భూమి గురించి కాదు... సముద్రం గురించి.",
+    "en": "That is why the story of this place is not about the land... but about the sea.",
+    "start": 30.19,
+    "end": 34.26
+   },
+   {
+    "te": "ఈ video లో మనం మూడు ప్రశ్నలకు సమాధానం వెతుకుతాం.",
+    "en": "In this video we will look for answers to three questions.",
+    "start": 34.33,
+    "end": 37.64
+   },
+   {
+    "te": "ఈ దీవులు ఎలా పుట్టాయి?",
+    "en": "How were these islands formed?",
+    "start": 37.69,
+    "end": 39.38
+   },
+   {
+    "te": "ఇక్కడ మనుషులు ఎలా వచ్చారు, ఎలా బతుకుతున్నారు?",
+    "en": "How did people come here and how do they live?",
+    "start": 39.43,
+    "end": 42.72
+   },
+   {
+    "te": "ఇంత అందమైన ప్రదేశానికి ముందున్న సవాళ్లు ఏంటి?",
+    "en": "What challenges does such a beautiful place face?",
+    "start": 42.75,
+    "end": 45.92
+   },
+   {
+    "te": "ఇక మొదలు పెడదాం.",
+    "en": "Let’s begin.",
+    "start": 46.01,
+    "end": 46.95
+   }
+  ]
+ },
+ "02_formation": {
+  "duration": 61.19,
+  "segs": [
+   {
+    "te": "ముందు ఒక విషయం.",
+    "en": "First, one thing.",
+    "start": 0.08,
+    "end": 1.36
+   },
+   {
+    "te": "లక్షద్వీప్ దీవులు మనం అనుకునే \"రాళ్లు, కొండలు\" ఉన్న దీవులు కాదు.",
+    "en": "The islands of Lakshadweep are not the kind of islands with rocks and hills that we usually imagine.",
+    "start": 1.44,
+    "end": 5.88
+   },
+   {
+    "te": "ఇవి coral తో తయారైన దీవులు.",
+    "en": "These are islands made of coral.",
+    "start": 5.96,
+    "end": 8.1
+   },
+   {
+    "te": "కోట్ల సంవత్సరాల క్రితం, భారత ఉపఖండం ఉత్తరం వైపు కదులుతూ ఉన్నప్పుడు, సముద్రం అడుగున ఒక పర్వత శ్రేణి ఏర్పడింది.",
+    "en": "Millions of years ago, when the Indian subcontinent was moving northwards, a mountain range formed at the bottom of the sea.",
+    "start": 8.16,
+    "end": 16.1
+   },
+   {
+    "te": "దీన్ని Chagos-Laccadive Ridge అంటారు.",
+    "en": "This is called the Chagos-Laccadive Ridge.",
+    "start": 16.14,
+    "end": 19.12
+   },
+   {
+    "te": "ఆ పర్వతాల పై భాగం సముద్ర మట్టానికి కాస్త కిందే ఉండేది.",
+    "en": "The top of those mountains stayed just below sea level.",
+    "start": 19.18,
+    "end": 23.36
+   },
+   {
+    "te": "అక్కడ coral polyps అని చిన్న చిన్న జీవులు పెరగడం మొదలుపెట్టాయి.",
+    "en": "There, tiny creatures called coral polyps began to grow.",
+    "start": 23.42,
+    "end": 27.77
+   },
+   {
+    "te": "ఇవి ఎంత చిన్నవంటే, కంటికి దాదాపు కనపడవు.",
+    "en": "They are so small that they are almost invisible to the eye.",
+    "start": 27.8,
+    "end": 30.99
+   },
+   {
+    "te": "కానీ లక్షల సంవత్సరాలు, తరం తర్వాత తరం, ఒకదాని మీద ఒకటి కట్టుకుంటూ వెళ్లాయి.",
+    "en": "But for lakhs of years, generation after generation, they kept building one on top of another.",
+    "start": 31.04,
+    "end": 36.62
+   },
+   {
+    "te": "కాలక్రమేణా కింద ఉన్న పర్వతం మెల్లగా కిందికి కుంగిపోయింది.",
+    "en": "Over time the mountain below slowly sank.",
+    "start": 36.66,
+    "end": 40.63
+   },
+   {
+    "te": "కానీ coral పైకి పెరుగుతూనే ఉంది.",
+    "en": "But the coral kept growing upwards.",
+    "start": 40.66,
+    "end": 43.2
+   },
+   {
+    "te": "చివరికి మిగిలింది ఒక ring ఆకారం.",
+    "en": "In the end what remained was a ring shape.",
+    "start": 43.28,
+    "end": 45.71
+   },
+   {
+    "te": "మధ్యలో నిశ్చలమైన lagoon, చుట్టూ సన్నని land.",
+    "en": "A calm lagoon in the middle, thin land all around.",
+    "start": 45.78,
+    "end": 48.98
+   },
+   {
+    "te": "ఈ నిర్మాణాన్నే atoll అంటారు.",
+    "en": "This structure is called an atoll.",
+    "start": 49.24,
+    "end": 51.34
+   },
+   {
+    "te": "అంటే మీరు లక్షద్వీప్ లో నడుస్తున్న ప్రతి అడుగు, కోట్ల సంవత్సరాలు ఒక జీవి కట్టుకున్న ఇల్లు మీదే.",
+    "en": "That means every step you take in Lakshadweep is on a house built by a living creature over millions of years.",
+    "start": 51.38,
+    "end": 58.08
+   },
+   {
+    "te": "అందుకే ఇక్కడ ఇసుక అంత తెల్లగా, మెత్తగా ఉంటుంది.",
+    "en": "That is why the sand here is so white and soft.",
+    "start": 58.17,
+    "end": 61.19
+   }
+  ]
+ },
+ "03_first_people": {
+  "duration": 63.67,
+  "segs": [
+   {
+    "te": "ఈ దీవుల్లో మనుషులు ఎప్పుడు అడుగుపెట్టారు?",
+    "en": "When did people first set foot on these islands?",
+    "start": 0.06,
+    "end": 2.91
+   },
+   {
+    "te": "దీనికి ఖచ్చితమైన record లేదు.",
+    "en": "There is no exact record for this.",
+    "start": 2.94,
+    "end": 5.07
+   },
+   {
+    "te": "అందుకే చరిత్ర కన్నా ఎక్కువగా ఇక్కడ మౌఖిక కథలు, నమ్మకాలు వినిపిస్తాయి.",
+    "en": "That is why more than history, oral stories and beliefs are heard here.",
+    "start": 5.16,
+    "end": 10.57
+   },
+   {
+    "te": "సాధారణంగా చెప్పే కథనం ప్రకారం, కేరళ తీరం నుంచి నావికులు, మత్స్యకారులు వచ్చి ఇక్కడ స్థిరపడ్డారు.",
+    "en": "According to the commonly told narrative, sailors and fishermen from the Kerala coast came and settled here.",
+    "start": 10.6,
+    "end": 17.97
+   },
+   {
+    "te": "తర్వాత అరబ్ వ్యాపారులు ఈ Arabian Sea route లో రాకపోకలు సాగించారు.",
+    "en": "Later Arab traders started travelling on this Arabian Sea route.",
+    "start": 18.0,
+    "end": 23.25
+   },
+   {
+    "te": "ఎందుకంటే ఇవి ఒక రకంగా సముద్ర మార్గంలో ఆగే \"రోడ్ సైడ్ stops\" లాంటివి.",
+    "en": "Because these were like roadside stops on the sea route.",
+    "start": 23.3,
+    "end": 28.48
+   },
+   {
+    "te": "ఇక్కడి ప్రజల నమ్మకం ప్రకారం, ఏడో శతాబ్దంలో Ubaidullah అనే ఒక సూఫీ సన్యాసి ఈ దీవులకు వచ్చారు.",
+    "en": "According to the belief of the local people, in the seventh century a Sufi saint named Ubaidullah came to these islands.",
+    "start": 28.54,
+    "end": 35.81
+   },
+   {
+    "te": "ఆండ్రోత్ ద్వీపంలో ఆయన సమాధి ఇప్పటికీ ఉంది, ప్రజలు గౌరవిస్తారు.",
+    "en": "His tomb is still there on Androth Island and people respect it.",
+    "start": 35.87,
+    "end": 40.69
+   },
+   {
+    "te": "ఆయన వల్లే ఇస్లాం ఇక్కడ వ్యాపించిందని చెబుతారు.",
+    "en": "It is said that Islam spread here because of him.",
+    "start": 40.73,
+    "end": 43.9
+   },
+   {
+    "te": "ఈరోజు ఈ దీవుల్లో దాదాపు 95% మంది ముస్లింలు.",
+    "en": "Today almost 95% of the people on these islands are Muslims.",
+    "start": 43.95,
+    "end": 48.12
+   },
+   {
+    "te": "ఈ దీవుల్లో ఎక్కువగా పెరిగేది కొబ్బరి.",
+    "en": "What grows the most on these islands is coconut.",
+    "start": 48.17,
+    "end": 50.75
+   },
+   {
+    "te": "ఆ కొబ్బరి పీచుతో తాళ్లు, అంటే coir, చేసి వ్యాపారం చేయడం శతాబ్దాల నుంచి జరిగింది.",
+    "en": "Making ropes, that is coir, from the coconut husk and trading it has been going on for centuries.",
+    "start": 50.81,
+    "end": 56.94
+   },
+   {
+    "te": "భూమి తక్కువ, వనరులు తక్కువ.",
+    "en": "Land is less, resources are less.",
+    "start": 57.01,
+    "end": 59.37
+   },
+   {
+    "te": "కాబట్టి ఉన్న ప్రతి వస్తువునీ ఉపయోగించడం ఇక్కడి జీవన విధానం.",
+    "en": "Therefore using every available thing is the way of life here.",
+    "start": 59.43,
+    "end": 63.67
+   }
+  ]
+ },
+ "04_rulers_traders": {
+  "duration": 60.55,
+  "segs": [
+   {
+    "te": "మధ్యయుగాల్లో ఈ దీవులు ప్రధానంగా కేరళలోని కన్నూర్ ప్రాంత పాలకుల ప్రభావంలో ఉండేవి.",
+    "en": "In the medieval period these islands were mainly under the influence of the rulers of the Kannur region in Kerala.",
+    "start": 0.1,
+    "end": 6.12
+   },
+   {
+    "te": "అక్కడి Arakkal రాజవంశం ఈ దీవుల్ని నియంత్రించింది అని చరిత్ర చెబుతుంది.",
+    "en": "History says that the Arakkal dynasty there controlled these islands.",
+    "start": 6.2,
+    "end": 11.07
+   },
+   {
+    "te": "సముద్ర వ్యాపారం ఆ కాలంలో చాలా ముఖ్యం, దీవులు ఆ గొలుసులో ఒక భాగం.",
+    "en": "Sea trade was very important in that period and the islands were a part of that chain.",
+    "start": 11.12,
+    "end": 16.43
+   },
+   {
+    "te": "పదహారో శతాబ్దం మొదట్లో పోర్చుగీసు వాళ్లు వచ్చారు.",
+    "en": "In the beginning of the sixteenth century the Portuguese came.",
+    "start": 16.52,
+    "end": 20.17
+   },
+   {
+    "te": "వాళ్ల ఉద్దేశం మిరియాల వ్యాపారం మీద పట్టు సాధించడం.",
+    "en": "Their intention was to gain control over the pepper trade.",
+    "start": 20.22,
+    "end": 23.97
+   },
+   {
+    "te": "ఈ దీవులు అందుకు ఉపయోగపడతాయని భావించి, కొన్ని దీవుల్లో కోటలు కట్టడానికి ప్రయత్నించారు.",
+    "en": "Thinking these islands would be useful for that, they tried to build forts on some islands.",
+    "start": 24.02,
+    "end": 30.18
+   },
+   {
+    "te": "కానీ స్థానికులు ఊరుకోలేదు.",
+    "en": "But the locals did not stay quiet.",
+    "start": 30.21,
+    "end": 32.2
+   },
+   {
+    "te": "ప్రచారంలో ఉన్న కథనం ప్రకారం, ఆండ్రోత్ లో పోర్చుగీసు సైనికులకు ఆహారంలో విషం కలిపి వాళ్లను తరిమేశారు.",
+    "en": "According to the popular narrative, on Androth they mixed poison in the food of Portuguese soldiers and drove them away.",
+    "start": 32.25,
+    "end": 40.04
+   },
+   {
+    "te": "ఇది కథా, చరిత్రా అని చెప్పడం కష్టం.",
+    "en": "It is difficult to say whether this is a story or history.",
+    "start": 40.09,
+    "end": 42.59
+   },
+   {
+    "te": "కానీ ఒక విషయం స్పష్టం, ఈ చిన్న దీవుల ప్రజలు బయటివాళ్ల పెత్తనాన్ని సులభంగా ఒప్పుకోలేదు.",
+    "en": "But one thing is clear – the people of these small islands did not easily accept the domination of outsiders.",
+    "start": 42.67,
+    "end": 48.91
+   },
+   {
+    "te": "తర్వాత కొన్ని దీవులు టిప్పు సుల్తాన్ పాలనలోకి వెళ్లాయి.",
+    "en": "Later some islands came under the rule of Tipu Sultan.",
+    "start": 48.95,
+    "end": 52.5
+   },
+   {
+    "te": "ఆయన పతనం తర్వాత బ్రిటిష్ వాళ్ల చేతికి వచ్చాయి.",
+    "en": "After his fall they came into the hands of the British.",
+    "start": 52.55,
+    "end": 55.67
+   },
+   {
+    "te": "అలా బ్రిటిష్ పాలనలో ఈ దీవులు మద్రాస్ ప్రెసిడెన్సీ లో భాగంగా ఉండేవి.",
+    "en": "Thus under British rule these islands were part of the Madras Presidency.",
+    "start": 55.73,
+    "end": 60.55
+   }
+  ]
+ },
+ "05_1947_flag": {
+  "duration": 60.47,
+  "segs": [
+   {
+    "te": "1947 లో దేశానికి స్వాతంత్ర్యం వచ్చింది.",
+    "en": "In 1947 the country got independence.",
+    "start": 0.14,
+    "end": 3.97
+   },
+   {
+    "te": "కానీ ఒక సమస్య ఉంది.",
+    "en": "But there was a problem.",
+    "start": 4.0,
+    "end": 5.62
+   },
+   {
+    "te": "లక్షద్వీప్ మ్యాప్ లో ఒక మూలన, చాలా దూరంలో ఉంది.",
+    "en": "Lakshadweep was in one corner of the map, very far away.",
+    "start": 5.72,
+    "end": 9.42
+   },
+   {
+    "te": "అక్కడ ఎవరికీ ఈ దీవుల గురించి పెద్దగా పట్టింపు లేదు.",
+    "en": "No one there cared much about these islands.",
+    "start": 9.5,
+    "end": 12.76
+   },
+   {
+    "te": "కానీ సముద్ర మార్గాల పరంగా ఇవి చాలా ముఖ్యం.",
+    "en": "But in terms of sea routes they are very important.",
+    "start": 12.84,
+    "end": 16.31
+   },
+   {
+    "te": "ఇక్కడ చాలా ప్రచారంలో ఉన్న ఒక కథ ఉంది.",
+    "en": "There is a widely circulated story here.",
+    "start": 16.36,
+    "end": 19.15
+   },
+   {
+    "te": "పాకిస్తాన్ నౌకాదళం ఈ దీవుల వైపు వస్తోందని తెలిసి, భారత ప్రభుత్వం హడావుడిగా ఒక చిన్న బృందాన్ని పంపింది.",
+    "en": "Learning that the Pakistan navy was coming towards these islands, the Indian government hurriedly sent a small team.",
+    "start": 19.24,
+    "end": 26.27
+   },
+   {
+    "te": "వాళ్లు దీవుల్లో భారత జెండా ఎగురవేశారు.",
+    "en": "They hoisted the Indian flag on the islands.",
+    "start": 26.32,
+    "end": 29.16
+   },
+   {
+    "te": "ఆ తర్వాత కొన్ని గంటలకే పాకిస్తాన్ నౌక అక్కడికి చేరింది అంటారు.",
+    "en": "It is said that a few hours later the Pakistan ship reached there.",
+    "start": 29.2,
+    "end": 33.28
+   },
+   {
+    "te": "కానీ అప్పటికే జెండా ఎగురుతోంది.",
+    "en": "But by then the flag was already flying.",
+    "start": 33.33,
+    "end": 35.64
+   },
+   {
+    "te": "కథ ఎలాగైనా, ఫలితం ఒకటే.",
+    "en": "Whatever the story, the result is the same.",
+    "start": 35.69,
+    "end": 37.66
+   },
+   {
+    "te": "ఈ దీవులు భారత్ లో భాగమయ్యాయి.",
+    "en": "These islands became part of India.",
+    "start": 37.75,
+    "end": 39.73
+   },
+   {
+    "te": "1956 లో వీటికి Union Territory హోదా వచ్చింది.",
+    "en": "In 1956 they got the status of Union Territory.",
+    "start": 39.73,
+    "end": 44.7
+   },
+   {
+    "te": "మొదట వీటిని Laccadive, Minicoy, Amindivi దీవులు అని పిలిచేవారు.",
+    "en": "At first they were called the Laccadive, Minicoy and Amindivi Islands.",
+    "start": 44.75,
+    "end": 49.33
+   },
+   {
+    "te": "1973 లో అధికారికంగా పేరు మారింది: లక్షద్వీప్.",
+    "en": "In 1973 the name was officially changed: Lakshadweep.",
+    "start": 49.33,
+    "end": 54.2
+   },
+   {
+    "te": "అంటే సంస్కృతంలో \"లక్ష దీవులు\".",
+    "en": "Meaning “a lakh of islands” in Sanskrit.",
+    "start": 54.23,
+    "end": 56.75
+   },
+   {
+    "te": "నిజానికి ఉన్నది 36, కానీ పేరు మాత్రం పెద్ద కలే.",
+    "en": "In reality there are 36, but the name is a big dream.",
+    "start": 56.81,
+    "end": 60.47
+   }
+  ]
+ },
+ "06_island_life": {
+  "duration": 65.35,
+  "segs": [
+   {
+    "te": "సరే. ఈ దీవుల్లో ఇప్పుడు ఎలా ఉంటుంది జీవితం?",
+    "en": "Alright. What is life like on these islands now?",
+    "start": 0.08,
+    "end": 3.33
+   },
+   {
+    "te": "మొదట ఒక విషయం, ఇక్కడ మాట్లాడే భాష మలయాళం.",
+    "en": "First one thing – the language spoken here is Malayalam.",
+    "start": 3.4,
+    "end": 6.96
+   },
+   {
+    "te": "ఒక్క మినికాయ్ ద్వీపంలో మాత్రం \"Mahl\" అనే భాష.",
+    "en": "Only on Minicoy Island is there a language called “Mahl”.",
+    "start": 7.02,
+    "end": 10.53
+   },
+   {
+    "te": "అది మాల్దీవుల భాష Dhivehi కి చాలా దగ్గరగా ఉంటుంది.",
+    "en": "It is very close to the Maldivian language Dhivehi.",
+    "start": 10.64,
+    "end": 14.21
+   },
+   {
+    "te": "ఇక్కడ ఒక ఆసక్తికరమైన సంప్రదాయం ఉంది.",
+    "en": "There is an interesting tradition here.",
+    "start": 14.26,
+    "end": 16.85
+   },
+   {
+    "te": "చాలా దీవుల్లో ఆస్తి, ఇల్లు తల్లి వైపు నుంచి కూతుళ్లకు వెళ్తాయి.",
+    "en": "In many islands property and house pass from the mother’s side to the daughters.",
+    "start": 16.94,
+    "end": 21.18
+   },
+   {
+    "te": "దీన్ని matrilineal system అంటారు.",
+    "en": "This is called the matrilineal system.",
+    "start": 21.22,
+    "end": 23.45
+   },
+   {
+    "te": "కొడుకు పెళ్లి చేసుకుని భార్య ఇంటికి వెళ్లడం కూడా ఇక్కడ మామూలే.",
+    "en": "A son getting married and going to his wife’s house is also common here.",
+    "start": 23.5,
+    "end": 27.16
+   },
+   {
+    "te": "కాబట్టి జీవనాధారం ఏంటి? చేపలు, ముఖ్యంగా tuna.",
+    "en": "So what is the livelihood? Fish, mainly tuna.",
+    "start": 27.2,
+    "end": 31.5
+   },
+   {
+    "te": "ఇక్కడ మత్స్యకారులు pole-and-line పద్ధతిలో చేపలు పడతారు.",
+    "en": "Here the fishermen catch fish by the pole-and-line method.",
+    "start": 31.74,
+    "end": 35.42
+   },
+   {
+    "te": "వల వేయకుండా, ఒక్కో చేపను హుక్ తో పైకి లాగుతారు.",
+    "en": "Without casting nets, they pull up each fish with a hook.",
+    "start": 35.49,
+    "end": 39.08
+   },
+   {
+    "te": "ఇది sustainable పద్ధతి అని ప్రపంచమంతా మెచ్చుకుంటుంది.",
+    "en": "The whole world appreciates this as a sustainable method.",
+    "start": 39.13,
+    "end": 42.54
+   },
+   {
+    "te": "తీసుకునేంతే తీసుకోవడం, సముద్రాన్ని ఖాళీ చేయకపోవడం.",
+    "en": "Taking only as much as needed, not emptying the sea.",
+    "start": 42.57,
+    "end": 46.48
+   },
+   {
+    "te": "భోజనం కూడా అంతే.",
+    "en": "Food is also the same.",
+    "start": 46.53,
+    "end": 47.92
+   },
+   {
+    "te": "చేప, కొబ్బరి, అన్నం.",
+    "en": "Fish, coconut, rice.",
+    "start": 48.01,
+    "end": 49.86
+   },
+   {
+    "te": "మన కోస్తా భోజనం లాగే అనిపిస్తుంది, కానీ రుచి ఇంకా సముద్రపు వాసనతో ఉంటుంది.",
+    "en": "It feels like our coastal food, but the taste has even more of the sea’s flavour.",
+    "start": 49.93,
+    "end": 55.18
+   },
+   {
+    "te": "పండగల్లో ఇక్కడ సంప్రదాయ నృత్యాలు ఉంటాయి.",
+    "en": "During festivals there are traditional dances here.",
+    "start": 55.23,
+    "end": 57.97
+   },
+   {
+    "te": "Kolkali, Parichakali, మినికాయ్ లో Lava dance.",
+    "en": "Kolkali, Parichakali, and on Minicoy the Lava dance.",
+    "start": 58.03,
+    "end": 61.45
+   },
+   {
+    "te": "ఇవి చాలా వరకు సముద్ర జీవితం, పని పాటలతో ముడిపడినవే.",
+    "en": "These are mostly connected with sea life and work songs.",
+    "start": 61.59,
+    "end": 65.35
+   }
+  ]
+ },
+ "07_challenges": {
+  "duration": 78.71,
+  "segs": [
+   {
+    "te": "ఇక ఇంత అందమైన ప్రదేశం కదా, అంతా సరిగ్గా ఉందా?",
+    "en": "Now, such a beautiful place, is everything fine?",
+    "start": 0.08,
+    "end": 3.76
+   },
+   {
+    "te": "లేదు.",
+    "en": "No.",
+    "start": 3.84,
+    "end": 4.49
+   },
+   {
+    "te": "లక్షద్వీప్ ప్రపంచంలో climate change కి అత్యంత దగ్గరగా ఉన్న ప్రదేశాల్లో ఒకటి.",
+    "en": "Lakshadweep is one of the places in the world closest to climate change.",
+    "start": 4.58,
+    "end": 9.59
+   },
+   {
+    "te": "ఎందుకంటే ఈ దీవులు సముద్ర మట్టానికి కేవలం కొన్ని మీటర్ల ఎత్తులోనే ఉన్నాయి.",
+    "en": "Because these islands are only a few metres above sea level.",
+    "start": 9.68,
+    "end": 14.56
+   },
+   {
+    "te": "సముద్ర మట్టం కొంచెం పెరిగినా, తీర కోత, అంటే erosion, పెరుగుతుంది.",
+    "en": "Even a little rise in sea level increases coastal erosion.",
+    "start": 14.62,
+    "end": 19.38
+   },
+   {
+    "te": "కొన్ని తీరాలు ఇప్పటికే తగ్గిపోతున్నాయి.",
+    "en": "Some shores are already shrinking.",
+    "start": 19.42,
+    "end": 22.09
+   },
+   {
+    "te": "దీనికి తోడు coral bleaching.",
+    "en": "Along with this, coral bleaching.",
+    "start": 22.12,
+    "end": 24.01
+   },
+   {
+    "te": "సముద్రపు నీరు ఎక్కువ వేడెక్కినప్పుడు coral తన రంగు కోల్పోయి తెల్లగా మారిపోతుంది.",
+    "en": "When the sea water gets too warm the coral loses its colour and turns white.",
+    "start": 24.2,
+    "end": 29.17
+   },
+   {
+    "te": "2016 లో ఎల్ నీనో సంవత్సరంలో ఇది పెద్ద ఎత్తున జరిగింది.",
+    "en": "In 2016, the El Niño year, this happened on a large scale.",
+    "start": 29.18,
+    "end": 34.21
+   },
+   {
+    "te": "Coral చనిపోతే ఈ దీవులకు రక్షణగా ఉన్న reef కూడా బలహీనపడుతుంది.",
+    "en": "If the coral dies, the reef that protects these islands also becomes weak.",
+    "start": 34.26,
+    "end": 38.42
+   },
+   {
+    "te": "2017 లో Ockhi cyclone ఈ ప్రాంతాన్ని కుదిపేసింది.",
+    "en": "In 2017 Cyclone Ockhi shook this region.",
+    "start": 38.42,
+    "end": 43.07
+   },
+   {
+    "te": "చిన్న దీవులకు, వాటి మత్స్యకారులకు ఇలాంటి తుపానులు చాలా పెద్ద దెబ్బ.",
+    "en": "For small islands and their fishermen such storms are a very big blow.",
+    "start": 43.11,
+    "end": 47.86
+   },
+   {
+    "te": "మరో సవాల్ connectivity.",
+    "en": "Another challenge is connectivity.",
+    "start": 47.95,
+    "end": 49.55
+   },
+   {
+    "te": "ఇక్కడికి వెళ్లాలంటే రెండే దారులు: విమానం, అంటే అగత్తి ద్వీపంలోని ఒకే ఒక్క విమానాశ్రయం, లేదా కొచ్చి నుంచి ఓడ.",
+    "en": "To come here there are only two ways: by plane, that is the single airport on Agatti Island, or by ship from Kochi.",
+    "start": 49.79,
+    "end": 57.68
+   },
+   {
+    "te": "ఇంటర్నెట్ కూడా ఇన్నాళ్లూ satellite మీదే ఆధారపడి నెమ్మదిగా ఉండేది.",
+    "en": "Internet too has depended on satellite all these days and was slow.",
+    "start": 57.91,
+    "end": 62.19
+   },
+   {
+    "te": "ఇటీవల submarine optical fibre cable ద్వారా దీన్ని మెరుగుపరిచే ప్రయత్నాలు జరిగాయి.",
+    "en": "Recently efforts have been made to improve it through a submarine optical fibre cable.",
+    "start": 62.25,
+    "end": 67.48
+   },
+   {
+    "te": "మంచినీరు కూడా సమస్యే.",
+    "en": "Fresh water is also a problem.",
+    "start": 67.55,
+    "end": 69.2
+   },
+   {
+    "te": "చుట్టూ సముద్రం, కానీ తాగే నీరు తక్కువ.",
+    "en": "Sea all around, but drinking water is scarce.",
+    "start": 69.25,
+    "end": 72.04
+   },
+   {
+    "te": "అందుకే కవరత్తిలో సముద్రపు నీటిని తాగునీరుగా మార్చే desalination plant లాంటి ప్రయోగాలు జరుగుతున్నాయి.",
+    "en": "That is why experiments like a desalination plant that turns sea water into drinking water are happening in Kavaratti.",
+    "start": 72.09,
+    "end": 78.71
+   }
+  ]
+ },
+ "08_lessons": {
+  "duration": 67.44,
+  "segs": [
+   {
+    "te": "లక్షద్వీప్ కి వెళ్లాలంటే అందరికీ అనుమతి, అంటే entry permit, కావాలి.",
+    "en": "To go to Lakshadweep everyone needs permission, that is an entry permit.",
+    "start": 0.1,
+    "end": 4.89
+   },
+   {
+    "te": "ఎందుకంటే ఇక్కడి పర్యావరణం, సంస్కృతి చాలా సున్నితమైనవి.",
+    "en": "Because the environment and culture here are very sensitive.",
+    "start": 4.94,
+    "end": 9.25
+   },
+   {
+    "te": "దీవులు చిన్నవి, వాటి భారం తట్టుకోగలిగిన limit కూడా చిన్నదే.",
+    "en": "The islands are small and the load they can bear is also small.",
+    "start": 9.28,
+    "end": 13.57
+   },
+   {
+    "te": "Tourism ఇక్కడ అవకాశం కూడా, ప్రమాదం కూడా.",
+    "en": "Tourism here is both an opportunity and a danger.",
+    "start": 13.62,
+    "end": 16.76
+   },
+   {
+    "te": "ఉద్యోగాలు, ఆదాయం వస్తాయి.",
+    "en": "Jobs and income come.",
+    "start": 16.84,
+    "end": 18.95
+   },
+   {
+    "te": "కానీ ఎక్కువ ప్రజలు, ఎక్కువ నిర్మాణాలు వస్తే, ఇక్కడి coral, ఇక్కడి సంస్కృతి, రెండూ ఒత్తిడికి గురవుతాయి.",
+    "en": "But if more people and more constructions come, both the coral here and the culture here come under pressure.",
+    "start": 19.0,
+    "end": 26.24
+   },
+   {
+    "te": "అభివృద్ధి కావాలా, పరిరక్షణ కావాలా అనే ప్రశ్న ఇక్కడ ఎప్పుడూ వినపడుతుంది.",
+    "en": "The question of whether we want development or conservation is always heard here.",
+    "start": 26.29,
+    "end": 31.11
+   },
+   {
+    "te": "నిజానికి అది \"ఏదో ఒకటి\" అనే ప్రశ్న కాదు.",
+    "en": "In reality it is not a question of “one or the other”.",
+    "start": 31.15,
+    "end": 34.05
+   },
+   {
+    "te": "రెండింటినీ ఎలా సమతుల్యం చేయాలి అనేది అసలు ప్రశ్న.",
+    "en": "How to balance both is the real question.",
+    "start": 34.15,
+    "end": 37.64
+   },
+   {
+    "te": "ఒకసారి మొదటికి వెళ్దాం.",
+    "en": "Let’s go back to the beginning once.",
+    "start": 37.71,
+    "end": 39.34
+   },
+   {
+    "te": "కంటికి కనపడని ఒక చిన్న జీవి, లక్షల సంవత్సరాలు ఓపికగా పని చేసి ఒక ద్వీపాన్ని కట్టింది.",
+    "en": "A tiny creature invisible to the eye patiently worked for lakhs of years and built an island.",
+    "start": 39.39,
+    "end": 45.98
+   },
+   {
+    "te": "ఆ దీవుల్లో ప్రజలు తీసుకునేంతే తీసుకుని, సముద్రంతో కలిసి బతుకుతున్నారు.",
+    "en": "On those islands people take only as much as needed and live together with the sea.",
+    "start": 46.03,
+    "end": 50.86
+   },
+   {
+    "te": "లక్షద్వీప్ మనకు చెప్పే పాఠం చాలా సింపుల్.",
+    "en": "The lesson Lakshadweep teaches us is very simple.",
+    "start": 50.89,
+    "end": 53.72
+   },
+   {
+    "te": "చిన్నదైనా సరే, ఒక ప్రదేశం ఎంత బలంగా నిలబడగలదో, దాన్ని మనం ఎంత జాగ్రత్తగా చూసుకుంటామో దాని మీదే ఆధారపడి ఉంటుంది.",
+    "en": "Even if it is small, how strongly a place can stand depends on how carefully we look after it.",
+    "start": 53.77,
+    "end": 62.56
+   },
+   {
+    "te": "ఈ video నచ్చితే, మీ friends తో share చేయండి.",
+    "en": "If you liked this video, share it with your friends.",
+    "start": 62.62,
+    "end": 65.64
+   },
+   {
+    "te": "మరో కథతో మళ్లీ కలుద్దాం.",
+    "en": "We’ll meet again with another story.",
+    "start": 65.7,
+    "end": 67.44
+   }
+  ]
+ }
+}
