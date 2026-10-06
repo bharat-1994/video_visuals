@@ -12,3 +12,4 @@ render/__pycache__/
 *.part
 *.tmp.mp4
 __pycache__/
+out/*.mp4

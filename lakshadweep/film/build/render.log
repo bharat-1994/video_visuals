@@ -1,2 +1,77 @@
 chunks 27 frames 12733
 chunk 002 ok 154s  (elapsed 154s)
+chunk 001 ok 307s  (elapsed 307s)
+chunk 000 ok 437s  (elapsed 437s)
+chunk 003 ok 441s  (elapsed 441s)
+chunk 005 ok 239s  (elapsed 546s)
+chunk 008 ok 149s  (elapsed 695s)
+chunk 004 ok 554s  (elapsed 707s)
+chunk 006 ok 304s  (elapsed 740s)
+chunk 007 ok 399s  (elapsed 840s)
+chunk 011 ok 160s  (elapsed 901s)
+[vost#0:0/rawvideo @ 0x5594e3d39940] Error submitting a packet to the muxer: Broken pipe
+[out#0/rawvideo @ 0x5594e3c23a40] Error muxing a packet
+[vost#0:0/rawvideo @ 0x55b88283e3c0] [vost#0:0/rawvideo @ 0x55fa7f6974c0] Error submitting a packet to the muxer: Broken pipe
+[out#0/rawvideo @ 0x55fa7f44e1c0] Error muxing a packet
+[vost#0:0/rawvideo @ 0x5584a82a1640] Error submitting a packet to the muxer: Broken pipe
+[out#0/rawvideo @ 0x5584a82051c0] Error muxing a packet
+Error submitting a packet to the muxer: Broken pipe
+[out#0/rawvideo @ 0x5584a82051c0] Error writing trailer: Broken pipe
+[out#0/rawvideo @ 0x5584a82051c0] Error closing file: Broken pipe
+[out#0/rawvideo @ 0x55b88279c1c0] Error muxing a packet
+[vost#0:0/rawvideo @ 0x55d2778c1800] Error submitting a packet to the muxer: Broken pipe
+[out#0/rawvideo @ 0x55d2777da280] Error muxing a packet
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/usr/lib/python3.13/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+                    ~~~~^^^^^^^^^^^^^^^
+  File "/home/user/video_visuals/lakshadweep/film/render/render_parts.py", line 21, in work
+    engine.write_range(tl, f0 / FPS, f1 / FPS, out + '.tmp.mp4', crf=crf, preset='fast')
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/video_visuals/lakshadweep/film/render/engine.py", line 631, in write_range
+    fr = tl.frame_at(T, n)
+  File "/home/user/video_visuals/lakshadweep/film/render/engine.py", line 582, in frame_at
+    cur = render_entry_frame(e, T)
+  File "/home/user/video_visuals/lakshadweep/film/render/engine.py", line 537, in render_entry_frame
+    f = e.shot.frame(t, ctx)
+  File "/home/user/video_visuals/lakshadweep/film/render/shots.py", line 76, in frame
+    return self.fn(t, self.dur, self.state)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/video_visuals/lakshadweep/film/render/act5.py", line 36, in fn
+    f = SM.flag_overlay(f, t * 1.0, 760, 140 + int(560 * (1 - h)), width=980, hoist=1.0, wind=1.1)
+  File "/home/user/video_visuals/lakshadweep/film/render/scenes_misc.py", line 105, in flag_overlay
+    img[max(y0, 0):y1, x0:x1] = (reg * (1 - a) + c * a).astype(np.uint8)
+    ~~~^^^^^^^^^^^^^^^^^^^^^^
+ValueError: assignment destination is read-only
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/user/video_visuals/lakshadweep/film/render/render_parts.py", line 51, in <module>
+    main()
+    ~~~~^^
+[vost#0:0/rawvideo @ 0x561ac97cb7c0]   File "/home/user/video_visuals/lakshadweep/film/render/render_parts.py", line 39, in main
+    for idx, dt, st in p.imap_unordered(work, jobs):
+                       ~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/usr/lib/python3.13/multiprocessing/pool.py", line 873, in next
+    raise value
+ValueError: assignment destination is read-only
+[vost#0:0/rawvideo @ 0x561130e5cf80] Error submitting a packet to the muxer: Broken pipe
+[out#0/rawvideo @ 0x561130d759c0] Error muxing a packet
+Error submitting a packet to the muxer: Broken pipe
+[out#0/rawvideo @ 0x561ac97adb80] Error muxing a packet
+[out#0/rawvideo @ 0x561ac97adb80] Error writing trailer: Broken pipe
+[out#0/rawvideo @ 0x561ac97adb80] Error closing file: Broken pipe
+[out#0/rawvideo @ 0x55fa7f44e1c0] Error writing trailer: Broken pipe
+[out#0/rawvideo @ 0x55fa7f44e1c0] Error closing file: Broken pipe
+[out#0/rawvideo @ 0x5594e3c23a40] Error writing trailer: Broken pipe
+[out#0/rawvideo @ 0x5594e3c23a40] Error closing file: Broken pipe
+[out#0/rawvideo @ 0x561130d759c0] Error writing trailer: Broken pipe
+[out#0/rawvideo @ 0x561130d759c0] Error closing file: Broken pipe
+[out#0/rawvideo @ 0x55b88279c1c0] Error writing trailer: Broken pipe
+[out#0/rawvideo @ 0x55b88279c1c0] Error closing file: Broken pipe
+[out#0/rawvideo @ 0x55d2777da280] Error writing trailer: Broken pipe
+[out#0/rawvideo @ 0x55d2777da280] Error closing file: Broken pipe

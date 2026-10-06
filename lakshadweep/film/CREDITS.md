@@ -8,17 +8,17 @@ Narration (Telugu voice-over): supplied by the author. Score, sound design, proc
 
 ## Stock footage (Mixkit Free Video licence — free for commercial use, no attribution required; credited here anyway)
 
-- Mixkit #106: water drops creating ripples — https://mixkit.co/free-stock-video/water-drops-creating-ripples-106/
-- Mixkit #110: single drops of water create ripples — https://mixkit.co/free-stock-video/single-drops-of-water-create-ripples-110/
 - Mixkit #1080: aerial shot of calm blue sea — https://mixkit.co/free-stock-video/aerial-shot-of-calm-blue-sea-1080/
 - Mixkit #1164: waves in the water — https://mixkit.co/free-stock-video/waves-in-the-water-1164/
 - Mixkit #1191: palm tree in front of the sun — https://mixkit.co/free-stock-video/palm-tree-in-front-of-the-sun-1191/
 - Mixkit #1197: wooden pier over a body of water — https://mixkit.co/free-stock-video/wooden-pier-over-a-body-of-water-1197/
+- Mixkit #1280: waves lines of light underwater in a pool — https://mixkit.co/free-stock-video/waves-lines-of-light-underwater-in-a-pool-1280/
 - Mixkit #1566: aerial view of landscape of a calm sea at sunset — https://mixkit.co/free-stock-video/aerial-view-of-landscape-of-a-calm-sea-at-sunset-1566/
 - Mixkit #1573: aerial view of a tropical beach with green palms — https://mixkit.co/free-stock-video/aerial-view-of-a-tropical-beach-with-green-palms-1573/
 - Mixkit #1574: little island in the middle of the ocean — https://mixkit.co/free-stock-video/little-island-in-the-middle-of-the-ocean-1574/
 - Mixkit #1575: remote tropical island with a couple on a sandbar — https://mixkit.co/free-stock-video/remote-tropical-island-with-a-couple-on-a-sandbar-1575/
 - Mixkit #1577: clear water and a tropical island — https://mixkit.co/free-stock-video/clear-water-and-a-tropical-island-1577/
+- Mixkit #2208: drops of water falling in a puddle — https://mixkit.co/free-stock-video/drops-of-water-falling-in-a-puddle-2208/
 - Mixkit #2890: small island surrounded by turquoise sea — https://mixkit.co/free-stock-video/small-island-surrounded-by-turquoise-sea-2890/
 - Mixkit #2893: aerial view of a blue sea with big clouds — https://mixkit.co/free-stock-video/aerial-view-of-a-blue-sea-with-big-clouds-2893/
 - Mixkit #4202: a coast before the storm — https://mixkit.co/free-stock-video/a-coast-before-the-storm-4202/
@@ -26,19 +26,19 @@ Narration (Telugu voice-over): supplied by the author. Score, sound design, proc
 - Mixkit #4466: sky view from underwater — https://mixkit.co/free-stock-video/sky-view-from-underwater-4466/
 - Mixkit #4645: palm tree on a sunny day — https://mixkit.co/free-stock-video/palm-tree-on-a-sunny-day-4645/
 - Mixkit #5016: waves coming to the beach — https://mixkit.co/free-stock-video/waves-coming-to-the-beach-5016/
-- Mixkit #5377: beautiful island from above during a sunset — https://mixkit.co/free-stock-video/beautiful-island-from-above-during-a-sunset-5377/
 - Mixkit #6910: green coconut hanging on palm — https://mixkit.co/free-stock-video/green-coconut-hanging-on-palm-6910/
 - Mixkit #7099: coconut palms moving with the wind — https://mixkit.co/free-stock-video/coconut-palms-moving-with-the-wind-7099/
 - Mixkit #7387: boat sailing near an island — https://mixkit.co/free-stock-video/boat-sailing-near-an-island-7387/
-- Mixkit #10334: tap turns on to pour water seen from below — https://mixkit.co/free-stock-video/tap-turns-on-to-pour-water-seen-from-below-10334/
 - Mixkit #12816: diving through a reef — https://mixkit.co/free-stock-video/diving-through-a-reef-12816/
 - Mixkit #14341: fishing canoe at sunset — https://mixkit.co/free-stock-video/fishing-canoe-at-sunset-14341/
 - Mixkit #15622: fishing boat heading out — https://mixkit.co/free-stock-video/fishing-boat-heading-out-15622/
 - Mixkit #17969: seagulls flying over the sea before the storm — https://mixkit.co/free-stock-video/seagulls-flying-over-the-sea-before-the-storm-17969/
 - Mixkit #18758: small fishing boat crossing the sunset — https://mixkit.co/free-stock-video/small-fishing-boat-crossing-the-sunset-18758/
+- Mixkit #20418: fishing boats against the sunrise — https://mixkit.co/free-stock-video/fishing-boats-against-the-sunrise-20418/
 - Mixkit #22632: plane leaving an island — https://mixkit.co/free-stock-video/plane-leaving-an-island-22632/
 - Mixkit #22886: closeup of grilled seafood — https://mixkit.co/free-stock-video/closeup-of-grilled-seafood-22886/
 - Mixkit #26166: tropical beach with calm water — https://mixkit.co/free-stock-video/tropical-beach-with-calm-water-26166/
+- Mixkit #26972: beautiful aerial shot over islands at sunrise — https://mixkit.co/free-stock-video/beautiful-aerial-shot-over-islands-at-sunrise-26972/
 - Mixkit #27994: aircraft landing on an island — https://mixkit.co/free-stock-video/aircraft-landing-on-an-island-27994/
 - Mixkit #31955: fresh fish ready for sale in the market — https://mixkit.co/free-stock-video/fresh-fish-ready-for-sale-in-the-market-31955/
 - Mixkit #34290: cargo ships sailing in the ocean — https://mixkit.co/free-stock-video/cargo-ships-sailing-in-the-ocean-34290/
@@ -64,6 +64,7 @@ Narration (Telugu voice-over): supplied by the author. Score, sound design, proc
 - Mixkit #100811: coral reef polyps — https://mixkit.co/free-stock-video/coral-reef-polyps-100811/
 - Mixkit #100821: fluorescent coral reef with vibrant colors — https://mixkit.co/free-stock-video/fluorescent-coral-reef-with-vibrant-colors-100821/
 - Mixkit #100835: coral polyps gently swaying — https://mixkit.co/free-stock-video/coral-polyps-gently-swaying-100835/
+- Mixkit #100914: slow motion water splash on leaves — https://mixkit.co/free-stock-video/slow-motion-water-splash-on-leaves-100914/
 
 ## Photographs (Flickr, Creative Commons — attribution)
 

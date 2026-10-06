@@ -15,12 +15,15 @@ def work(args):
     out = os.path.join(PARTS, f'part_{idx:03d}.mp4')
     if os.path.exists(out) and os.path.getsize(out) > 10000:
         return idx, 0.0, 'skip'
-    import film, engine
+    import film, engine, traceback
     t = time.time()
-    tl = film.build_timeline()
-    engine.write_range(tl, f0 / FPS, f1 / FPS, out + '.tmp.mp4', crf=crf, preset='fast')
-    os.rename(out + '.tmp.mp4', out)
-    return idx, time.time() - t, 'ok'
+    try:
+        tl = film.build_timeline()
+        engine.write_range(tl, f0 / FPS, f1 / FPS, out + '.tmp.mp4', crf=crf, preset='fast')
+        os.rename(out + '.tmp.mp4', out)
+        return idx, time.time() - t, 'ok'
+    except Exception:
+        return idx, time.time() - t, 'FAILED ' + traceback.format_exc()[-600:]
 
 
 def main():

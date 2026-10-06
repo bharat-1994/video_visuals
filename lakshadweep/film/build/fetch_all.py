@@ -47,7 +47,7 @@ for kind,sub in jobs:
         url=r['url'].split('?')[0]; dest=os.path.join(RAW,safe(t))
         if (r['size'] or 0)>200*1048576: print('SKIP big',t); continue
     else:
-        url=thumb_url(r,2800); dest=os.path.join(STILL,safe(t))
+        url=thumb_url(r,1920); dest=os.path.join(STILL,safe(t))
         if not dest.lower().endswith(('.jpg','.jpeg','.png')): dest+='.jpg'
     ok=download(url,dest)
     print(('OK  ' if ok else 'FAIL'),t[:70],flush=True)

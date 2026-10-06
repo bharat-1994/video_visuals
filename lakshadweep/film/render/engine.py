@@ -107,7 +107,7 @@ class ClipReader:
             buf = self.proc.stdout.read(self.w * self.h * 3)
             if len(buf) < self.w * self.h * 3:
                 break
-            self.last = np.frombuffer(buf, np.uint8).reshape(self.h, self.w, 3)
+            self.last = np.frombuffer(buf, np.uint8).reshape(self.h, self.w, 3).copy()
             self.idx += 1
         return self.last
 
