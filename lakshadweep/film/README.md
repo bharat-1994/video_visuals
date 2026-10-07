@@ -1,5 +1,7 @@
 # Lakshadweep — Telugu documentary (film pipeline)
 
+> **To replicate this for another film with any LLM: read `PLAYBOOK.md` (rules, dials, audio/picture recipes, QA, pitfalls) and use `PROMPTS.md` (copy-paste prompts per phase).**
+
 8-act, ~8.8 minute documentary built **entirely from code + free/open footage**:
 
 | Layer | How it is made |
