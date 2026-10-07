@@ -1,5 +1,7 @@
 # Director's guide — how to *think* through any documentary (tool-agnostic)
 
+> **The exhaustive version is the `handbook/` folder (start at `handbook/00_INDEX.md`).** This file is the short summary.
+
 This is the reasoning behind the Lakshadweep film, stripped of tools. It works whether you have code, a video editor, a stock library, an AI video/music generator, or a mix. `PLAYBOOK.md` and `PROMPTS.md` describe *how this film was implemented*; this file describes *how decisions get made*.
 
 **One honest note:** if you only read `PLAYBOOK.md` you will copy this film's *solutions* (numbers, synth recipes, palette). Read this file first; use the playbook only as a worked example and a parts list.
