@@ -2,6 +2,8 @@
 
 How the Lakshadweep film (8 acts, 8 min 50 s, 1080p24, Telugu VO, original score + sound design) was made, written so **any capable LLM with a shell** can repeat it for a new topic, in a new language, and still get a film with its own identity.
 
+> **Start with `DIRECTORS_GUIDE.md`.** This file documents how *this* film was implemented (tools, numbers, recipes). Use it as a worked example and parts list, not as the rules for every film.
+
 Read in this order: **1 Principles → 2 Pipeline → 3 Decision guidelines (rules vs dials) → 4 Audio recipe → 5 Picture recipe → 6 QA → 7 Pitfalls → 8 Starting a new film.**
 Copy-paste prompts for each phase are in `PROMPTS.md`. Working reference code is everything under `render/` and `build/` in this folder.
 

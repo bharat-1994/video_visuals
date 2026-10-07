@@ -1,6 +1,6 @@
 # Lakshadweep — Telugu documentary (film pipeline)
 
-> **To replicate this for another film with any LLM: read `PLAYBOOK.md` (rules, dials, audio/picture recipes, QA, pitfalls) and use `PROMPTS.md` (copy-paste prompts per phase).**
+> **To make a new film (any LLM, any tools): start with `DIRECTORS_GUIDE.md` (the thinking, tool-agnostic). Then `PLAYBOOK.md` is this film's implementation as a worked example, and `PROMPTS.md` has copy-paste prompts. Original note: read `PLAYBOOK.md` (rules, dials, audio/picture recipes, QA, pitfalls) and use `PROMPTS.md` (copy-paste prompts per phase).**
 
 8-act, ~8.8 minute documentary built **entirely from code + free/open footage**:
 
