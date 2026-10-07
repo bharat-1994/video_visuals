@@ -4,7 +4,8 @@
 </head><body>
 <canvas id="c" width="1280" height="720"></canvas>
 <script>
-// "Endless Rain" — early Earth, ~4 billion years ago. Everything is procedural vector-style drawing.
+// "Endless Rain" v2 — early Earth. Flat-vector illustration built from faceted rock objects,
+// depth-graded palette, warm lava key light vs cool storm fill, pill clouds, rim-lit water.
 const W = 1280, H = 720, DUR = 12;
 const cv = document.getElementById('c'), ctx = cv.getContext('2d');
 
@@ -14,233 +15,229 @@ const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
 const lerp = (a, b, t) => a + (b - a) * t;
 const ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 const smooth = (a, b, t) => ease(clamp((t - a) / (b - a)));
-function mix(c1, c2, t) {
-  const p = c => [1, 3, 5].map(i => parseInt(c.slice(i, i + 2), 16));
-  const a = p(c1), b = p(c2);
-  return `rgb(${a.map((v, i) => Math.round(lerp(v, b[i], t))).join(',')})`;
+const hex = c => [1, 3, 5].map(i => parseInt(c.slice(i, i + 2), 16));
+function mix(c1, c2, t) { const a = hex(c1), b = hex(c2); return '#' + a.map((v, i) => Math.round(lerp(v, b[i], clamp(t))).toString(16).padStart(2, '0')).join(''); }
+function poly(pts, fill) { ctx.beginPath(); pts.forEach(([x, y], i) => i ? ctx.lineTo(x, y) : ctx.moveTo(x, y)); ctx.closePath(); ctx.fillStyle = fill; ctx.fill(); }
+function glow(x, y, r, rgb, a) {
+  const g = ctx.createRadialGradient(x, y, 0, x, y, r);
+  g.addColorStop(0, `rgba(${rgb},${a})`); g.addColorStop(.4, `rgba(${rgb},${a * .35})`); g.addColorStop(1, `rgba(${rgb},0)`);
+  ctx.fillStyle = g; ctx.fillRect(x - r, y - r, r * 2, r * 2);
 }
-// 1D value noise for ridgelines
-function noise1(seed) {
-  const r = rng(seed), v = Array.from({ length: 512 }, r);
-  return x => { const i = Math.floor(x), f = x - i, u = f * f * (3 - 2 * f); return lerp(v[i & 511], v[(i + 1) & 511], u); };
-}
-function fbm(n, x) { return n(x) * .55 + n(x * 2.1 + 9) * .28 + n(x * 4.3 + 3) * .17; }
 
-// ---------- palette ----------
+// ---------- palette (storm-cool fill, lava-warm key) ----------
 const P = {
-  skyTop: '#140c2e', skyMid: '#2a2556', skyLow: '#3d5a7a',
-  ridge: ['#6c7cb4', '#4d5893', '#363c75', '#232456', '#100b26'],
-  lava: '#ff7a2a', lavaHot: '#ffd36b', water: '#1f6f8b', waterHi: '#5fd0d6',
-  cloud: ['#2c2852', '#3a3768', '#4b4c7e'], rain: '#9fd6ff', text: '#f4f1ff', accent: '#ff5d8f'
+  skyTop: '#0f1a3d', skyMid: '#24407a', skyHor: '#e0705a', fog: '#5c79b0',
+  lit: '#c8705f', litWarm: '#ff9b6a', mid: '#7a3d5c', shadow: '#3a1f48', deep: '#1c1030', speck: '#2a1538',
+  hi: '#ffc4a0', water: '#1b6f9a', waterDeep: '#0e3566', rim: '#6ff2ff',
+  lava: '#ff5a2a', lavaHot: '#ffd166', cloudLit: '#7f8fd0', cloud: '#3d4c8f', cloudDark: '#26306a',
+  text: '#ffffff', accent: '#ff4f7b'
 };
 
-// ---------- precomputed world ----------
-const ridges = P.ridge.map((col, i) => {
-  const n = noise1(100 + i * 17);
-  const base = 330 + i * 70, amp = 120 - i * 12, freq = .0035 + i * .0012;
-  const pts = [];
-  for (let x = -200; x <= W + 400; x += 8) pts.push([x, base - fbm(n, x * freq + i * 10) * amp]);
-  return { col, pts, depth: 0.15 + i * 0.22, i };
+// ---------- rock generator: faceted mound with lit face, shadow face, highlight, specks ----------
+function makeRock(r, x, base, w, h) {
+  const peakX = x + (r() - .5) * w * .3, peakY = base - h;
+  const L = [], R = [];
+  const nL = 3 + Math.floor(r() * 3), nR = 3 + Math.floor(r() * 3);
+  for (let i = 1; i < nL; i++) { const u = i / nL; L.push([lerp(x - w / 2, peakX, u) + (r() - .5) * w * .06, lerp(base, peakY, Math.pow(u, .8)) + (r() - .5) * h * .12]); }
+  for (let i = 1; i < nR; i++) { const u = i / nR; R.push([lerp(peakX, x + w / 2, u) + (r() - .5) * w * .06, lerp(peakY, base, Math.pow(u, 1.2)) + (r() - .5) * h * .12]); }
+  const outline = [[x - w / 2, base], ...L, [peakX, peakY], ...R, [x + w / 2, base]];
+  const ridgeEnd = [peakX + w * (.05 + r() * .2), base];
+  const ridgeMid = [lerp(peakX, ridgeEnd[0], .5) + (r() - .5) * w * .1, lerp(peakY, base, .5)];
+  const lit = [[x - w / 2, base], ...L, [peakX, peakY], ridgeMid, ridgeEnd];
+  const hl = [];
+  const top = [...L.slice(Math.floor(L.length / 2)), [peakX, peakY]];
+  top.forEach(p => hl.push(p));
+  for (let i = top.length - 1; i >= 0; i--) hl.push([top[i][0] + w * .05, top[i][1] + h * .1]);
+  const specks = Array.from({ length: 2 + Math.floor(r() * 5) }, () => ({ u: r(), v: .25 + r() * .65, l: .04 + r() * .08, a: r() * .6 - .3 }));
+  return { x, base, w, h, outline, lit, hl, specks, peakX, peakY };
+}
+function drawRock(k, depth, lavaLight, flash) {
+  const fogT = 1 - depth;
+  const shadowC = mix(mix(P.shadow, P.deep, depth), P.fog, fogT * .75);
+  const litC = mix(mix(P.lit, P.litWarm, lavaLight), P.fog, fogT * .6);
+  const midC = mix(P.mid, P.fog, fogT * .7);
+  poly(k.outline, mix(shadowC, '#b7c4ff', flash * .3));
+  poly(k.lit, mix(litC, '#ffe2f0', flash * .35));
+  ctx.save(); ctx.beginPath(); k.lit.forEach(([x, y], i) => i ? ctx.lineTo(x, y) : ctx.moveTo(x, y)); ctx.closePath(); ctx.clip();
+  poly([[k.x - k.w, k.base], [k.x - k.w, k.base - k.h * .28], [k.x + k.w, k.base - k.h * .18], [k.x + k.w, k.base]], midC);
+  ctx.restore();
+  poly(k.hl, mix(mix(P.hi, P.fog, fogT * .5), '#ffffff', flash * .4));
+  ctx.strokeStyle = mix(P.speck, P.fog, fogT * .7); ctx.lineCap = 'round'; ctx.lineWidth = Math.max(1.2, k.w * .018);
+  k.specks.forEach(s => {
+    const px = k.x - k.w / 2 + s.u * k.w, py = k.base - s.v * k.h * (1 - Math.abs(s.u - .5) * 1.4);
+    if (py > k.base - 2) return;
+    ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(px + Math.cos(s.a) * s.l * k.w, py + Math.sin(s.a) * s.l * k.w); ctx.stroke();
+  });
+}
+
+// ---------- world ----------
+const ROWS = [
+  { y: 372, n: 16, s: 50, d: .05, par: .1 }, { y: 400, n: 13, s: 80, d: .2, par: .2 },
+  { y: 440, n: 10, s: 120, d: .38, par: .35 }, { y: 500, n: 8, s: 170, d: .55, par: .55 },
+  { y: 590, n: 6, s: 240, d: .75, par: .8 }, { y: 720, n: 4, s: 360, d: 1, par: 1.15 },
+];
+const rows = ROWS.map((R, ri) => {
+  const rr = rng(100 + ri), rocks = [];
+  for (let i = 0; i < R.n; i++) {
+    const w = R.s * (.8 + rr() * .9), h = w * (.35 + rr() * .45);
+    const x = -150 + (i + rr() * .8) * ((W + 400) / R.n);
+    if (ri === 5 && x > 250 && x < 900) continue;
+    rocks.push(makeRock(rr, x, R.y + rr() * R.s * .15, w, h));
+  }
+  rocks.sort((a, b) => a.base - b.base);
+  return { ...R, rocks };
 });
-// volcano cone in layer 1
-const volcano = { x: 1010, y: 300, w: 360, base: 640 };
-const clouds = [0, 1, 2].map(l => {
-  const r = rng(7 + l), blobs = [];
-  for (let k = 0; k < 26; k++) blobs.push({ x: r() * (W + 600) - 300, y: 10 + l * 60 + r() * 90, rx: 110 + r() * 180, ry: 45 + r() * 45 });
-  return { l, blobs, speed: 6 + l * 9 };
-});
-const rainLayers = [
-  { n: 220, len: 16, w: 1, speed: 900, a: .16, par: .3 },
-  { n: 200, len: 30, w: 1.5, speed: 1300, a: .4, par: .7 },
-  { n: 90, len: 56, w: 2.5, speed: 1900, a: .55, par: 1.2 },
-].map((L, i) => { const r = rng(300 + i); L.drops = Array.from({ length: L.n }, () => [r() * (W + 300), r() * H, .7 + r() * .6]); return L; });
-const ripples = (() => { const r = rng(55); return Array.from({ length: 70 }, () => ({ x: r() * W * 1.2 - 60, y: r(), ph: r(), s: .6 + r() * .8 })); })();
-const steam = (() => { const r = rng(77); return Array.from({ length: 22 }, () => ({ x: 700 + r() * 380, ph: r(), s: .6 + r() * .9 })); })();
-const grain = (() => { // pre-render grain tiles, animated by offset
+const cliff = (() => { const r = rng(9); return makeRock(r, 40, 760, 640, 470); })();
+const clouds = (() => {
+  const r = rng(5), out = [];
+  for (let l = 0; l < 4; l++) for (let i = 0; i < 7; i++) out.push({ l, x: r() * (W + 800) - 400, y: 30 + l * 52 + r() * 40, w: 180 + r() * 340 - l * 20, h: 22 + r() * 18 + l * 3 });
+  return out;
+})();
+const rain = [
+  { n: 300, len: 14, w: 1, speed: 1000, a: .22 }, { n: 180, len: 28, w: 1.6, speed: 1500, a: .38 }, { n: 60, len: 60, w: 2.6, speed: 2200, a: .5 },
+].map((L, i) => { const r = rng(300 + i); L.drops = Array.from({ length: L.n }, () => [r() * (W + 400), r() * H, .75 + r() * .5]); return L; });
+const splashes = (() => { const r = rng(55); return Array.from({ length: 90 }, () => ({ x: r(), y: r(), ph: r(), s: .7 + r() * .8 })); })();
+const embers = (() => { const r = rng(66); return Array.from({ length: 40 }, () => ({ x: r(), ph: r(), s: .5 + r() })); })();
+const grain = (() => {
   const g = document.createElement('canvas'); g.width = g.height = 256;
   const gx = g.getContext('2d'), id = gx.createImageData(256, 256), r = rng(999);
-  for (let i = 0; i < id.data.length; i += 4) { const v = r() * 255; id.data[i] = id.data[i + 1] = id.data[i + 2] = v; id.data[i + 3] = 20; }
+  for (let i = 0; i < id.data.length; i += 4) { const v = r() * 255; id.data[i] = id.data[i + 1] = id.data[i + 2] = v; id.data[i + 3] = 22; }
   gx.putImageData(id, 0, 0); return g;
 })();
 
-function ridgePath(pts, ox) {
-  ctx.beginPath(); ctx.moveTo(pts[0][0] + ox, H + 50);
-  for (const [x, y] of pts) ctx.lineTo(x + ox, y);
-  ctx.lineTo(pts[pts.length - 1][0] + ox, H + 50); ctx.closePath();
-}
-function glow(x, y, r, col, a) {
-  const g = ctx.createRadialGradient(x, y, 0, x, y, r);
-  g.addColorStop(0, col); g.addColorStop(1, 'rgba(0,0,0,0)');
-  ctx.globalAlpha = a; ctx.fillStyle = g; ctx.fillRect(x - r, y - r, r * 2, r * 2); ctx.globalAlpha = 1;
-}
 function bolt(x0, y0, x1, y1, seed, width) {
   const r = rng(seed); let pts = [[x0, y0], [x1, y1]];
   for (let it = 0; it < 6; it++) {
     const np = [];
-    for (let i = 0; i < pts.length - 1; i++) {
-      const [a, b] = [pts[i], pts[i + 1]], d = Math.hypot(b[0] - a[0], b[1] - a[1]);
-      np.push(a, [(a[0] + b[0]) / 2 + (r() - .5) * d * .35, (a[1] + b[1]) / 2 + (r() - .5) * d * .1]);
-    }
+    for (let i = 0; i < pts.length - 1; i++) { const a = pts[i], b = pts[i + 1], d = Math.hypot(b[0] - a[0], b[1] - a[1]);
+      np.push(a, [(a[0] + b[0]) / 2 + (r() - .5) * d * .4, (a[1] + b[1]) / 2 + (r() - .5) * d * .08]); }
     np.push(pts[pts.length - 1]); pts = np;
   }
-  ctx.beginPath(); pts.forEach(([x, y], i) => i ? ctx.lineTo(x, y) : ctx.moveTo(x, y));
-  ctx.lineWidth = width; ctx.stroke();
+  ctx.beginPath(); pts.forEach(([x, y], i) => i ? ctx.lineTo(x, y) : ctx.moveTo(x, y)); ctx.lineWidth = width; ctx.stroke();
 }
-function text(str, x, y, size, alpha, weight = 800, spacing = 0) {
+function title(str, x, y, size, alpha, weight = 800) {
   if (alpha <= 0) return;
   ctx.save(); ctx.globalAlpha = alpha; ctx.font = `${weight} ${size}px "Inter Display", Inter, sans-serif`;
-  ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.letterSpacing = spacing + 'px';
-  ctx.shadowColor = 'rgba(120,180,255,.55)'; ctx.shadowBlur = 24; ctx.fillStyle = P.text; ctx.fillText(str, x, y);
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.shadowColor = 'rgba(10,10,40,.55)'; ctx.shadowBlur = 18; ctx.shadowOffsetY = 3; ctx.fillStyle = P.text; ctx.fillText(str, x, y);
   ctx.restore();
 }
 
 // ---------- frame ----------
 function render(t) {
-  // camera: slow push-in + drift right, tiny handheld sway
-  const cam = { z: lerp(1, 1.14, ease(t / DUR)), x: lerp(0, -70, ease(t / DUR)), y: Math.sin(t * .7) * 3 };
-  const flash = Math.max(0, 1 - Math.abs(t - 3.1) * 7) + Math.max(0, 1 - Math.abs(t - 3.35) * 10) * .6 + Math.max(0, 1 - Math.abs(t - 8.6) * 6) * .8;
-  const water = smooth(1, 11.5, t); // oceans slowly filling the valleys
+  const prog = ease(t / DUR);
+  const cam = { z: lerp(1.0, 1.12, prog), x: lerp(30, -60, prog), y: Math.sin(t * .6) * 2 };
+  const flash = Math.max(0, 1 - Math.abs(t - 3.0) * 8) + Math.max(0, 1 - Math.abs(t - 3.22) * 12) * .7 + Math.max(0, 1 - Math.abs(t - 8.4) * 7) * .85;
+  const water = smooth(.5, 11.5, t);
+  const lavaK = 1 - water * .65;
 
   ctx.setTransform(1, 0, 0, 1, 0, 0);
-  // sky
-  const sg = ctx.createLinearGradient(0, 0, 0, H);
-  sg.addColorStop(0, mix(P.skyTop, '#6a63b8', flash * .6)); sg.addColorStop(.45, mix(P.skyMid, '#8f8ad6', flash * .6)); sg.addColorStop(1, P.skyLow);
+  const sg = ctx.createLinearGradient(0, 0, 0, 420);
+  sg.addColorStop(0, mix(P.skyTop, '#6a7be0', flash * .7)); sg.addColorStop(.55, mix(P.skyMid, '#9fb0ff', flash * .6));
+  sg.addColorStop(1, mix(mix(P.skyHor, P.fog, water * .5), '#ffd0e0', flash * .4));
   ctx.fillStyle = sg; ctx.fillRect(0, 0, W, H);
 
-  ctx.setTransform(cam.z, 0, 0, cam.z, (1 - cam.z) * W / 2, (1 - cam.z) * H * .55 + cam.y);
+  ctx.setTransform(cam.z, 0, 0, cam.z, (1 - cam.z) * W / 2, (1 - cam.z) * H * .5 + cam.y);
+  const at = par => cam.x * par;
 
-  // lightning behind clouds
   if (flash > .05) {
-    ctx.strokeStyle = `rgba(230,240,255,${flash})`; ctx.shadowColor = '#bcd8ff'; ctx.shadowBlur = 30;
-    if (t < 6) { bolt(420, -20, 520, 330, 11, 4); bolt(470, 140, 380, 260, 12, 2); }
-    else bolt(1000, -20, 920, 300, 13, 4);
-    ctx.shadowBlur = 0;
+    ctx.save(); ctx.strokeStyle = `rgba(240,245,255,${clamp(flash)})`; ctx.shadowColor = '#cfe0ff'; ctx.shadowBlur = 26;
+    if (t < 6) { bolt(860, -10, 790, 360, 11, 4); bolt(830, 150, 900, 280, 12, 2); } else bolt(330, -10, 400, 360, 13, 4);
+    ctx.restore();
   }
-  // cloud bands (parallax drift)
   clouds.forEach(c => {
-    ctx.fillStyle = mix(P.cloud[c.l], '#a9a6ee', flash * .5);
-    c.blobs.forEach(b => {
-      const x = ((b.x + t * c.speed) % (W + 600)) - 300 + cam.x * .1;
-      ctx.beginPath(); ctx.ellipse(x, b.y, b.rx, b.ry, 0, 0, Math.PI * 2); ctx.fill();
+    const x = ((c.x + t * (8 + c.l * 6) + at(.05 + c.l * .03)) % (W + 800)) - 400;
+    const f = flash * (.6 - c.l * .1);
+    ctx.fillStyle = mix(P.cloudDark, '#8a95e0', f); ctx.beginPath(); ctx.roundRect(x, c.y + 6, c.w, c.h, c.h / 2); ctx.fill();
+    ctx.fillStyle = mix(P.cloud, '#b0b9ff', f); ctx.beginPath(); ctx.roundRect(x + 6, c.y, c.w - 12, c.h, c.h / 2); ctx.fill();
+    ctx.fillStyle = mix(P.cloudLit, '#e8ecff', f); ctx.beginPath(); ctx.roundRect(x + c.w * .15, c.y, c.w * .5, c.h * .35, c.h * .2); ctx.fill();
+  });
+
+  glow(820 + at(.1), 380, 520, '255,100,60', .55 * lavaK);
+
+  rows.forEach((R, ri) => {
+    const hg = ctx.createLinearGradient(0, R.y - R.s * .9, 0, R.y);
+    hg.addColorStop(0, 'rgba(92,121,176,0)'); hg.addColorStop(1, `rgba(92,121,176,${.35 - ri * .05})`);
+    ctx.fillStyle = hg; ctx.fillRect(-300, R.y - R.s * .9, W + 600, R.s * .9);
+    ctx.fillStyle = mix(mix(P.shadow, P.deep, R.d), P.fog, (1 - R.d) * .75);
+    ctx.fillRect(-300, R.y - 4, W + 600, (ROWS[ri + 1] ? ROWS[ri + 1].y : H) - R.y + 8);
+    if (ri === 3) {
+      const ly = R.y - R.s * .35;
+      ctx.save(); ctx.shadowColor = '#ff6a20'; ctx.shadowBlur = 30 * lavaK;
+      ctx.fillStyle = mix(P.lava, '#5a3060', water * .7);
+      ctx.beginPath(); ctx.moveTo(-300, ly + 30);
+      for (let x = -300; x <= W + 300; x += 40) ctx.lineTo(x + at(R.par), ly + Math.sin(x * .01 + 1) * 10);
+      for (let x = W + 300; x >= -300; x -= 40) ctx.lineTo(x + at(R.par), ly + 22 + Math.sin(x * .013) * 8);
+      ctx.fill(); ctx.restore();
+      ctx.fillStyle = mix(P.lavaHot, '#6a4070', water * .75);
+      for (let x = -300; x <= W + 300; x += 140) { ctx.beginPath(); ctx.roundRect(x + at(R.par) + Math.sin(t + x) * 6, ly + 6, 50, 5, 3); ctx.fill(); }
+    }
+    const wl = lerp(R.y + 60, R.y - R.s * .22, clamp(water * 1.6 - (5 - ri) * .12));
+    if (wl < R.y + 20 && ri >= 2) {
+      const wg = ctx.createLinearGradient(0, wl, 0, R.y + 40); wg.addColorStop(0, mix(P.water, P.fog, (1 - R.d) * .5)); wg.addColorStop(1, mix(P.waterDeep, P.fog, (1 - R.d) * .4));
+      ctx.fillStyle = wg; ctx.fillRect(-300, wl, W + 600, R.y + 60 - wl);
+      ctx.fillStyle = mix(P.rim, '#ffffff', flash * .5); ctx.fillRect(-300, wl - 1, W + 600, 2 + R.d * 2);
+    }
+    R.rocks.forEach(k => {
+      ctx.save(); ctx.translate(at(R.par), 0);
+      if (wl < k.base && ri >= 2) { ctx.fillStyle = 'rgba(111,242,255,.55)'; ctx.beginPath(); ctx.ellipse(k.x, Math.max(wl, k.base - k.h * .25), k.w * .55, 5 + R.d * 6, 0, 0, Math.PI * 2); ctx.fill(); }
+      const lavaLight = clamp(1 - Math.abs(k.x + at(R.par) - 820) / 700) * lavaK * (ri <= 3 ? 1 : .6);
+      drawRock(k, R.d, lavaLight, flash);
+      ctx.restore();
+    });
+    if (wl < R.y + 20 && ri >= 3) splashes.forEach((p, i) => {
+      if (i % 3 !== ri - 3) return;
+      const ph = (t * 2 * p.s + p.ph) % 1, x = p.x * (W + 200) - 100 + at(R.par), y = wl + 6 + p.y * (R.y + 40 - wl);
+      ctx.strokeStyle = `rgba(190,245,255,${(1 - ph) * .6})`; ctx.lineWidth = 1.4;
+      ctx.beginPath(); ctx.ellipse(x, y, ph * 16 * (.5 + R.d), ph * 4 * (.5 + R.d), 0, 0, Math.PI * 2); ctx.stroke();
+      if (ph < .3) { ctx.fillStyle = `rgba(200,245,255,${.7 - ph * 2})`; ctx.fillRect(x - 1, y - ph * 30, 2, 5); }
     });
   });
-  // haze band under clouds
-  const hg = ctx.createLinearGradient(0, 40, 0, 320); hg.addColorStop(0, 'rgba(40,36,82,0)'); hg.addColorStop(.45, 'rgba(40,36,82,.75)'); hg.addColorStop(1, 'rgba(40,36,82,0)');
-  ctx.fillStyle = hg; ctx.fillRect(-200, 40, W + 400, 280);
 
-  // ridges back to front with atmospheric perspective, volcano on layer 1
-  ridges.forEach(R => {
-    const ox = cam.x * R.depth;
-    // water fills between ridges (rises over time)
-    if (R.i >= 1) {
-      const lvl = lerp(H + 40, 330 + (R.i - 1) * 70 + 70, water);
-      const wg = ctx.createLinearGradient(0, lvl, 0, H);
-      wg.addColorStop(0, mix(P.water, P.ridge[R.i - 1], .35)); wg.addColorStop(1, mix(P.water, '#0a0820', .5));
-      ctx.fillStyle = wg; ctx.fillRect(-200, lvl, W + 400, H - lvl + 60);
-      ctx.fillStyle = `rgba(95,208,214,${.35 + flash * .4})`; ctx.fillRect(-200, lvl, W + 400, 2.5);
-      // ripples
-      ripples.forEach((p, k) => {
-        if (k % 4 !== R.i - 1 || lvl > H) return;
-        const ph = (t * 1.6 * p.s + p.ph) % 1, y = lvl + 8 + p.y * (H - lvl);
-        ctx.strokeStyle = `rgba(150,225,235,${(1 - ph) * .5})`; ctx.lineWidth = 1.5;
-        ctx.beginPath(); ctx.ellipse(p.x + ox, y, ph * 22, ph * 5, 0, 0, Math.PI * 2); ctx.stroke();
-      });
-    }
-    if (R.i >= 1) { const my = 330 + R.i * 70 - 150, fg = ctx.createLinearGradient(0, my, 0, my + 140);
-      fg.addColorStop(0, 'rgba(120,130,190,0)'); fg.addColorStop(1, 'rgba(120,130,190,.28)'); ctx.fillStyle = fg; ctx.fillRect(-200, my, W + 400, 140); }
-    ctx.fillStyle = mix(R.col, '#9a96e0', flash * (0.5 - R.i * .08));
-    ridgePath(R.pts, ox); ctx.fill();
-    // rim light on ridge tops (flat highlight band)
-    ctx.save(); ridgePath(R.pts, ox); ctx.clip();
-    ctx.fillStyle = 'rgba(255,255,255,.05)';
-    ctx.beginPath(); R.pts.forEach(([x, y], i) => i ? ctx.lineTo(x + ox, y + 6) : ctx.moveTo(x + ox, y + 6));
-    for (let i = R.pts.length - 1; i >= 0; i--) ctx.lineTo(R.pts[i][0] + ox, R.pts[i][1]); ctx.fill();
-    ctx.restore();
-
-    if (R.i === 2) { // volcano with cooling lava (own shape between ridge 2 and 3)
-      const vx = volcano.x + cam.x * .5, vy = volcano.y, w = volcano.w, bs = volcano.base;
-      const lavaA = 1 - water * .75;
-      glow(vx, vy - 20, 260, 'rgba(255,100,40,.8)', .5 * lavaA);
-      const cg = ctx.createLinearGradient(0, vy, 0, bs); cg.addColorStop(0, '#3a2f5e'); cg.addColorStop(1, '#262250');
-      ctx.fillStyle = cg;
-      ctx.beginPath(); ctx.moveTo(vx - w, bs); ctx.bezierCurveTo(vx - w * .45, bs - 40, vx - 70, vy + 60, vx - 46, vy);
-      ctx.lineTo(vx + 46, vy); ctx.bezierCurveTo(vx + 70, vy + 60, vx + w * .45, bs - 40, vx + w, bs); ctx.fill();
-      ctx.fillStyle = 'rgba(10,6,30,.35)'; ctx.beginPath(); ctx.moveTo(vx + 4, vy); ctx.lineTo(vx + 46, vy);
-      ctx.bezierCurveTo(vx + 70, vy + 60, vx + w * .45, bs - 40, vx + w, bs); ctx.lineTo(vx + 60, bs); ctx.fill();
-      ctx.save(); ctx.shadowColor = '#ff6a20'; ctx.shadowBlur = 18 * lavaA;
-      [[-24, -1, 1], [10, 1, .8], [30, 1, .6]].forEach(([dx, s, k]) => {
-        const x0 = vx + dx, y0 = vy + 2, len = 230 * k;
-        const pts = Array.from({ length: 14 }, (_, j) => { const u = j / 13; return [x0 + s * (u * 90 * k + Math.sin(u * 7 + dx) * 12), y0 + u * len]; });
-        ctx.beginPath();
-        pts.forEach(([x, y], j) => { const hw = 9 * (1 - j / 14) + 1.5; j ? ctx.lineTo(x - hw, y) : ctx.moveTo(x - hw, y); });
-        for (let j = pts.length - 1; j >= 0; j--) { const hw = 9 * (1 - j / 14) + 1.5; ctx.lineTo(pts[j][0] + hw, pts[j][1]); }
-        ctx.fillStyle = mix('#ff6a2a', '#4a3a6a', water * .75); ctx.fill();
-      });
-      ctx.restore();
-      ctx.fillStyle = mix(P.lavaHot, '#5a4a7a', water * .7); ctx.beginPath(); ctx.ellipse(vx, vy, 46, 9, 0, 0, Math.PI * 2); ctx.fill();
-      steam.forEach(st => {
-        const ph = (t * .12 * st.s + st.ph) % 1, x = vx - 120 + (st.x - 700) * .7 + Math.sin(ph * 6 + st.ph * 9) * 18, y = vy + 150 - ph * 300, r = 24 + ph * 60;
-        const g = ctx.createRadialGradient(x, y, 0, x, y, r); g.addColorStop(0, `rgba(215,210,245,${Math.sin(ph * Math.PI) * .28 * (.4 + lavaA * .6)})`); g.addColorStop(1, 'rgba(215,210,245,0)');
-        ctx.fillStyle = g; ctx.fillRect(x - r, y - r, r * 2, r * 2);
-      });
-    }
+  embers.forEach(e => {
+    const ph = (t * .15 * e.s + e.ph) % 1, x = e.x * W + at(.55) + Math.sin(ph * 8 + e.ph * 10) * 14, y = 470 - ph * 300;
+    const g = ctx.createRadialGradient(x, y, 0, x, y, 30 + ph * 50);
+    g.addColorStop(0, `rgba(230,220,255,${Math.sin(ph * Math.PI) * .18 * (.3 + lavaK)})`); g.addColorStop(1, 'rgba(230,220,255,0)');
+    ctx.fillStyle = g; ctx.fillRect(x - 80, y - 80, 160, 160);
   });
 
-  // foreground sea rising over the lowlands
-  { const lvl = lerp(H + 30, 520, water), ox = cam.x * 1.1;
-    const sg2 = ctx.createLinearGradient(0, lvl, 0, H + 40); sg2.addColorStop(0, '#2f7f9c'); sg2.addColorStop(.35, '#1b4f74'); sg2.addColorStop(1, '#0d1f45');
-    ctx.fillStyle = sg2; ctx.fillRect(-300, lvl, W + 600, H - lvl + 200);
-    ctx.fillStyle = `rgba(120,230,235,${.55 + flash * .4})`; ctx.fillRect(-300, lvl - 1, W + 600, 3);
-    // lava reflection on water
-    const vx = volcano.x + cam.x * .5; glow(vx, lvl + 40, 180, 'rgba(255,110,50,.6)', .35 * (1 - water * .6));
-    // flat highlight streaks drifting
-    for (let k = 0; k < 18; k++) { const r0 = (k * 0.618) % 1, y = lvl + 14 + r0 * (H - lvl), x = ((k * 211 + t * 25 * (1 + r0)) % (W + 300)) - 150 + ox * .2;
-      ctx.fillStyle = 'rgba(140,220,235,.25)'; ctx.beginPath(); ctx.roundRect(x, y, 40 + r0 * 90, 3, 2); ctx.fill(); }
-    ripples.forEach(p => { const ph = (t * 1.6 * p.s + p.ph) % 1, y = lvl + 10 + p.y * (H - lvl);
-      if (y > H) return; ctx.strokeStyle = `rgba(160,230,240,${(1 - ph) * .55})`; ctx.lineWidth = 1.5;
-      ctx.beginPath(); ctx.ellipse(p.x + ox * .3, y, ph * 26, ph * 6, 0, 0, Math.PI * 2); ctx.stroke(); });
-  }
+  ctx.save(); ctx.translate(at(1.3) - 40, 0);
+  drawRock(cliff, 1, .25 * lavaK, flash * .6);
+  ctx.restore();
 
-  // rain (screen space-ish, 3 parallax layers, slanted by wind)
   ctx.setTransform(1, 0, 0, 1, 0, 0);
-  const wind = .28 + Math.sin(t * .5) * .05;
-  rainLayers.forEach(L => {
-    ctx.strokeStyle = `rgba(159,214,255,${L.a + flash * .3})`; ctx.lineWidth = L.w; ctx.lineCap = 'round'; ctx.beginPath();
+  const wind = .3 + Math.sin(t * .5) * .05;
+  rain.forEach(L => {
+    ctx.strokeStyle = `rgba(175,225,255,${L.a + flash * .3})`; ctx.lineWidth = L.w; ctx.lineCap = 'round'; ctx.beginPath();
     L.drops.forEach(([x0, y0, s]) => {
-      const y = (y0 + t * L.speed * s) % (H + 80) - 40, x = ((x0 + y * wind + cam.x * L.par) % (W + 300) + W + 300) % (W + 300) - 150;
+      const y = (y0 + t * L.speed * s) % (H + 80) - 40, x = ((x0 + y * wind) % (W + 400) + W + 400) % (W + 400) - 200;
       ctx.moveTo(x, y); ctx.lineTo(x - L.len * wind, y - L.len);
     });
     ctx.stroke();
   });
 
-  // overlays: era label (top-right), titles
   const lab = smooth(.4, 1.2, t) * (1 - smooth(11.2, 11.9, t));
-  ctx.save(); ctx.globalAlpha = lab; ctx.translate(lerp(40, 0, lab), 0);
-  ctx.font = '700 15px "Inter Display", Inter, sans-serif'; ctx.letterSpacing = '1.5px';
-  const lbl = 'EARLY EARTH  ·  ~4 BILLION YEARS AGO', lw = ctx.measureText(lbl).width + 36;
-  ctx.fillStyle = P.accent; ctx.beginPath(); ctx.roundRect(W - 40 - lw, 36, lw, 34, 17); ctx.fill();
-  ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(lbl, W - 40 - lw / 2, 54);
-  // timeline bar under label
-  ctx.fillStyle = 'rgba(255,255,255,.25)'; ctx.fillRect(W - 330, 82, 290, 3);
-  ctx.fillStyle = '#fff'; ctx.fillRect(W - 330, 82, 290 * (0.06 + t / DUR * .04), 3);
+  ctx.save(); ctx.globalAlpha = lab; ctx.translate(lerp(30, 0, lab), 0); ctx.textAlign = 'right'; ctx.textBaseline = 'alphabetic';
+  ctx.shadowColor = 'rgba(10,10,40,.5)'; ctx.shadowBlur = 8;
+  ctx.font = '600 30px "Inter Display", Inter, sans-serif'; ctx.fillStyle = '#fff'; ctx.fillText('Early Earth', W - 48, 64);
+  ctx.font = '500 15px "Inter Display", Inter, sans-serif'; ctx.fillText(`${(4000 - Math.floor(t * 3)).toLocaleString()} Million Years Ago`, W - 48, 88);
+  ctx.shadowBlur = 0; ctx.fillStyle = 'rgba(255,255,255,.6)'; ctx.fillRect(W - 248, 100, 200, 2);
+  ctx.fillStyle = P.accent; ctx.fillRect(W - 248, 99, 200 * (.08 + t / DUR * .03), 4);
   ctx.restore();
 
-  const a1 = smooth(1.6, 2.4, t) * (1 - smooth(5.6, 6.2, t));
-  const a2 = smooth(3.4, 4.2, t) * (1 - smooth(5.6, 6.2, t));
-  text('It started to rain…', 520, H * .24 - (1 - a1) * 14, 60, a1);
-  text('…and it didn’t stop for millions of years.', 520, H * .24 + 66 - (1 - a2) * 14, 34, a2, 600);
-  const a3 = smooth(7.0, 7.8, t) * (1 - smooth(11.2, 11.9, t));
-  const a4 = smooth(9.0, 9.8, t) * (1 - smooth(11.2, 11.9, t));
-  text('Day and night, the sky poured down', 520, H * .24 - (1 - a3) * 14, 46, a3);
-  text('filling the first oceans.', 520, H * .24 + 58 - (1 - a4) * 14, 46, a4);
+  const a1 = smooth(1.6, 2.4, t) * (1 - smooth(5.6, 6.2, t)), a2 = smooth(3.4, 4.2, t) * (1 - smooth(5.6, 6.2, t));
+  title('It started to rain…', W * .42, 190 - (1 - a1) * 14, 58, a1);
+  title('…and it didn’t stop for millions of years.', W * .42, 250 - (1 - a2) * 14, 30, a2, 600);
+  const a3 = smooth(7.0, 7.8, t) * (1 - smooth(11.2, 11.9, t)), a4 = smooth(8.8, 9.6, t) * (1 - smooth(11.2, 11.9, t));
+  title('Day and night, the sky poured down', W * .42, 190 - (1 - a3) * 14, 46, a3);
+  title('filling the very first oceans.', W * .42, 246 - (1 - a4) * 14, 46, a4);
 
-  // grain (animated) + vignette + fade in/out
   ctx.globalCompositeOperation = 'overlay';
   const off = Math.floor(t * 30) * 37 % 256;
   for (let y = -off; y < H; y += 256) for (let x = -off; x < W; x += 256) ctx.drawImage(grain, x, y);
   ctx.globalCompositeOperation = 'source-over';
-  const vg = ctx.createRadialGradient(W / 2, H / 2, H * .35, W / 2, H / 2, H * .95);
-  vg.addColorStop(0, 'rgba(0,0,0,0)'); vg.addColorStop(1, 'rgba(5,3,20,.55)'); ctx.fillStyle = vg; ctx.fillRect(0, 0, W, H);
+  const vg = ctx.createRadialGradient(W / 2, H / 2, H * .4, W / 2, H / 2, H);
+  vg.addColorStop(0, 'rgba(0,0,0,0)'); vg.addColorStop(1, 'rgba(8,4,24,.5)'); ctx.fillStyle = vg; ctx.fillRect(0, 0, W, H);
   const fade = smooth(0, .6, t) * (1 - smooth(11.5, 12, t));
   ctx.fillStyle = `rgba(0,0,0,${1 - fade})`; ctx.fillRect(0, 0, W, H);
 }
