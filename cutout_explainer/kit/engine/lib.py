@@ -427,16 +427,18 @@ def paper(ctx, x, y, w, h, rot=0, c=(1, 1, 1), lines_=4, label=None, size=30, in
 # ---------------- render ----------------
 def render(scenes, out, preview_every=None, sheet=None):
     """scenes: list of (dur, fn(ctx,t,dur)). Streams raw frames to ffmpeg."""
-    import subprocess
-    p = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "bgra", "-s", f"{W}x{H}",
+    import subprocess, os
+    S = float(os.environ.get("RENDER_SCALE", "1"))        # 1.5 -> true 1920x1080 (vector drawing, no upscaling)
+    RW, RH = int(round(W*S)), int(round(H*S))
+    p = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "bgra", "-s", f"{RW}x{RH}",
                           "-r", str(FPS), "-i", "-", "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "18", out],
                          stdin=subprocess.PIPE)
-    surf = cairo.ImageSurface(cairo.FORMAT_ARGB32, W, H)
+    surf = cairo.ImageSurface(cairo.FORMAT_ARGB32, RW, RH)
     shots = []
     for si, (dur, fn) in enumerate(scenes):
         n = int(round(dur*FPS))
         for i in range(n):
-            ctx = cairo.Context(surf); ctx.set_source_rgb(1, 1, 1); ctx.paint()
+            ctx = cairo.Context(surf); ctx.set_source_rgb(1, 1, 1); ctx.paint(); ctx.scale(S, S)
             ctx.save(); fn(ctx, i/FPS, dur); ctx.restore()
             surf.flush(); p.stdin.write(bytes(surf.get_data()))
             if sheet is not None and i == int(n*0.7): surf.write_to_png(f"{sheet}/shot{si+1:02d}.png")
