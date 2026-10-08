@@ -1,5 +1,12 @@
 # Vietnam film: revision v2 (director's brief for Qwen)
 
+> **UPDATE 2 (supersedes anything below that conflicts): no decorative motion.**
+> Motion is only allowed when the narration names it or the real place has it (motorbikes on a Hanoi street, sparks on "soldering").
+> Never add birds, dust, sparkles, steam, light rays and the like just so something moves.
+> Slow stretches are fixed with **beats**: something the narration names appears on its word, or a person **reacts** on a word (`e2=expr@word`, `pose2=pose@word`).
+> The director has already added these beats (`V2_ADD`, `V2_SUB` in `film_v2_lines.py`). The audit now checks the beat gap instead of motion.
+> If you already built fx layers: keep only the ones listed in section 9 and delete the rest.
+
 v1 works, but a normal viewer gets bored: the same pop sound, the same dark spotlight, the same map, the same ship, the same factory, and very few people.
 v2 fixes this. **The director has already written every shot change** (`film_v2_lines.py`) and the assembly (`film_v2.py`).
 Your job is to build the new engine features, sounds, backgrounds, assets and cast that those lines use, render, check, and report.
@@ -19,6 +26,8 @@ Your job is to build the new engine features, sounds, backgrounds, assets and ca
    | `episodes/vietnam/v2/fx_v2.py` | custom shot functions and fx layers (sections 8–9) |
    | `episodes/vietnam/v2/setup_v2.py` | registers everything into `scene_v2` registries (BG, ASSETS, CAST, CUSTOM, AMBIENCE, FX) |
    | `episodes/vietnam/v2/REPORT_v2.md` | your report (section 11) |
+
+Already provided by the director (do not edit): `film_v2_lines.py`, `film_v2.py`, `audit.py`, `beats.py`.
 3. Don't change `film_v2_lines.py`, except to nudge a position by up to 60 px when a render shows overlap. List every nudge in your report.
 4. Read only: this file, `engine/API.md`, `engine/scene.py` (its docstring and the `_autocues` / `_draw` parts), `episodes/vietnam/film_setup.py` (it shows how registries and custom functions are written) and the **signatures** in `episodes/vietnam/assets*.py`.
    Look once at `reference/GOOD_v2_example.jpg`. Skip everything else.
@@ -34,10 +43,10 @@ Your job is to build the new engine features, sounds, backgrounds, assets and ca
 | map family (VN map, Asia map, pins, cage) | 33 shots | ≤ 14 |
 | container ship | 7 | ≤ 5 |
 | generic "factory" box with a label (stood in for Foxconn, Intel, Samsung...) | 17 | 0; every company gets its real kind of place |
-| shots with a person | 44 (29%) | ≥ 55% |
+| shots with a person | 44 (29%) | ≥ 55% (v2 lines: 91 of 151) |
 | shots with continuous motion | 10 | ≥ 35% |
 | one 40 s music loop for 10 min | 1 bed | 5 chapter beds |
-| static tail (nothing new for > 2.5 s) | 31 shots | motion layer (fx/walk/track) on them |
+| shots with > 2.5 s of speech and nothing new on screen | 41 | 0. Fixed with narration-tied beats and person reactions, never decorative motion |
 
 The v2 lines already pass the audit: `python3 episodes/vietnam/v2/audit.py` → all PASS. Your build must keep it passing.
 
@@ -78,7 +87,9 @@ Viewers follow people, not charts.
 5. **Camera:** add `cam whip` (starts 280 px off to the left and snaps in within 0.25 s with ease_out, plus a `whip` sound) and `cam track X0 X1` (constant-speed horizontal track, zoom 1.06).
 6. **`fx NAME [@word]`:** a continuous motion layer, drawn after the world and before text, looking up `FX[NAME](ctx, t, dur, T, **kv)`. Starts at `@word` if given. Section 9 lists them.
 7. **Background params:** `bg NAME k=v` passes its kv to the background function untouched (e.g. `bg meeting_room screen="WHY VIETNAM?"`, `bg split2 left=#hex right=#hex`, `bg assembly_hall uniform=#hex`).
-8. **People:** `talk=@w1~@w2` already exists. Make sure `dlg` lines (S46, S48, S70, S71, S86) show **only while** the speaker's `talk` window or the line's own window runs. Default line window: from `@word` for 1.6 s.
+8. **Reactions:** `p ... e2=EXPR@word` switches the expression at that word (the reaction beat). `pose2=POSE@word` already exists. Both are beats.
+9. **Merged lines:** `film_v2.py` builds the final lines with `merged()` from `film_v2_lines.py` (V2 → V2_ADD → V2_SUB → V2_FX). Never apply these by hand.
+10. **People:** `talk=@w1~@w2` already exists. Make sure `dlg` lines (S46, S48, S70, S71, S86) show **only while** the speaker's `talk` window or the line's own window runs. Default line window: from `@word` for 1.6 s.
 
 ## 4. Sound v2 (`audio/sfx_v2.py`, numpy synthesis like `audio/sfx.py`; 44.1 kHz mono 16-bit; peak −3 dBFS)
 ### 4.1 Entrance set (short, soft; these replace the pop)
@@ -213,8 +224,21 @@ Check: put lan, minh and the S08 kid side by side on one frame. They must look r
 | supplier_board | S137 | a board of 20 supplier badges: 19 grey badges marked KR / CN / TW and 1 gold badge marked VN (plain text, no flags); the VN badge is highlighted on `at` |
 | cartons_in | S138 | cartons labelled CHINA / KOREA / TAIWAN slide in from 3 sides on their words to a central table |
 
-## 9. fx layers (`fx_v2.py` → `FX[name]`)
-birds (3–5 small V-birds drifting) · dust (slow floating motes) · steam (rising curls from pots, kitchen) · motorbikes (a stream of small scooters crossing at y≈600) · trucks (small trucks crossing at y≈600) · camera_flashes (random white bursts) · confetti (falling coloured bits) · fireworks (bursts in the sky) · light_rays (warm rays rotating slowly behind the subject) · sparkles (twinkles around the centre) · smoke_puffs (puffs from the right edge) · storm (rain lines + one lightning flash) · crane_lights (blinking red lights on cranes) · city_lights (window lights twinkling) · ticker (scrolling news text) · screen_blink (monitor content updates) · air_flow (faint vertical lines drifting down) · solder_sparks (tiny spark bursts at the workstations) · rice_burst (grains spray up from the heap) · waves_edge (moving foam at the coasts of the map frame) · pin_pulses (pulsing rings under the map pins) · shift_crowd (tiny workers streaming toward the gates) · sepia (a warm sepia overlay at 35% alpha with a light vignette, for the flashback).
+## 9. fx layers (`fx_v2.py` → `FX[name]`): ONLY these, each justified by the narration or the place
+| fx | shot | why it is allowed |
+|---|---|---|
+| motorbikes | S16, S90, S142 | Hanoi streets really are full of motorbikes |
+| rice_burst | S56 | the narration says "exploded" |
+| storm | S106 | "no longer safe" (metaphor shown literally) |
+| solder_sparks | S132 | the narration says "soldering" |
+| smoke_puffs | S41 | engine "out of fuel" sputters |
+| fireworks | S123 | "celebrated worldwide" |
+| confetti | S110 | "the biggest winner" |
+| camera_flashes | S66 | the 1995 normalization photo-op |
+| ticker | S104 | a news studio really has a ticker |
+| shift_crowd | S111 | a Foxconn campus at shift change |
+| sepia | S145 | the narration flashes back to the 20th century |
+**Rule 13: never add any other motion layer.** If a shot feels static, add a beat tied to a word (rule in UPDATE 2), not decoration.
 Each fx must be cheap (≤ 40 shapes per frame) and must never cover faces or text.
 
 ## 10. Shot CHECKS (in addition to the house checks)

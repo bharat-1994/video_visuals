@@ -9,13 +9,12 @@ import scene, scene_v2
 for d in ("BG", "ASSETS", "CAST", "CUSTOM", "AMBIENCE"): getattr(scene_v2, d).update(getattr(scene, d))
 from episodes.vietnam.v2 import setup_v2                      # v2 registries + overrides (into scene_v2)
 from episodes.vietnam.key import SHOT_FNS as KEY
-from episodes.vietnam.v2.film_v2_lines import V2, V2_FX
+from episodes.vietnam.v2.film_v2_lines import merged
 
 EP = os.path.join(K, "episodes", "vietnam")
 src = open(os.path.join(EP, "film.py")).read()
 L = eval(src[src.index("L = {") + 4: src.index("\n}\n", src.index("L = {")) + 2])   # v1 lines (not executed)
-L.update(V2)
-for k, f in V2_FX.items(): L[k] = L.get(k, "bg dark") + " | fx " + f
+L = merged(L)
 
 WORDS = json.load(open(os.path.join(EP, "words.json"))); END = 608.76
 act1 = json.load(open(os.path.join(EP, "shots.json")))["shots"]

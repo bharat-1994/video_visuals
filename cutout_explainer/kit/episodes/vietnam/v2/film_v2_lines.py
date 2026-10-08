@@ -7,11 +7,11 @@ V2 = {
 # ================= ACT 1a (1986) =================
 "S04": 'bg hanoi_1986 | cam pull 1.06 1.0 | fn zone2 | sfx crowd_murmur @0.0 db=-22',       # 10 people now stand in a 1986 street, not on beige
 "S09": 'bg market | cam push 1 1.1 700 320 | fn priceline_market | kw "587%" 430 210 84 @587 | shake @587 amp=0.6 | sfx footsteps @running db=-8 | p customer 1120 640 1 f=-0.6 e=shocked @587+0.2',
-"S13": 'bg globe_space | cam pull 1.15 1.0 300 380 640 360 | a caged_map 300 600 380 | kw ISOLATED 300 130 64 @isolated | a globe 920 330 140 @global | fn orbit | fx dust | sfx coins @financial db=-10',
+"S13": 'bg globe_space | cam pull 1.15 1.0 300 380 640 360 | a caged_map 300 600 380 | kw ISOLATED 300 130 64 @isolated | a globe 920 330 140 @global | fn orbit | sfx coins @financial db=-10',
 # ================= ACT 1b: today / questions / rewind =================
 "S16": 'bg hanoi_today | cam whip | kw TODAY 640 100 84 @today | fx motorbikes | sfx street_traffic @0.0 db=-20',
-"S17": 'bg white_studio | a rank_podium 640 600 labels=["CHINA","VIETNAM","REST"] ranks=[1,2,3] hl=1 @second | a smartphone 640 250 0.9 @smartphone | kw "No. 2 ON EARTH" 640 90 60 @Earth | fx confetti @Earth',
-"S18": 'bg port_night | cam track 560 720 | a port_crane 230 520 0.9 | a container 700 300 0.8 c=#2f6db5 move=0,170:@handles:1.2 | cnt 0 683 900 140 96 fmt="${:,}B" @$683 dur=1.2 | fx crane_lights',
+"S17": 'bg white_studio | a rank_podium 640 600 labels=["CHINA","VIETNAM","REST"] ranks=[1,2,3] hl=1 @second | a smartphone 640 250 0.9 @smartphone | kw "No. 2 ON EARTH" 640 90 60 @Earth',
+"S18": 'bg port_night | cam track 560 720 | a port_crane 230 520 0.9 | a container 700 300 0.8 c=#2f6db5 move=0,170:@handles:1.2 | cnt 0 683 900 140 96 fmt="${:,}B" @$683 dur=1.2',
 "S19": 'bg warehouse | p lan 260 600 0.9 e=happy f=0.5 pose=hold_front | fn box_stack x=640 y=600 n=9 at=@running | st "9 YEARS\\nIN A ROW" 1100 180 36 @nine | kw SURPLUS 640 90 72 @massive',
 "S20": 'bg samsung_hall | fn pie x=1000 y=300 r=150 frac=0.5 at=@50 label="50%" | p lan 360 520 0.9 legs=0 e=determined | a smartphone 560 470 0.6 side=back | tx SAMSUNG 1000 520 44 c=#1428a0 ol=0 @Samsung',
 "S21": 'bg white_studio | a smartphone 640 330 1.8 side=back | a city_card 220 220 0.5 city=newyork @New | a city_card 1060 220 0.5 city=tokyo @Tokyo | a stamp_mark 640 400 text="MADE IN VIETNAM" s=1.2 @made | sfx stamp @made db=0 | shake @made amp=0.3',
@@ -32,7 +32,7 @@ V2 = {
 "S38": 'bg harvest_poor | fn sacks_shrink x=640 y=600 at=@collapsed | kw "RICE PRODUCTION" 640 90 60 @Rice | p farmer 1040 640 0.9 e=sad f=-0.5 @collapsed',
 "S39": 'bg port | a container_ship 1100 520 0.6 label=GRAIN move=-520,0:@import:2.0 | a sea 520 | p mother 200 470 0.7 legs=0 e=worried f=0.6 | kw IMPORT 640 100 72 @import | st "TO PREVENT\\nSTARVATION" 340 220 34 @starvation | sfx harbor @0.0 db=-20',
 "S41": 'bg engine_room | fn gauge x=640 y=430 r=230 at=@fuel label=ECONOMY | fx smoke_puffs @fuel | kw EMPTY 640 100 72 @completely | sfx engine_sputter @fuel db=-6',
-"S44": 'bg renovation | p farmer 300 640 1 e=happy f=0.5 pose=raise_both @renovation | kw "DOI MOI" 760 160 84 | arrow 760 220 760 320 @translates | kw "= RENOVATION" 760 400 72 @renovation | fx sparkles @renovation',
+"S44": 'bg renovation | p farmer 300 640 1 e=happy f=0.5 pose=raise_both @renovation | kw "DOI MOI" 760 160 84 | arrow 760 220 760 320 @translates | kw "= RENOVATION" 760 400 72 @renovation',
 "S45": 'bg classroom | p kid 380 620 1.2 e=happy f=0.4 talk=@pause~@break | a chalk_text 860 250 text="EXPLAIN LIKE\\nI\'M 5" @ELI | sfx chalk @ELI db=-8',
 # restaurant run S46-S51 stays in the kitchen (it IS one metaphor) but camera + framing vary:
 "S46": 'bg kitchen | cam push 1 1.12 640 300 | p chef 380 600 1 f=0.6 e=worried | p clerk 860 600 1 f=-0.6 e=smug pose=point_L talk=@manager~@buy @manager | dlg "Only rice!" 1000 170 960 330 @ingredients',
@@ -48,7 +48,7 @@ V2 = {
 "S57": 'bg port | cam pan | a container_ship 640 520 0.8 label=RICE | a sea 520 | a rank_podium 1080 300 0.5 labels=["","VN",""] ranks=[2,3,1] hl=1 @third | kw "No. 3 RICE EXPORTER" 640 90 60 @third | sfx harbor @0.0 db=-20',
 "S58": 'bg hanoi_street_1990 | a shop_front 640 600 0.9 closed=1>0:@legalized:0.6 label="PHO 24H" | p mother 360 620 1 e=happy f=0.4 @legalized | p customer 960 620 1 e=happy f=-0.5 @businesses | sfx shutter_open @legalized db=-4 | sfx bicycle_bell @businesses db=-10',
 "S59": 'bg market | cam track 520 760 | a price_board 330 330 0.9 locked=1 out@abolished+0.3 | a price_board 330 330 0.9 @abolished+0.4 | a price_tag 900 330 1.0 value="100" @stabilized | kw STABLE 900 480 56 @stabilized | kw "MOST IMPORTANTLY..." 640 600 48 @importantly',
-"S60": 'bg port_day | cam push 1 1.15 | a open_doors 640 600 w=460 h=540 open_=0>1:@open:0.8 label=FDI | fx light_rays @open | p exec 640 640 0.7 e=happy walk=0 @Investment | kw "FOREIGN DIRECT INVESTMENT" 640 60 52 @Foreign | sfx door_creak @open db=-6 | sfx riser @open db=-12',
+"S60": 'bg port_day | cam push 1 1.15 | a open_doors 640 600 w=460 h=540 open_=0>1:@open:0.8 label=FDI | p exec 640 640 0.7 e=happy walk=0 @Investment | kw "FOREIGN DIRECT INVESTMENT" 640 60 52 @Foreign | sfx door_creak @open db=-6 | sfx riser @open db=-12',
 "S61": 'bg beijing_1978 | p cn_official 640 640 1 e=determined f=0 pose=wave_R @Deng | tx "CHINA" 60 70 48 anchor=l @China | tx "Deng Xiaoping\'s reforms" 640 110 44 @Deng',
 "S62": 'bg split2 left=#d8c3a5 right=#d8c3a5 | a calendar 380 330 1.1 top=CHINA big=1978 @1978 | a open_doors 900 600 w=320 h=420 open_=0>1:@opening:0.8 label=CHINA | sfx door_creak @opening db=-8',
 "S63": 'bg split2 left=#e7d9a9 right=#e7d9a9 | a calendar 380 330 1.1 top=VIETNAM big=1986 @1986 | a open_doors 900 600 w=320 h=420 open_=0>1:@followed:0.8 label=VIETNAM | p farmer 900 640 0.7 walk=-60 e=happy @followed',
@@ -59,7 +59,7 @@ V2 = {
 "S69": 'bg expo_hall | p official 200 600 0.9 f=0.6 pose=wave_R e=happy | p clerk 380 610 0.8 f=0.6 pose=point_R e=happy | p exec 640 600 1 e=neutral | a money_bag 640 470 0.7 label=FDI | p official2 1080 600 0.9 f=-0.6 pose=wave_R e=happy | kw COMPETING 640 90 64 @competing | sfx crowd_murmur @0.0 db=-20',
 "S70": 'bg meeting_room screen="WHY VIETNAM?" | p exec 820 600 1 f=-0.6 e=neutral pose=think_R | p exec2 1080 600 1 f=-0.6 e=neutral @value | dlg "Hmm..." 960 250 830 330 @proposition',
 "S71": 'bg meeting_room screen="THE PITCH" | p official 300 600 1 f=0.6 e=happy pose=point_R talk=@offered~@pitch | p exec 900 600 1 f=-0.6 e=happy @executives | dlg "Tell me more." 1050 230 930 330 @resist',
-"S72": 'bg flat c=#20303a | fn asia labels=True | st "1. GEOGRAPHY" 1140 120 36 @strategic | cnt 0 3200 1140 330 60 fmt="{:,} km" @3 dur=1.0 | fx waves_edge',
+"S72": 'bg flat c=#20303a | fn asia labels=True | st "1. GEOGRAPHY" 1140 120 36 @strategic | cnt 0 3200 1140 330 60 fmt="{:,} km" @3 dur=1.0',
 "S73": 'bg sea_lanes | a container_ship 900 520 0.5 move=-400,0:@0.0:3.5 | a sea 520 | kw "SHIPPING LANES" 640 90 60 @shipping | a compass 160 160 0.6',
 "S74": 'bg border | fn truck_queue at=@door | kw "NEXT DOOR TO" 640 90 56 @door | st "SOUTH CHINA\\nFACTORIES" 1100 230 34 @industrial',
 "S75": 'bg factory_gate | st "2. PEOPLE" 1080 110 36 @demographic | p lan 240 620 0.85 e=happy @young | p worker_m 450 620 0.85 e=happy @young+0.15 | p worker 660 620 0.85 e=happy @young+0.3 | a books_cap 960 620 0.8 @literate | sfx crowd_murmur @0.0 db=-22',
@@ -99,11 +99,11 @@ V2 = {
 "S111": 'bg foxconn_campus | cam pan | tx "FOXCONN" 260 120 48 c=#1a5fb4 ol=0 @Foxconn | tx "PEGATRON" 640 120 48 c=#333333 ol=0 @Pegatron | tx "LUXSHARE" 1020 120 48 c=#0a7d5a ol=0 @Luxshare | fx shift_crowd',
 "S112": 'bg white_studio | a assembly_phones 140 520 1000 side=front | st "FOR APPLE" 640 160 @Apple',
 "S113": 'bg construction | fn campus_build at=@building | a money_bag 200 470 0.8 label=$ @billions | kw "NEW FACTORIES" 640 90 60 @facilities',
-"S114": 'bg north_vn_hills | a factory_modern 420 560 0.6 label="BAC GIANG" @Baxiang | a factory_modern 900 560 0.6 label="QUANG NINH" @Quangning | fx trucks',
+"S114": 'bg north_vn_hills | a factory_modern 420 560 0.6 label="BAC GIANG" @Baxiang | a factory_modern 900 560 0.6 label="QUANG NINH" @Quangning',
 "S115": 'bg white_studio | a earbuds_case 380 360 1.4 @AirPods | a tablet 880 360 1.3 @iPads | kw "MOVED TO VIETNAM" 640 90 56 @shifted',
 "S116": 'bg white_studio | a smartwatch 640 330 1.8 @watches | a stamp_mark 960 520 text="VIETNAM" s=0.8 @Vietnam | sfx stamp @Vietnam db=-2',
 "S117": 'bg cleanroom | p bunny 360 600 1 e=neutral f=0.5 pose=hold_front @Intel | a wafer 520 470 0.8 @semiconductor | tx INTEL 900 120 56 c=#0068b5 ol=0 @Intel | tx "HO CHI MINH CITY" 900 190 40 @Ho | sfx cleanroom_hum @0.0 db=-18',
-"S118": 'bg port_night | cam track 520 760 | a port_crane 200 520 0.9 | a container_ship 780 520 0.8 label=VIETNAM | a sea 520 | tx 2024 60 70 56 anchor=l @2024 | cnt 0 405 760 140 96 fmt="${}B" @$405 dur=1.2 | fx crane_lights',
+"S118": 'bg port_night | cam track 520 760 | a port_crane 200 520 0.9 | a container_ship 780 520 0.8 label=VIETNAM | a sea 520 | tx 2024 60 70 56 anchor=l @2024 | cnt 0 405 760 140 96 fmt="${}B" @$405 dur=1.2',
 "S119": 'bg lab | p minh 300 600 1 e=determined f=0.6 | a circuit_board 520 300 360 230 @computer | a chip 980 330 0.9 @components | a smartphone 1150 330 0.8 @smartphones',
 "S120": 'bg warehouse | fn box_stack x=640 y=600 n=12 hl=2 at=@electronics | kw "$72B ELECTRONICS" 640 90 64 @$72',
 "S121": 'bg dark | a caged_map 640 600 440 | kw ISOLATED 1030 250 60 @isolated | sfx metal_clang @isolated db=-12',
@@ -130,13 +130,13 @@ V2 = {
 "S141": 'bg meeting_room screen="NEXT GAMBLE" | a smile_curve 220 160 840 380 | fn climb_dot at=@gamble | kw "NOT JUST CHEAP LABOR" 640 640 44 @labor',
 "S142": 'bg hanoi_today | a rd_center 640 560 0.9 @R | cnt 0 200 1080 160 72 fmt="${}M+" @$200 dur=1.0 | tx HANOI 200 120 48 @Hanoi | fx motorbikes',
 "S143": 'bg classroom | p minh 360 620 1.1 e=happy f=0.4 pose=raise_both @STEM | a chalk_text 860 250 text="STEM" @education | sfx chalk @STEM db=-8',
-"S144": 'bg lab | p bunny 360 600 1 e=determined f=0.5 | a wafer 600 470 0.9 @semiconductor | a solar_panel 980 560 0.8 @green | fx sparkles @green',
+"S144": 'bg lab | p bunny 360 600 1 e=determined f=0.5 | a wafer 600 470 0.9 @semiconductor | a solar_panel 980 560 0.8 @green',
 "S145": 'bg paddy | tx "20TH CENTURY" 60 70 48 anchor=l @20th | p farmer 560 640 1 e=tired | a rice_bowl 880 560 0.8 fill_=0.2 @impoverished | fx sepia',
 "S147": 'bg samsung_hall | p lan 640 580 1 legs=0 pose=raise_both e=happy | a assembly_phones 0 520 1280 side=back | kw "THE WORLD\'S FACTORY" 640 70 56 @world | sfx factory_line @0.0 db=-18',
 "S148": 'bg lab | tx "21ST CENTURY" 60 70 48 anchor=l @21st | a ladder 900 640 h=520 missing_from=0.6 @test | p minh 760 640 0.85 f=0.6 e=determined pose=raise_both',
 "S149": 'bg split2 left=#dfe3e6 right=#f6e7b8 | a assembly_phones 40 560 520 side=front | arrow 620 400 760 400 @into | p minh 1000 640 0.9 e=happy f=-0.3 pose=hold_front @owner | a golden_key 1000 420 0.8 @owner | kw OWNER 1000 120 72 @owner',
 "S150": 'bg samsung_hall | a assembly_phones 140 520 1000 side=back | kw "ASSEMBLING = GOOD" 640 110 64 @good',
-"S151": 'bg sunrise | cam pull 1.15 1.0 | p minh 640 640 1.1 e=happy pose=raise_both @owning | a golden_key 640 230 1.2 rot=-0.3 @owning | kw "OWNING = FORTUNE" 640 560 64 @fortune | fx sparkles @fortune | sfx riser @owning db=-10 | sfx sparkle @fortune db=-6',
+"S151": 'bg sunrise | cam pull 1.15 1.0 | p minh 640 640 1.1 e=happy pose=raise_both @owning | a golden_key 640 230 1.2 rot=-0.3 @owning | kw "OWNING = FORTUNE" 640 560 64 @fortune | sfx riser @owning db=-10 | sfx sparkle @fortune db=-6',
 }
 # ---- second pass (after audit): kill remaining flat/dark/map/ship repeats, add people ----
 V2.update({
@@ -147,13 +147,13 @@ V2.update({
 "S41": 'bg engine_room | fn gauge x=640 y=430 r=230 at=@fuel label=ECONOMY | p official 1080 640 0.8 e=worried f=-0.6 pose=think_R | fx smoke_puffs @fuel | kw EMPTY 640 100 72 @completely | sfx engine_sputter @fuel db=-6',
 "S42": 'bg congress | cam pull 1.12 1.0 | p official 640 560 0.9 e=determined | a podium 640 660 0.9 | fx camera_flashes @6th',
 "S67": 'bg sunrise | cam push 1 1.1 | p farmer 380 640 0.9 e=determined f=0.3 | p lan 640 640 0.9 e=determined | p minh 880 650 0.8 e=happy f=-0.3 | kw READY 640 110 84 @ready | sfx riser @0.0 db=-12',
-"S72": 'bg globe_space | fn asia labels=True | st "1. GEOGRAPHY" 1140 120 36 @strategic | cnt 0 3200 1140 330 60 fmt="{:,} km" @3 dur=1.0 | fx waves_edge',
+"S72": 'bg globe_space | fn asia labels=True | st "1. GEOGRAPHY" 1140 120 36 @strategic | cnt 0 3200 1140 330 60 fmt="{:,} km" @3 dur=1.0',
 "S83": 'bg casino_table | fn dice_roll x=640 y=420 at=@gamble | p exec 1080 600 0.9 f=-0.6 e=smug pose=hold_front | kw GAMBLE 640 100 72 @gamble | sfx dice @gamble db=-6',
-"S92": 'bg globe_space | fn vnpins x=640 y=360 h=600 pins=[["BAC NINH",106.07,21.18,"@Baknin"],["THAI NGUYEN",105.84,21.59,"@Taiguan"],["HO CHI MINH CITY",106.7,10.78,"@Ho"]] | fx pin_pulses',
+"S92": 'bg globe_space | fn vnpins x=640 y=360 h=600 pins=[["BAC NINH",106.07,21.18,"@Baknin"],["THAI NGUYEN",105.84,21.59,"@Taiguan"],["HO CHI MINH CITY",106.7,10.78,"@Ho"]]',
 "S97": 'bg air_cargo | a cargo_plane 640 420 0.9 @exports | fn carton_stream at=@accounts | p worker_m 1100 640 0.8 pose=carry_R e=determined | cnt 0 55 640 110 96 fmt="${}B" @$55 dur=1.0 | sfx jet_idle @0.0 db=-18',
 "S108": 'bg sky | a factory_modern 400 560 0.7 label=CHINA @primary | p exec 900 600 1 f=-0.6 e=neutral pose=point_L talk=@rule~@market | st "FOR CHINA\'S\nMARKET" 400 150 36 @domestic',
-"S109": 'bg split2 left=#f1d9d4 right=#e6efd8 | a factory_modern 330 560 0.6 label=CHINA | a factory_modern 930 560 0.6 label=VIETNAM @secondary | kw "+1" 930 140 84 @secondary | st TARIFF-FREE 930 280 36 @tariff | fx trucks',
-"S118": 'bg port_night | cam track 520 760 | a port_crane 200 520 0.9 | a container_ship 780 520 0.8 label=VIETNAM | a sea 520 | p worker_m 1150 520 0.6 legs=0 e=happy | tx 2024 60 70 56 anchor=l @2024 | cnt 0 405 760 140 96 fmt="${}B" @$405 dur=1.2 | fx crane_lights',
+"S109": 'bg split2 left=#f1d9d4 right=#e6efd8 | a factory_modern 330 560 0.6 label=CHINA | a factory_modern 930 560 0.6 label=VIETNAM @secondary | kw "+1" 930 140 84 @secondary | st TARIFF-FREE 930 280 36 @tariff',
+"S118": 'bg port_night | cam track 520 760 | a port_crane 200 520 0.9 | a container_ship 780 520 0.8 label=VIETNAM | a sea 520 | p worker_m 1150 520 0.6 legs=0 e=happy | tx 2024 60 70 56 anchor=l @2024 | cnt 0 405 760 140 96 fmt="${}B" @$405 dur=1.2',
 "S120": 'bg warehouse | fn box_stack x=640 y=600 n=12 hl=2 at=@electronics | p worker_m 1100 600 0.9 pose=carry_R e=determined | kw "$72B ELECTRONICS" 640 90 64 @$72',
 "S130": 'bg border | fn truck_queue at=@exports | p lan 200 620 0.8 e=happy pose=wave_R | cnt 0 400 640 120 96 fmt="${}B" @$400 dur=1.0',
 "S11": 'bg ruins | cam push 1 1.08 600 340 | fn cracks | st "30 YEARS" 1010 230 46 rot=0.05 @30 | shake @devastated amp=0.4 | shake @back amp=0.4 | shake @conflicts amp=0.4 | sfx retro_explosion @devastated db=-12 | sfx retro_explosion @conflicts db=-12',
@@ -162,6 +162,68 @@ V2.update({
 })
 
 # continuous-motion layer appended to these shots (" | fx NAME"), v1 or v2 line alike:
-V2_FX = {"S02": "birds", "S03": "birds", "S05": "dust", "S36": "birds", "S37": "birds", "S55": "birds", "S11": "dust", "S121": "dust",
-         "S146": "light_rays", "S46": "steam", "S47": "steam", "S48": "steam", "S50": "steam", "S43": "camera_flashes", "S85": "city_lights",
-         "S104": "ticker", "S119": "screen_blink", "S117": "air_flow", "S21": "dust", "S29": "camera_flashes", "S24": "dust"}
+V2_FX = {"S104": "ticker"}   # motion layers ONLY where the narration or the real place calls for it (rule 13, REVISION_v2.md)
+
+# ---- third pass: BEATS. Every shot gets a new, narration-tied beat at least every ~2.5 s of speech.
+# A beat = something the words name appearing, or a person reacting (e2=expr@word, pose2=pose@word). No decorative motion.
+V2_ADD = {   # appended to the shot's line
+"S04": 'st "7 IN 10" 1120 120 36 @population',
+"S17": 'st "ONLY CHINA\\nIS AHEAD" 1080 300 34 @trailing',
+"S18": 'st "EVERY\\nYEAR" 1100 330 36 @annual',
+"S20": 'a globe 760 150 60 @world',
+"S21": 'kw "3 WORDS..." 640 80 52 @three',
+"S23": 'p farmer 160 640 0.8 e=sad @famine out@favorite | tx 1986 160 120 44 @nation',
+"S25": 'a chip 760 250 0.5 @electronics',
+"S31": 'tx REUNIFIED 640 520 40 @reunification | tx "NORTH + SOUTH" 640 590 36 @1975',
+"S33": 'st NATIONALIZED 1080 420 34 @nationalized',
+"S38": 'a rice_bowl 1040 330 0.8 fill_=1>0:@rice#2:0.8 @Asia',
+"S43": 'kw RADICAL 300 250 56 @radical',
+"S45": 'tx "DOI MOI = ?" 860 120 48 @Doi',
+"S48": 'a coin 1050 470 22 @divide | a coin 1110 470 22 @divide+0.2 | a coin 1170 470 22 @equally',
+"S57": 'a rice_sack 200 520 0.5 label=RICE @exporter | st "IN 3\\nYEARS" 1100 520 36 @three',
+"S68": 'tx "EARLY 2000s" 640 520 40 @2000s',
+"S70": 'st MULTINATIONALS 380 200 34 @multinational',
+"S73": 'tx "SOUTH CHINA SEA" 640 600 40 @South',
+"S74": 'a factory_modern 1100 600 0.35 label=GUANGDONG @heartland',
+"S83": 'kw TRANSFORMED 640 600 48 @transformed',
+"S90": 'tx HANOI 300 520 40 @Hanoi',
+"S92": 'kw "INDUSTRIAL COMPLEXES" 640 80 48 @complexes',
+"S93": 'st "CUMULATIVE\\nFDI" 1000 330 36 @cumulative | a factory_modern 400 600 0.4 @country',
+"S95": 'tx SAMSUNG 640 600 44 c=#1428a0 ol=0 @Samsung',
+"S98": 'st "THE WHOLE\\nECONOMY" 1080 200 34 @entire | kw GDP 640 110 64 @gross',
+"S99": 'a carton 1100 600 0.6 label=CLOTHING @clothing',
+"S104": 'kw "25%" 1100 120 72 @25 | a money_bag 980 330 0.5 label=$ @hundreds | a money_bag 1110 330 0.6 label=$$ @billions | a container 40 640 0.6 label=CHINA @Chinese',
+"S109": 'a carton 1120 600 0.5 label=EXPORT @export | st NEUTRAL 640 420 34 @neutral',
+"S110": 'tx "CHINA + 1" 640 600 44 @China',
+"S111": 'kw "CONTRACT MANUFACTURERS" 640 600 44 @contract',
+"S117": 'st "ASSEMBLY\\n+ TEST" 1100 400 34 @test',
+"S118": 'a container 600 150 0.5 c=#2f6db5 move=0,200:@export:1.0 @Vietnam',
+"S120": 'st "OF $405B" 1100 200 34 @total',
+"S124": 'a globe 1080 330 90 @global',
+"S128": 'tx "behind the success..." 640 520 40 c=#c9c9c9 @success | tx "...a critical challenge" 640 580 40 c=#c9c9c9 @critical',
+"S129": 'st "ASSEMBLY HUB" 300 200 34 @assembly | kw MIDDLE-INCOME 760 140 56 @middle',
+"S137": 'tx SAMSUNG 300 140 40 c=#1428a0 ol=0 @Samsung | tx APPLE 980 140 40 c=#555555 ol=0 @Apple',
+"S149": 'a chip 1150 300 0.5 @technology',
+}
+V2_SUB = [   # (shot, old text, new text): person reactions and later pop-ins
+("S29", "p official 640 560 1 e=determined", "p official 640 560 1 e=worried e2=determined@choice"),
+("S34", "p mother 80 600 0.7 walk=45 f=0.7 e=sad", "p mother 80 600 0.7 walk=45 f=0.7 e=neutral e2=sad@agricultural"),
+("S69", "p exec 640 600 1 e=neutral", "p exec 640 600 1 e=neutral @foreign"),
+("S69", "a money_bag 640 470 0.7 label=FDI", "a money_bag 640 470 0.7 label=FDI @investment"),
+("S70", "p exec 820 600 1 f=-0.6 e=neutral pose=think_R", "p exec 820 600 1 f=-0.6 e=neutral e2=smug@corporations pose=think_R"),
+("S79", "p official 250 600 0.9 f=0.6 e=determined", "p official 250 600 0.9 f=0.6 e=determined pose2=point_R@rush"),
+("S99", "p lan 880 500 0.8 legs=0 e=determined", "p lan 880 500 0.8 legs=0 e=determined @Vietnam"),
+("S127", "fn country_build at=@Modern", "fn country_build at=@Modern ports=@ports zones=@zones"),
+("S136", "p worker_m 400 600 1 e=sad f=0.4", "p worker_m 400 600 1 e=neutral e2=sad@represented f=0.4"),
+("S150", "kw \"ASSEMBLING = GOOD\"", "p lan 640 560 0.9 legs=0 e=neutral @capitalism | kw \"ASSEMBLING = GOOD\""),
+]
+
+def merged(L):
+    """v1 lines dict -> final v2 lines (used by film_v2.py and audit.py)."""
+    L = dict(L); L.update(V2)
+    for k, add in V2_ADD.items(): L[k] = L.get(k, "bg dark") + " | " + add
+    for k, old, new in V2_SUB:
+        assert old in L[k], (k, old)
+        L[k] = L[k].replace(old, new)
+    for k, f in V2_FX.items(): L[k] = L.get(k, "bg dark") + " | fx " + f
+    return L
