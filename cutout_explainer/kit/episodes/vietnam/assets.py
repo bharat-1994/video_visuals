@@ -20,8 +20,16 @@ _VC = {
     "mother": dict(hair="wavy", hair_c=hexc('#1a1614'), shirt=hexc('#d9cfb8'), jaw=0.1, collar=True),
     "kid":    dict(kid=True, hair="fringe", hair_c=hexc('#1a1614'), shirt=hexc('#f0f0e8'), collar=False),
     "clerk":  dict(hair="slick", hair_c=hexc('#1a1614'), shirt=hexc('#6f7a4a'), jaw=0.6, glasses=True, nose=True),
+    "chef":   dict(hair="short", hair_c=hexc('#1a1614'), shirt=(1, 1, 1), jaw=0.35, nose=True, collar=True),
+    "official": dict(hair="part", hair_c=hexc('#8f8f8f'), shirt=(1, 1, 1), jacket=hexc('#5b5f66'), jaw=0.55, glasses=True, nose=True),
+    "official2": dict(hair="bald", hair_c=hexc('#9a9a9a'), shirt=(1, 1, 1), jacket=hexc('#4d5a4a'), jaw=0.3, nose=True, mustache=False),
+    "worker": dict(hair="wavy", hair_c=hexc('#1a1614'), shirt=hexc('#8fc1e3'), jaw=0.1, collar=True),
+    "worker_m": dict(hair="short", hair_c=hexc('#1a1614'), shirt=hexc('#8fc1e3'), jaw=0.4, collar=True),
+    "exec":   dict(hair="slick", hair_c=hexc('#2a2a2a'), shirt=(1, 1, 1), jacket=hexc('#232b45'), tie=hexc('#3a6fb0'), jaw=0.5, nose=True),
+    "exec2":  dict(hair="part", hair_c=hexc('#6b4a2e'), shirt=(1, 1, 1), jacket=hexc('#3d3d42'), tie=hexc('#b23a3a'), jaw=0.4, glasses=True, nose=True),
+    "customer": dict(hair="fringe", hair_c=hexc('#3a2a20'), shirt=hexc('#d9534f'), jaw=0.2),
 }
-_HAT = {"farmer": "non_la", "mother": "non_la", "kid": None, "clerk": "cap"}
+_HAT = {"farmer": "non_la", "mother": "non_la", "clerk": "cap", "chef": "toque"}
 
 class VPuppet:
     """Same draw() signature as Puppet; adds the character's hat. Hat is skipped with hat=False."""
@@ -31,12 +39,13 @@ class VPuppet:
     def draw(self, ctx, x, y, t, expr="neutral", talking=False, facing=0.0, hat=True, **kw):
         info = self.p.draw(ctx, x, y, t, expr, talking, facing, **kw)
         hx, hy = info['head']; R = info['R']; hx += facing*R*0.12
-        if hat and _HAT[self.who] == "non_la": non_la(ctx, hx, hy - R*0.55, R)
-        if hat and _HAT[self.who] == "cap": state_cap(ctx, hx, hy - R*0.62, R, facing)
+        if hat and _HAT.get(self.who) == "non_la": non_la(ctx, hx, hy - R*0.55, R)
+        if hat and _HAT.get(self.who) == "cap": state_cap(ctx, hx, hy - R*0.62, R, facing)
+        if hat and _HAT.get(self.who) == "toque": toque(ctx, hx, hy - R*0.7, R)
         return info
 
 def vcast(who, scale=1.0):
-    """who: farmer | mother | kid | clerk"""
+    """who: farmer mother kid clerk chef official official2 worker worker_m exec exec2 customer"""
     return VPuppet(who, scale)
 
 def non_la(ctx, x, y, R):
@@ -49,6 +58,12 @@ def non_la(ctx, x, y, R):
     for k in (0.33, 0.62):
         line(ctx, [(x-w*k, y-h*(1-k)+R*0.06*k), (x+w*k, y-h*(1-k)+R*0.06*k)], STRAW_L, max(1, R*0.025), .9)
     line(ctx, [(x-w, y+R*0.06), (x+w, y+R*0.06)], INK, max(2, R*0.045))
+
+def toque(ctx, x, y, R):
+    """Chef's hat: band + puffy top."""
+    for dx, r in ((-0.45, 0.42), (0.0, 0.5), (0.45, 0.42)): circle(ctx, x + dx*R, y - R*0.55, r*R, (1, 1, 1), INK, max(2, R*0.04))
+    box(ctx, x - R*0.62, y - R*0.45, R*1.24, R*0.5, (1, 1, 1), R*0.06, INK, max(2, R*0.04))
+    line(ctx, [(x - R*0.6, y - R*0.12), (x + R*0.6, y - R*0.12)], hexc('#d8d8d8'), max(2, R*0.05))
 
 def state_cap(ctx, x, y, R, f=0.0):
     """Olive peaked cap (state employee). No badge/insignia."""
