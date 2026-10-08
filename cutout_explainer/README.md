@@ -35,7 +35,12 @@ mkdir -p ~/.fonts && cp kit/fonts/CaveatBrush.ttf ~/.fonts/ && fc-cache -f
 cd kit/examples && python3 ../engine/sheet.py all_shots ../check.jpg   # should match reference/GOOD_v2_example.jpg
 ```
 
-## Claude Project knowledge (text files to upload)
-`docs/HANDOVER.md`, `kit/STYLE_GUIDE.md`, `docs/DIRECTION_TEMPLATE.md`, `docs/LEARNINGS.md`, `docs/MODEL_EVALS.md`,
-`kit/engine/API.md`, `kit/RUBRIC.md`. Optionally also `kit/engine/lib.py`.
-Re-upload whichever ones a commit changes. Each commit message lists them.
+## Claude Project setup
+- **Instructions:** paste the text of `PROJECT_INSTRUCTIONS.md`.
+- **Knowledge (11 files, about 70 KB):** `docs/HANDOVER.md`, `kit/STYLE_GUIDE.md`, `docs/DIRECTION_TEMPLATE.md`, `docs/LEARNINGS.md`,
+  `docs/MODEL_EVALS.md`, `kit/RUBRIC.md`, `kit/engine/API.md`, `kit/engine/lib.py`, `kit/PROMPT_PRODUCTION.md`,
+  `kit/audio/sfx/INDEX.md`, `README.md`.
+- **Optional images:** `kit/reference/original_frames_01.jpg` and `kit/reference/GOOD_v2_example.jpg`.
+- **Repo only:** example code, bake-off files (`PROMPT.md`, `TEST_BRIEF.md`), audio, font, reference images, history.
+
+Re-upload whichever knowledge files a commit changes. Each commit message lists them.
