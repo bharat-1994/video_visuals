@@ -38,3 +38,50 @@
 | metal_clang | 1.4 | iron cage/gate slamming shut: bar partials + short rattle (Vietnam ep) |
 | stone_crumble | 2.2 | stone column collapsing: crack snaps, tumbling block thumps, gravel (Vietnam ep) |
 | stamp | 0.35 | rubber stamp on paper: dull thunk + papery slap (Vietnam ep) |
+| soft_whoosh_in | 0.3 | Entry whoosh: 600-3000 Hz noise swell, fast cutoff at the end. |
+| soft_whoosh_out | 0.3 | Exit whoosh: reversed envelope (quick suck, slow trailing decay). |
+| swish_draw | 0.45 | Draw-on swish: noise through 800->2400 Hz swept band-pass. |
+| card_flip | 0.18 | Two quick filtered-noise card flaps 50 ms apart. |
+| paper_slide | 0.4 | Pink-noise paper slide (HP 1 kHz) with tiny crackle grains. |
+| wood_knock | 0.2 | Knock: 220+520 Hz decaying sines with a noise click. |
+| metal_tink | 0.4 | Inharmonic metal ping 1.2/2.9/4.1 kHz, fast decay. |
+| glass_tink | 0.35 | Glass ping: 2.6+3.9 kHz sine pair, soft attack, short ring. |
+| thump_soft | 0.25 | Soft low thump: 90->60 Hz falling sine. |
+| pop_soft | 0.12 | v1 pop an octave down, softer attack; use at -6 dB mix gain. |
+| click_soft | 0.04 | Tiny 3 kHz click through a low-pass. |
+| ding_soft | 0.6 | Soft 880 Hz bell ding with harmonics. |
+| riser_short | 0.7 | Quick riser: swept noise + 200->900 Hz sine, rising envelope. |
+| low_boom | 0.9 | 45 Hz sine thump with a sub-noise tail. |
+| whip | 0.2 | Fast whip crack: noise sweep 5200->900 Hz, sharp attack. |
+| bicycle_bell | 0.4 | Two bright 2.6 kHz bell strikes with hammer ticks. |
+| boxing_bell | 1.0 | Three fast metallic rings (inharmonic 760 Hz bell). |
+| camera_shutter | 0.15 | Shutter click + mechanical clack + mirror slap. |
+| chain_rattle | 0.6 | Random metallic pings over a bright rattle bed. |
+| chalk | 0.6 | Scratchy chalk strokes: band-passed noise with stick-slip AM. |
+| cleanroom_hum | 4.0 | Steady airflow hiss + 60/120/180 Hz hum; seamless 4 s loop. |
+| construction | 4.0 | Distant hammering + alternating reverse-alarm beeps over site rumble; loop. |
+| crowd_cheer | 2.0 | Formant-band roar with clap grains and whistle chirps. |
+| crowd_murmur | 4.0 | Layered formant-filtered noise babble with slow swells; loop. |
+| dice | 0.8 | Dice rattle then two settling clacks. |
+| door_creak | 0.7 | Slow pitch-wobbling saw through a band-pass, stick-slip AM. |
+| engine_sputter | 1.2 | Irregular low pops, gaps widening, fading out. |
+| factory_line | 4.0 | Clunk every 0.5 s + 100 Hz motor hum + pneumatic hisses; loop. |
+| harbor | 4.0 | Gull chirps over slow water wash; loop. |
+| heartbeat | 0.8 | Lub-dub: two low swept thumps. |
+| jet_idle | 4.0 | 1250 Hz whine with vibrato over low rumble; loop. |
+| marker_squeak | 0.4 | Dry-erase squeak: wobbling 2.9 kHz tone + rasp. |
+| news_sting | 1.2 | Three rising synth stabs (A minor -> open) with sub hit and shimmer. |
+| rewind_tape | 1.0 | Pitched-up warble: exponential rise + fast vibrato. |
+| sewing | 4.0 | 12 Hz needle tick over a 120 Hz sewing-machine motor; loop. |
+| shutter_open | 0.6 | Roller-shutter rattle accelerating up, ending in a clank. |
+| shutter_slam | 0.6 | Roller-shutter rattle starting with a clank, dying down. |
+| street_traffic | 4.0 | Traffic bed, two doppler motorbike passes, horns; loop. |
+| thunder | 1.5 | Crack then rolling low rumble with sub tail. |
+| vault_lock | 0.8 | Heavy clunk, bolt slide with detent ticks, lock-home click. |
+| wood_crash | 0.9 | Board break: crack, splinter pops, body thud, splatter. |
+| riser | 1.0 | Long strong riser (film impact lead-in): noise sweep + 220->1100 Hz + rising sub. |
+| music_somber (../music/music_somber.wav) | 80.0 | Slow 72 BPM A-minor loop: sparse pentatonic plucks over a low pad + bass (1986 hardship). |
+| music_hopeful (../music/music_hopeful.wav) | 62.6 | 92 BPM major loop: kalimba 8th arpeggios, soft bass, light shaker (Doi Moi reforms). |
+| music_upbeat (../music/music_upbeat.wav) | 69.8 | 110 BPM bright marimba ostinato + bass + claps + shaker (FDI/Samsung boom). |
+| music_tension (../music/music_tension.wav) | 72.0 | 100 BPM staccato low-string ostinato (saw through low-pass) + ticking hi-hat (trade war). |
+| music_reflective (../music/music_reflective.wav) | 72.0 | 80 BPM piano-like sines with soft delay; 24-bar cycle ending resolved on C (trap/ending). |
