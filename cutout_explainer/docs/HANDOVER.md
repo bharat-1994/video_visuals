@@ -3,6 +3,18 @@
 This file holds everything decided and learned in the founding session (2026-10-08). It lets any later session, by any model,
 continue without that conversation. Read this first, then `kit/STYLE_GUIDE.md`.
 
+## 0. Current workflow (episode 2 onward; supersedes the per-shot Qwen handoff in section 5.1)
+Updated 2026-10-09 after the Vietnam video (151 shots, v1 then v2). Full numbers are in section 7b.
+1. **Audio in:** `python3 tools/prep_audio.py episodes/<slug> part*.wav` gives narration.wav, words.json, segs.json (clause-cut shots), END.txt. The director then hand-fixes segs.json against the script.
+2. **Plan before drawing:** copy `kit/episodes/_template/` to `kit/episodes/<slug>/`. The director writes PLAN.md (chapters, motifs, background budget, new assets, key shots). Search `kit/library/catalog/` first; reuse before drawing anything new.
+3. **One line per shot** in `lines.py` (grammar: `kit/engine/SCENE_LANGUAGE.md`). Key shots are hand-coded by the director only when the scene language cannot express them.
+4. **Checks before any render** (scripts, not eyes): `engine/audit.py` (variety, beat gap, names registered), `engine/layout_check.py` (text on faces, clipped text, duplicate shot ids). Fix until green.
+5. **New props** are built from task cards (`kit/bakeoff/cards/` shows the format) by the cheapest builder that passed the bake-off; `bakeoff/score.py` checks size, anchor, palette and ink automatically. The director looks at the catalog picture, not at code.
+6. **Render, look, fix:** `SHOTS=... RENDER_SCALE=1 engine/sheet.py` for drafts (720p), `engine/build.py` for the final (1080p by default, true vector re-render).
+7. **Model roles:** Sonnet 5.5 directs and judges and writes key shots. A cheap builder (Haiku 5.5 or MiMo v2.6 Flash; the bake-off in `kit/bakeoff/` decides) draws props and writes shot lines from task cards. Scripts check. No middle-manager model. Opus only for a rig or direction problem Sonnet could not solve.
+8. **Fresh chat per episode**, state in `episodes/<slug>/STATE.md`. Builders get budgets in RULES.md (2 runs, 1 look, no helpers).
+9. **Defaults:** engine = `scene_v2.py` + `build.py`; `library/register.py` loads the shared library; 1080p; chapter music from `audio/music/`; sounds automatic by category.
+
 ## 1. Goal
 Make YouTube explainer videos (biography and "why X" topics, around 10 min) in a specific flat 2D cut-out style, cheaply and
 consistently. A strong model sets the creative direction and builds the key parts. Cheaper models build the bulk of the shots.
@@ -100,3 +112,9 @@ The voice-over was dropped for v2 (narration shown as subtitles). The final pipe
 - **Founding session:** Haiku about 290k (shot catalogue) plus about 100k per QA pass. Sonnet: about 80k per writing task and 95–150k per batch of 4–5 shots.
 - **Qwen run 1, 3 shots:** 0.83M uncached input, 6.4M cached input, 68k output. Almost all of it was re-reading context and images in its render/review loop, not writing code.
 - **Levers:** smaller images, a slim production prompt, batches of 10–15 shots, a cap on full-resolution checks, and brief-checking done by the strong model so Qwen needs fewer rounds.
+
+## 7b. Vietnam video token and cost facts (2026-10)
+- Opus did the whole first build (~150k) plus Act 1 setup (~225k) plus the v2 brief (~60k); Sonnet sub-agents drew ~40 props (~354k tokens, all kept).
+- The Qwen v2 run: 25M uncached input, 45M cached, 225k output (about 300:1 read:write, caused by parallel helpers re-reading the same files). Priced by model that is about $2.7 MiMo, $3.1 Haiku, $4.6 Qwen, $57 Sonnet, $113 Opus.
+- List prices per M tokens in/out: MiMo v2.6 Flash 0.10/0.28 (cache 0.003), Qwen 3.8 Flash 0.15/0.47, Haiku 5.5 0.10/0.50 (cache 0.01; prompts over 100K cost 5x), Sonnet 5.5 2/10 (cache 0.10), Opus 5.5 4/20 (cache 0.20).
+- Lesson: cost follows which model READS tokens. Keep the strong model on direction, rules and judgment; cheap models build; scripts check; build the plan and run the checks before drawing so nothing is built twice.

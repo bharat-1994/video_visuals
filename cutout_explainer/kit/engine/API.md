@@ -1,3 +1,5 @@
+> **Scene lines (one line per shot), timing tokens and house rules: `engine/SCENE_LANGUAGE.md`.** Checks: `audit.py`, `layout_check.py`. Catalog of every asset: `library/catalog/`. Default render is 1080p (`RENDER_SCALE=1` for 720p drafts).
+
 # Engine API (engine/lib.py) — put `import sys; sys.path.insert(0,'engine'); from lib import *` at the top of your module   Canvas W=1280,H=720, FPS=30. cairo context `ctx`.
 A scene is `def shotN(ctx, t, dur):` (t = seconds since shot start). Draw background -> camera -> world -> overlay text.
 - Camera: `ctx.save(); camera(ctx, zoom, cx, cy, shake=0, t=t)` ... draw world ... `ctx.restore()`. push_in: zoom=lerp(1.0,1.12,ease_io(t/dur)); pull_out reverse; pan: cx=lerp(...).

@@ -19,7 +19,12 @@ cutout_explainer/
 │   └── MODEL_EVALS.md        scored model runs (Qwen run 1, about 21/30)
 ├── kit/                      self-contained working kit (give this to a shot-building model)
 │   ├── STYLE_GUIDE.md  PROMPT.md (bake-off)  PROMPT_PRODUCTION.md (batches)  TEST_BRIEF.md  RUBRIC.md
-│   ├── engine/   lib.py (rig, poses, effects, render)  API.md  check.py  sheet.py  build.py
+│   ├── engine/   lib.py (rig, poses, effects, render; 1080p default)  scene_v2.py (scene lines)  SCENE_LANGUAGE.md  API.md
+│   │             build.py (render+mix)  sheet.py  check.py  audit.py  layout_check.py  catalog.py  beats.py
+│   ├── tools/    prep_audio.py (audio -> words.json, segs.json)
+│   ├── library/  register.py (loads all shared assets)  catalog/ (CATALOG.md + picture sheets of every asset, bg, cast)
+│   ├── bakeoff/  builder test: cards, RULES.md, scorers, README (Haiku vs MiMo)
+│   ├── episodes/ _template/ (copy per episode)  vietnam/ (finished)
 │   ├── audio/    sfx/*.wav (31) + INDEX.md, music_bed.wav, sfx.py + sfx_extra.py (synthesis sources)
 │   ├── reference/  style reference frames, cast, poses, a bad example and a good example
 │   ├── examples/   accepted v2 shot code (9 shots)

@@ -428,7 +428,7 @@ def paper(ctx, x, y, w, h, rot=0, c=(1, 1, 1), lines_=4, label=None, size=30, in
 def render(scenes, out, preview_every=None, sheet=None):
     """scenes: list of (dur, fn(ctx,t,dur)). Streams raw frames to ffmpeg."""
     import subprocess, os
-    S = float(os.environ.get("RENDER_SCALE", "1"))        # 1.5 -> true 1920x1080 (vector drawing, no upscaling)
+    S = float(os.environ.get("RENDER_SCALE", "1.5"))      # default 1.5 = true 1920x1080 (vector re-render, not upscaling); RENDER_SCALE=1 for 720p drafts
     RW, RH = int(round(W*S)), int(round(H*S))
     p = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "bgra", "-s", f"{RW}x{RH}",
                           "-r", str(FPS), "-i", "-", "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "18", out],

@@ -6,6 +6,8 @@ Scoring uses `kit/RUBRIC.md`: 6 criteria, 0–5 each, maximum 30. Add a row for 
 |---|---|---|---|---|---|---|
 | 2026-10-08 | Qwen 3.8 Flash | 1 | founding kit (before the brief-check rule, rumble SFX and image downscale) | ~21 | 0.83M / 6.4M / 68k | details below |
 | 2026-10-08 | DeepSeek V4.1 Flash | 1 | founding kit | n/a | n/a | did not finish |
+| 2026-10 | Qwen 3.8 Flash | Vietnam v2 | v2 brief | accepted after director fixes | 25M / 45M / 225k | built 53 bgs, 22 props, 27 custom shots; needed layout fixes; re-read context ~300:1 |
+| (pending) | Haiku 5.5 vs MiMo v2.6 Flash | bake-off | prep-ep2 | see `kit/bakeoff/RESULTS.md` | | cards A-D, blind scoring |
 
 ## Qwen 3.8 Flash, run 1 (TEST_BRIEF: Falcon 1, 2008 office, investor dialogue)
 

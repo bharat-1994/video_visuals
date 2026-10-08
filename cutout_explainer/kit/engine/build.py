@@ -1,6 +1,7 @@
-"""Render + mix: python3 build.py <module> out.mp4
-Module must define SCENES=[(dur,fn)...], CUES=[(shot_id,t,'sfx',gain_db)...], optional SUBS=[str|None per shot],
-optional NARRATION='episodes/<slug>/narration.wav' and NARRATION_OFFSET=<seconds where this batch starts in that track>."""
+"""Render + mix (default 1080p; RENDER_SCALE=1 for 720p drafts): python3 build.py <module> out.mp4
+Module defines SCENES=[(dur,fn)...], CUES=[(shot_id,t,sfx,gain_db)...], optional SUBS, NARRATION (path) + NARRATION_OFFSET,
+and MUSIC=[(start_s, bed_name), ...] (audio/music/<name>.wav loops, 1.5 s crossfades, -10 dB, ducked under speech).
+Without MUSIC it falls back to audio/music_bed.wav."""
 import sys, os, importlib, json, wave, subprocess, numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE); sys.path.insert(0, os.getcwd())
 from lib import *
@@ -24,7 +25,26 @@ def load(p):
 mix = np.zeros(N, np.float32)
 for sid, t, name, g in CUES:
     x = load(f"{AUD}/sfx/{name}.wav")*10**(g/20); o = int((starts[sid-1]+t)*SR); x = x[:max(0, N-o)]; mix[o:o+len(x)] += x
-music = np.tile(load(f"{AUD}/music_bed.wav"), 1+N//len(load(f"{AUD}/music_bed.wav")))[:N]*10**(-8/20)
+def bed(name):
+    p = os.path.join(AUD, "music", name + ".wav")
+    if not os.path.exists(p): p = os.path.join(AUD, name + ".wav")
+    return load(p)
+MUSIC = getattr(m, "MUSIC", None)
+if MUSIC:
+    music = np.zeros(N, np.float32); XF = int(1.5*SR)
+    bounds = [s for s, _ in MUSIC] + [N/SR]
+    for i, (st, name) in enumerate(MUSIC):
+        x = bed(name); o0 = int(st*SR)
+        end = int((bounds[i+1] + 1.5)*SR)                      # run 1.5 s past the next change for the crossfade
+        seg = np.tile(x, max(1, -(-(end - o0)//len(x))))[:max(0, min(end, N) - o0)]
+        f = np.ones(len(seg), np.float32)
+        n2 = min(XF, len(seg))
+        if i: f[:n2] *= np.linspace(0, 1, n2)                  # fade in (crossfade with previous bed)
+        f[-n2:] *= np.linspace(1, 0, n2)                       # fade out at the change (or the master tail)
+        music[o0:o0+len(seg)] += seg*f
+    music *= 10**(-10/20)                                      # chapter beds sit a bit lower than the v1 bed
+else:
+    music = np.tile(load(f"{AUD}/music_bed.wav"), 1+N//len(load(f"{AUD}/music_bed.wav")))[:N]*10**(-8/20)
 NARR = getattr(m, "NARRATION", None)   # optional path to narration audio (any format ffmpeg reads)
 if NARR:
     raw = subprocess.run(["ffmpeg", "-v", "error", "-i", NARR, "-ac", "1", "-ar", str(SR), "-f", "s16le", "-"], capture_output=True).stdout
