@@ -1,0 +1,23 @@
+{
+ "voices_note": "narrator = adult male, warm documentary; kid = young boy-ish (higher pitch); editor = older British male",
+ "shots": [
+  {"id": 1, "lines": [{"id": "s1_n", "who": "narrator", "text": "Pretoria, 1971. A quiet kid who'd rather read than talk."}],
+   "staging": "Wide: Union Buildings (Pretoria) on its hill: long sandstone building, two domed cupola towers, curved colonnade in the middle, red tile roofs, terraced gardens, purple jacaranda trees in foreground. Typewriter caption '1971 · Pretoria, South Africa'. Push in toward kid Elon sitting under a jacaranda reading a book (book faces HIM, we see the cover)."},
+  {"id": 2, "lines": [{"id": "s2_n", "who": "narrator", "text": "Small. Bookish. An easy target."}],
+   "staging": "Schoolyard, brick school wall. Bully shoves kid Elon (bully arm extends on beat), kid stumbles back, book flies out of his hands and lands. Quick shake on the shove. Kid sad, bully angry."},
+  {"id": 3, "lines": [{"id": "s3_n", "who": "narrator", "text": "At ten, he got a VIC-20. The manual was meant to take six months. He finished it in three days."}],
+   "staging": "Night bedroom. 3/4 SIDE view: kid sits at desk facing RIGHT toward a Commodore VIC-20 (beige wedge keyboard-computer, brown keys) hooked to a small CRT TV whose screen faces HIM (we see TV at an angle / side). Thick manual open beside him; a page-counter sticky note flips '6 months' -> crossed out -> '3 days' pop."},
+  {"id": 4, "lines": [{"id": "s4_n", "who": "narrator", "text": "At twelve, he coded his own space game. Blastar."}],
+   "staging": "OVER-THE-SHOULDER: back of kid's head (back view) in foreground bottom-left, TV screen big in frame showing animated Blastar: triangle ship shooting at descending alien blocks, explosions; title 'BLASTAR' in pixel-ish letters pops on screen at the word."},
+  {"id": 5, "lines": [{"id": "s5_editor", "who": "editor", "text": "A twelve-year-old wrote this?"}, {"id": "s5_kid", "who": "kid", "text": "Yep. Five hundred dollars, please."}],
+   "staging": "Magazine office: editor at desk (facing left) holding the printed code listing; kid Elon standing left, facing right. Wall poster 'PC and Office Technology' magazine cover. Editor shocked then hands over an envelope '$500' which pops; cash-register sting. Dialogue text with ticks."},
+  {"id": 6, "lines": [{"id": "s6_n", "who": "narrator", "text": "At seventeen, he left for Canada. Alone."}],
+   "staging": "Airport arrivals / outdoors: teen Elon walks right pulling one suitcase; airplane flies overhead left->right; a big 'Welcome to Canada' sign with a red maple leaf; snowy mountains / pine trees background. Caption '1989 · Age 17'."},
+  {"id": 7, "lines": [{"id": "s7_n", "who": "narrator", "text": "1995. A Stanford PhD. He lasted two days."}],
+   "staging": "Stanford Main Quad: Memorial Church facade (buff sandstone, big central arch with colorful mosaic band above, flanking arcades with round arches, red tile roofs), palm trees, oval lawn. Lettering 'Stanford University' in a serif. Adult Elon walks in with backpack; calendar 'DAY 1' page flips to 'DAY 2'; then he turns and walks out (exits right) — whoosh."},
+  {"id": 8, "lines": [{"id": "s8_n", "who": "narrator", "text": "With his brother Kimbal, he built Zip2. They slept in the office."}],
+   "staging": "Small rented Palo Alto office at night, window with dark street. Elon in 3/4 SIDE view at a desk facing RIGHT, typing on a computer whose monitor faces HIM (we see monitor from the side/back, with screen glow on his face). Kimbal asleep on a beanbag/futon in the corner with 'z z z'. Sign on door 'Zip2'. Towel over chair with note 'YMCA showers'."},
+  {"id": 9, "lines": [{"id": "s9_n", "who": "narrator", "text": "Then Compaq bought it. Three hundred seven million. Elon's cut? Twenty-two million. At twenty-seven."}],
+   "staging": "Spotlight stage: banker (suit) hands Elon an oversized check 'Compaq · $307,000,000'; on 'Elon's cut' the check splits / a second smaller check '$22,000,000' pops in his hands; money rain; Elon smug-happy, both arms raise the check. Keyword '$22M at 27' pops at the end."}
+ ]
+}

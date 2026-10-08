@@ -1,0 +1,54 @@
+# Direction document template
+
+The strong model turns a script into this document. Shot builders (Qwen or others) work **only** from it plus the kit.
+Write it so a builder never has to guess. Every shot carries its own acceptance checks.
+
+Output two files per episode:
+- `episodes/<slug>/DIRECTION.md`, readable by humans
+- `episodes/<slug>/shots.json`, read by machines (schema below). A cheap model can convert the markdown to this.
+
+---
+
+## Part A: Episode header
+- **Title / slug / target length / narration speed** (default 160 wpm until a voice track exists)
+- **Cast table:** id, who, look (hair style and colour, jaw, accessories, clothing per era), new or existing in `cast()`, built by whom.
+- **Asset list:** every landmark or recurring prop, with:
+  - its 2–4 **signature features** (what makes it recognizable)
+  - its photo reference (a link or file in `episodes/<slug>/refs/`)
+  - built by (strong model / builder), reused in which shots
+- **Palette per location:** 3–5 hex colours each.
+- **Recurring motifs:** metaphors or props that return. Plant each early, reuse it, flip it at the end.
+- **Key shots** (built by the strong model): list them by id.
+
+## Part B: Shot list (one block per shot)
+
+```
+### S012 · 0:41–0:44 (3.2 s) · Chapter 1 · builder: qwen
+Narration: "He finished the six-month manual in three days."
+Visual: side-on kid at VIC-20; sticky note "6 months" → crossed out → "3 days" pops on "three days".
+Staging: kid facing right (facing ≥ 0.6), hands on keyboard (pose type_R); TV screen faces HIM; manual open on desk beside him.
+Camera: slow push-in 1.00→1.08.
+Text: keyword "3 days" (green sticky) at ~2.0 s.
+SFX: typing_burst 0.0 (−10 dB), page_flip 0.8, pop 2.0, night_crickets ambience 0.0 (−18 dB).
+Assets used: vic20, crt_tv_wood, bedroom_night.
+CHECKS:
+  [ ] kid's hands touch the keyboard   [ ] TV screen angled toward the kid, not the camera
+  [ ] "3 days" appears on the word, not before   [ ] nothing in the bottom 90 px
+```
+
+Rules for writing shots:
+- One idea per shot. 8–12 narration words. Duration = words ÷ (wpm/60), plus 0.3 s, clamped to 1.6–6.5 s.
+- **CHECKS** must test what the brief requires (who faces whom, who holds what with which hand, what sits on what, timing
+  of pops versus words). Builders tend to polish frames but skip brief requirements, and the checks close that gap.
+- Vary shot types over every 10 shots: close-up, two-shot, wide, object-only, metaphor, keyword/number, over-the-shoulder.
+- Dialogue shots: give the line timing (t_start–t_end) for each speaker, so lip-flap and text appear only then.
+
+## Part C: shots.json schema
+```json
+{"id":"S012","start":41.0,"dur":3.2,"chapter":1,"builder":"qwen",
+ "narration":"...","visual":"...","staging":"...","camera":"push_in 1.00-1.08",
+ "text":[{"kind":"keyword","text":"3 days","t":2.0}],
+ "dialogue":[{"who":"editor","text":"...","t0":0.3,"t1":1.9}],
+ "sfx":[["typing_burst",0.0,-10],["pop",2.0,0]],
+ "assets":["vic20","crt_tv_wood"],"checks":["...","..."]}
+```
