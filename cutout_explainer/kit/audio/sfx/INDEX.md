@@ -35,3 +35,6 @@
 | music_bed (../music_bed.wav) | 40.0 | Upbeat kalimba/marimba explainer loop, I-V-vi-IV in C, soft bass + shaker. |
 | rocket_rumble | 3.0 | ignition thump + deep roar + crackle, long tail (launches) |
 | engine_roar | 2.0 | gritty revving engine (cars, machines) |
+| metal_clang | 1.4 | iron cage/gate slamming shut: bar partials + short rattle (Vietnam ep) |
+| stone_crumble | 2.2 | stone column collapsing: crack snaps, tumbling block thumps, gravel (Vietnam ep) |
+| stamp | 0.35 | rubber stamp on paper: dull thunk + papery slap (Vietnam ep) |

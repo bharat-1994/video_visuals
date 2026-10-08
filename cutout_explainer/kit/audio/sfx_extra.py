@@ -1,4 +1,4 @@
-"""Extra synthesized SFX (added after Qwen run 1): rocket_rumble, engine_roar. numpy only."""
+"""Extra synthesized SFX (added after Qwen run 1): rocket_rumble, engine_roar; vietnam ep: metal_clang, stone_crumble, stamp. numpy only."""
 import numpy as np, wave, os
 SR = 44100; OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "sfx")
 rng = np.random.default_rng(7)
@@ -26,5 +26,28 @@ def engine_roar(d=2.0):
     noise = lowpass(rng.standard_normal(n), 0.05)*2
     env = np.minimum(1, t/0.15)*np.minimum(1, (d-t)/0.4)
     return lowpass(tone, 0.08)*env*3 + noise*env
-save("rocket_rumble", rocket_rumble()); save("engine_roar", engine_roar())
-print("ok")
+def metal_clang(d=1.4):
+    """Iron cage slamming shut: inharmonic bar partials + short rattle."""
+    n = int(d*SR); t = np.arange(n)/SR
+    parts = sum(a*np.sin(2*np.pi*f*t)*np.exp(-t*k) for f, a, k in [(310, 1, 3.5), (847, .6, 5), (1530, .4, 7), (2410, .25, 9), (612, .5, 4)])
+    hit = lowpass(rng.standard_normal(n), 0.4)*np.exp(-t*60)*2
+    rattle = sum(np.sin(2*np.pi*1900*t)*np.exp(-np.maximum(0, t-o)*40)*(t > o)*.4 for o in (0.09, 0.16, 0.21, 0.25))
+    return parts + hit + rattle + np.sin(2*np.pi*55*t)*np.exp(-t*12)*1.2
+def stone_crumble(d=2.2):
+    """Stone column collapsing: crack snaps, then tumbling block thumps over a gravel bed."""
+    n = int(d*SR); t = np.arange(n)/SR; x = np.zeros(n)
+    for o in (0.0, 0.07):                                                   # cracks
+        m = t >= o; x[m] += lowpass(rng.standard_normal(m.sum()), 0.6)*np.exp(-(t[m]-o)*90)*1.5
+    for o, f in [(0.35, 60), (0.6, 48), (0.8, 70), (1.0, 52), (1.15, 40), (1.4, 58)]:   # blocks hitting ground
+        m = t >= o; tt = t[m]-o; x[m] += np.sin(2*np.pi*f*tt*(1-tt))*np.exp(-tt*14)*1.6 + lowpass(rng.standard_normal(m.sum()), 0.3)*np.exp(-tt*30)*.6
+    gravel = lowpass(rng.standard_normal(n)*(rng.random(n) < 0.05), 0.35)*2*np.exp(-np.maximum(0, t-0.3)*1.6)*(t > 0.3)
+    return x + gravel
+def stamp(d=0.35):
+    """Rubber stamp on paper: dull thunk + papery slap."""
+    n = int(d*SR); t = np.arange(n)/SR
+    return np.sin(2*np.pi*120*t*(1-t*1.5))*np.exp(-t*25) + lowpass(rng.standard_normal(n), 0.5)*np.exp(-t*80)*.8
+if __name__ == "__main__":
+    import sys
+    want = sys.argv[1:] or ["rocket_rumble", "engine_roar", "metal_clang", "stone_crumble", "stamp"]
+    for k in want: save(k, globals()[k]())
+    print("ok")
