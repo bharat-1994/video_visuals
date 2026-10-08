@@ -36,8 +36,22 @@ CHECKS:
   [ ] "3 days" appears on the word, not before   [ ] nothing in the bottom 90 px
 ```
 
+### Timing from a narration audio file (preferred whenever the user provides one)
+This is a Haiku-level task, done before the shot list is written:
+1. Transcribe with word timestamps:
+   `pip install --break-system-packages faster-whisper`. Load the audio as a numpy array first, because passing a file path hit a PyAV
+   `metadata_errors` bug in the founding session:
+   `ffmpeg -i narration.wav -ac 1 -ar 16000 -f s16le -` → `np.int16` → float32 / 32768, then
+   `WhisperModel('small', compute_type='int8').transcribe(audio, word_timestamps=True, vad_filter=True)`.
+2. Save `episodes/<slug>/words.json` as `[{"w": word, "t0": s, "t1": s}, ...]`.
+3. The director splits shots at clause boundaries. Each shot's `start` is its first word's t0, and its `dur` runs to the next shot's start.
+   Pops, keywords and dialogue are timed to the exact word (`t` is relative to the shot start).
+4. Dialogue lines spoken in character voices: take `t0`/`t1` from the words, so lip-flap runs only while the line is heard.
+5. `build.py` mixes the narration itself: in the batch module, set `NARRATION = "episodes/<slug>/narration.wav"` and
+   `NARRATION_OFFSET = <batch start in seconds>`. Music ducks automatically under speech.
+
 Rules for writing shots:
-- One idea per shot. 8–12 narration words. Duration = words ÷ (wpm/60), plus 0.3 s, clamped to 1.6–6.5 s.
+- One idea per shot. 8–12 narration words. With narration audio, use the real word timings. Without it, duration = words ÷ (wpm/60), plus 0.3 s, clamped to 1.6–6.5 s.
 - **CHECKS** must test what the brief requires (who faces whom, who holds what with which hand, what sits on what, timing
   of pops versus words). Builders tend to polish frames but skip brief requirements, and the checks close that gap.
 - Vary shot types over every 10 shots: close-up, two-shot, wide, object-only, metaphor, keyword/number, over-the-shoulder.

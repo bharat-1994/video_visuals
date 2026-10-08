@@ -1,5 +1,6 @@
 """Render + mix: python3 build.py <module> out.mp4
-Module must define SCENES=[(dur,fn)...], CUES=[(shot_id,t,'sfx',gain_db)...], optional SUBS=[str|None per shot]."""
+Module must define SCENES=[(dur,fn)...], CUES=[(shot_id,t,'sfx',gain_db)...], optional SUBS=[str|None per shot],
+optional NARRATION='episodes/<slug>/narration.wav' and NARRATION_OFFSET=<seconds where this batch starts in that track>."""
 import sys, os, importlib, json, wave, subprocess, numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE); sys.path.insert(0, os.getcwd())
 from lib import *
@@ -23,7 +24,16 @@ def load(p):
 mix = np.zeros(N, np.float32)
 for sid, t, name, g in CUES:
     x = load(f"{AUD}/sfx/{name}.wav")*10**(g/20); o = int((starts[sid-1]+t)*SR); x = x[:max(0, N-o)]; mix[o:o+len(x)] += x
-mb = load(f"{AUD}/music_bed.wav"); mix += np.tile(mb, 1+N//len(mb))[:N]*10**(-8/20)
+music = np.tile(load(f"{AUD}/music_bed.wav"), 1+N//len(load(f"{AUD}/music_bed.wav")))[:N]*10**(-8/20)
+NARR = getattr(m, "NARRATION", None)   # optional path to narration audio (any format ffmpeg reads)
+if NARR:
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-i", NARR, "-ac", "1", "-ar", str(SR), "-f", "s16le", "-"], capture_output=True).stdout
+    v = np.frombuffer(raw, np.int16).astype(np.float32)/32768
+    v = v[int(getattr(m, "NARRATION_OFFSET", 0.0)*SR):][:N]          # NARRATION_OFFSET = where this module starts in the full track
+    v = np.pad(v, (0, N-len(v))); v *= 10**(-3/20)/max(1e-6, np.abs(v).max())
+    env = np.convolve(np.abs(v), np.ones(int(0.3*SR))/int(0.3*SR), "same")   # duck music ~6 dB under speech
+    music *= 1 - 0.5*np.clip(env/0.05, 0, 1); mix += v
+mix += music
 mix[-int(1.5*SR):] *= np.linspace(1, 0, int(1.5*SR)); mix /= max(1.0, np.abs(mix).max()/0.89)
 with wave.open("_mix.wav", "w") as w: w.setnchannels(1); w.setsampwidth(2); w.setframerate(SR); w.writeframes((mix*32767).astype(np.int16).tobytes())
 subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", "_video.mp4", "-i", "_mix.wav", "-c:v", "copy", "-c:a", "aac", "-shortest", out]); print(out)

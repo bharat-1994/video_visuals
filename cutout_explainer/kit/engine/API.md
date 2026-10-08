@@ -32,3 +32,4 @@ Render one frame: `python3 engine/check.py <module> <shotfn> <t> out.png`. Conta
 - Hands can't cross the body midline unless `cross=True`. In side view (|facing|>=0.6) the far arm is drawn behind the torso automatically; in `view="back"` both arms are behind the torso.
 - New characters: `Puppet(hair="short|fringe|part|wavy|slick|bald", hair_c, shirt, jacket, tie, jaw=0..1, nose, glasses, mustache, kid, brow_w, scale)`.
 - Paths in your module are relative to the kit root (audio/ is found automatically).
+- Narration audio: set `NARRATION = "episodes/<slug>/narration.wav"` and `NARRATION_OFFSET = <batch start s>` in your module; build.py mixes it and ducks the music. Shot timings come from `episodes/<slug>/words.json` (see docs/DIRECTION_TEMPLATE.md).
