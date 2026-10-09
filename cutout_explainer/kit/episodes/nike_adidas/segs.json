@@ -1,0 +1,778 @@
+[
+{
+"id": "S01",
+"start": 0.0,
+"text": "In 1984, executives at a German sportswear titan were handed a videotape",
+"i0": 0,
+"n": 12,
+"sec": 0
+},
+{
+"id": "S02",
+"start": 5.3,
+"text": "of a 21-year-old rookie guard out of North Carolina.",
+"i0": 12,
+"n": 9,
+"sec": 0
+},
+{
+"id": "S03",
+"start": 8.48,
+"text": "His name was Michael Jordan.",
+"i0": 21,
+"n": 5,
+"sec": 0
+},
+{
+"id": "S04",
+"start": 11.02,
+"text": "The young star wanted to sign with them.",
+"i0": 26,
+"n": 8,
+"sec": 0
+},
+{
+"id": "S05",
+"start": 13.52,
+"text": "He wore their shoes in high school.",
+"i0": 34,
+"n": 7,
+"sec": 0
+},
+{
+"id": "S06",
+"start": 15.14,
+"text": "He loved their brand.",
+"i0": 41,
+"n": 4,
+"sec": 0
+},
+{
+"id": "S07",
+"start": 16.58,
+"text": "But executives in Herzogenaurach, Germany, turned him down.",
+"i0": 45,
+"n": 8,
+"sec": 0
+},
+{
+"id": "S08",
+"start": 20.52,
+"text": "They wanted to invest in taller center players.",
+"i0": 53,
+"n": 8,
+"sec": 0
+},
+{
+"id": "S09",
+"start": 23.24,
+"text": "A small, scrappy American company in Oregon",
+"i0": 61,
+"n": 7,
+"sec": 0
+},
+{
+"id": "S10",
+"start": 26.86,
+"text": "stepped in with a desperate $500,000 offer,",
+"i0": 68,
+"n": 7,
+"sec": 0
+},
+{
+"id": "S11",
+"start": 30.84,
+"text": "equity royalties, and a custom shoe line called Air Jordan.",
+"i0": 75,
+"n": 10,
+"sec": 0
+},
+{
+"id": "S12",
+"start": 34.9,
+"text": "That single decision created a $6.6 billion annual revenue machine for Nike",
+"i0": 85,
+"n": 12,
+"sec": 0
+},
+{
+"id": "S13",
+"start": 41.36,
+"text": "and reshaped global corporate history.",
+"i0": 97,
+"n": 5,
+"sec": 0
+},
+{
+"id": "S14",
+"start": 44.7,
+"text": "Today, Nike and Adidas control over $160 billion in combined market capitalization.",
+"i0": 102,
+"n": 12,
+"sec": 0
+},
+{
+"id": "S15",
+"start": 51.08,
+"text": "But behind the glitzy athlete endorsements and viral marketing campaigns",
+"i0": 114,
+"n": 10,
+"sec": 0
+},
+{
+"id": "S16",
+"start": 55.38,
+"text": "lies a ruthless economic war between two fundamentally different corporate engines.",
+"i0": 124,
+"n": 11,
+"sec": 0
+},
+{
+"id": "S17",
+"start": 60.99,
+"text": "The asset-light outsourcing empire of Beaverton, Oregon",
+"i0": 135,
+"n": 7,
+"sec": 0
+},
+{
+"id": "S18",
+"start": 64.46,
+"text": "versus the precision engineering craftsmanship of Bavaria, Germany.",
+"i0": 142,
+"n": 8,
+"sec": 0
+},
+{
+"id": "S19",
+"start": 69.47,
+"text": "To understand why Nike and Adidas operate so differently today,",
+"i0": 150,
+"n": 10,
+"sec": 1
+},
+{
+"id": "S20",
+"start": 73.59,
+"text": "you have to look at how they were born.",
+"i0": 160,
+"n": 9,
+"sec": 1
+},
+{
+"id": "S21",
+"start": 75.93,
+"text": "Adidas was born from a family feud.",
+"i0": 169,
+"n": 7,
+"sec": 1
+},
+{
+"id": "S22",
+"start": 79.15,
+"text": "In 1948, two German brothers,",
+"i0": 176,
+"n": 5,
+"sec": 1
+},
+{
+"id": "S23",
+"start": 81.75,
+"text": "Adi and Rudi Dassler,",
+"i0": 181,
+"n": 4,
+"sec": 1
+},
+{
+"id": "S24",
+"start": 83.43,
+"text": "who ran a successful cobbling business,",
+"i0": 185,
+"n": 6,
+"sec": 1
+},
+{
+"id": "S25",
+"start": 85.51,
+"text": "split the company in half and divided their small town of Herzogenaurach across a river.",
+"i0": 191,
+"n": 15,
+"sec": 1
+},
+{
+"id": "S26",
+"start": 91.39,
+"text": "Adi founded Adidas, Rudi founded Puma.",
+"i0": 206,
+"n": 6,
+"sec": 1
+},
+{
+"id": "S27",
+"start": 95.21,
+"text": "Adidas built its empire on European industrial craftsmanship.",
+"i0": 212,
+"n": 8,
+"sec": 1
+},
+{
+"id": "S28",
+"start": 99.47,
+"text": "Adi Dassler was an engineer at heart,",
+"i0": 220,
+"n": 7,
+"sec": 1
+},
+{
+"id": "S29",
+"start": 101.55,
+"text": "obsessed with leather quality,",
+"i0": 227,
+"n": 4,
+"sec": 1
+},
+{
+"id": "S30",
+"start": 103.25,
+"text": "screw-in cleats, and biomechanics.",
+"i0": 231,
+"n": 4,
+"sec": 1
+},
+{
+"id": "S31",
+"start": 105.71,
+"text": "Across the Atlantic in 1964,",
+"i0": 235,
+"n": 5,
+"sec": 1
+},
+{
+"id": "S32",
+"start": 108.37,
+"text": "a University of Oregon runner named Phil Knight",
+"i0": 240,
+"n": 8,
+"sec": 1
+},
+{
+"id": "S33",
+"start": 110.99,
+"text": "and his track coach Bill Bowerman saw a completely different opportunity.",
+"i0": 248,
+"n": 11,
+"sec": 1
+},
+{
+"id": "S34",
+"start": 115.49,
+"text": "They realized American shoe manufacturing was too expensive,",
+"i0": 259,
+"n": 8,
+"sec": 1
+},
+{
+"id": "S35",
+"start": 119.13,
+"text": "so Knight wrote a business school paper proposing a radical idea.",
+"i0": 267,
+"n": 11,
+"sec": 1
+},
+{
+"id": "S36",
+"start": 122.59,
+"text": "What if you designed shoes in America,",
+"i0": 278,
+"n": 7,
+"sec": 1
+},
+{
+"id": "S37",
+"start": 125.25,
+"text": "but outsourced 100% of the manufacturing to low-cost Asian factories?",
+"i0": 285,
+"n": 10,
+"sec": 1
+},
+{
+"id": "S38",
+"start": 130.71,
+"text": "They called their startup Blue Ribbon Sports,",
+"i0": 295,
+"n": 7,
+"sec": 1
+},
+{
+"id": "S39",
+"start": 133.07,
+"text": "which later became Nike.",
+"i0": 302,
+"n": 4,
+"sec": 1
+},
+{
+"id": "S40",
+"start": 135.12,
+"text": "Nike's outsourcing model changed global business forever.",
+"i0": 306,
+"n": 7,
+"sec": 2
+},
+{
+"id": "S41",
+"start": 139.46,
+"text": "While traditional manufacturing companies tied up billions of dollars in owning factories,",
+"i0": 313,
+"n": 12,
+"sec": 2
+},
+{
+"id": "S42",
+"start": 144.88,
+"text": "machinery, and physical real estate,",
+"i0": 325,
+"n": 5,
+"sec": 2
+},
+{
+"id": "S43",
+"start": 146.72,
+"text": "Nike owned zero factories.",
+"i0": 330,
+"n": 4,
+"sec": 2
+},
+{
+"id": "S44",
+"start": 148.92,
+"text": "They outsourced production to Japan,",
+"i0": 334,
+"n": 5,
+"sec": 2
+},
+{
+"id": "S45",
+"start": 151.06,
+"text": "then South Korea and Taiwan,",
+"i0": 339,
+"n": 5,
+"sec": 2
+},
+{
+"id": "S46",
+"start": 152.78,
+"text": "and eventually Vietnam and Indonesia.",
+"i0": 344,
+"n": 5,
+"sec": 2
+},
+{
+"id": "S47",
+"start": 155.5,
+"text": "Nike focused 100% of its capital on two things,",
+"i0": 349,
+"n": 9,
+"sec": 2
+},
+{
+"id": "S48",
+"start": 159.16,
+"text": "high-tech R&D in Oregon",
+"i0": 358,
+"n": 4,
+"sec": 2
+},
+{
+"id": "S49",
+"start": 160.8,
+"text": "and aggressive, emotional brand marketing.",
+"i0": 362,
+"n": 5,
+"sec": 2
+},
+{
+"id": "S50",
+"start": 163.82,
+"text": "When Nike signed Michael Jordan in 1984,",
+"i0": 367,
+"n": 7,
+"sec": 2
+},
+{
+"id": "S51",
+"start": 167.16,
+"text": "they didn't just sell basketball shoes.",
+"i0": 374,
+"n": 6,
+"sec": 2
+},
+{
+"id": "S52",
+"start": 169.34,
+"text": "They sold status, identity, and rebellion.",
+"i0": 380,
+"n": 6,
+"sec": 2
+},
+{
+"id": "S53",
+"start": 173.1,
+"text": "Nike's return on capital employed, ROCE, skyrocketed.",
+"i0": 386,
+"n": 7,
+"sec": 2
+},
+{
+"id": "S54",
+"start": 177.26,
+"text": "By spending $0 on factory maintenance,",
+"i0": 393,
+"n": 6,
+"sec": 2
+},
+{
+"id": "S55",
+"start": 179.96,
+"text": "Nike could spend hundreds of millions outbidding Adidas for major sports leagues,",
+"i0": 399,
+"n": 12,
+"sec": 2
+},
+{
+"id": "S56",
+"start": 184.5,
+"text": "top athletes, and global advertising.",
+"i0": 411,
+"n": 5,
+"sec": 2
+},
+{
+"id": "S57",
+"start": 187.16,
+"text": "Adidas was forced to abandon its European manufacturing roots",
+"i0": 416,
+"n": 9,
+"sec": 2
+},
+{
+"id": "S58",
+"start": 190.72,
+"text": "and adopt Nike's Asian playbook just to survive.",
+"i0": 425,
+"n": 8,
+"sec": 2
+},
+{
+"id": "S59",
+"start": 195.14,
+"text": "By the 2010s, both giants ran global supply chains.",
+"i0": 433,
+"n": 9,
+"sec": 3
+},
+{
+"id": "S60",
+"start": 199.18,
+"text": "But then came two catastrophic strategic miscalculations.",
+"i0": 442,
+"n": 7,
+"sec": 3
+},
+{
+"id": "S61",
+"start": 203.82,
+"text": "First, Nike's direct-to-consumer, DTC, overreach.",
+"i0": 449,
+"n": 5,
+"sec": 3
+},
+{
+"id": "S62",
+"start": 208.3,
+"text": "Under corporate executives, Nike launched an aggressive plan to cut ties with retail partners,",
+"i0": 454,
+"n": 14,
+"sec": 3
+},
+{
+"id": "S63",
+"start": 213.68,
+"text": "terminating relationships with independent sneaker shops",
+"i0": 468,
+"n": 6,
+"sec": 3
+},
+{
+"id": "S64",
+"start": 216.32,
+"text": "and drastically reducing inventory sent to chains like Foot Locker.",
+"i0": 474,
+"n": 10,
+"sec": 3
+},
+{
+"id": "S65",
+"start": 220.12,
+"text": "The goal? Force customers into Nike's own apps and websites",
+"i0": 484,
+"n": 10,
+"sec": 3
+},
+{
+"id": "S66",
+"start": 224.1,
+"text": "to capture higher 60% plus gross margins.",
+"i0": 494,
+"n": 7,
+"sec": 3
+},
+{
+"id": "S67",
+"start": 227.52,
+"text": "The result? It backfired.",
+"i0": 501,
+"n": 4,
+"sec": 3
+},
+{
+"id": "S68",
+"start": 230.18,
+"text": "By pulling out of wholesale stores,",
+"i0": 505,
+"n": 6,
+"sec": 3
+},
+{
+"id": "S69",
+"start": 232.08,
+"text": "Nike handed valuable physical shelf space directly to agile upstarts like On Running and Hoka.",
+"i0": 511,
+"n": 15,
+"sec": 3
+},
+{
+"id": "S70",
+"start": 237.98,
+"text": "When online demand slowed post-2022,",
+"i0": 526,
+"n": 5,
+"sec": 3
+},
+{
+"id": "S71",
+"start": 241.1,
+"text": "Nike was left with massive inventory gluts in warehouses,",
+"i0": 531,
+"n": 9,
+"sec": 3
+},
+{
+"id": "S72",
+"start": 244.38,
+"text": "forcing brutal discounts.",
+"i0": 540,
+"n": 3,
+"sec": 3
+},
+{
+"id": "S73",
+"start": 246.4,
+"text": "Meanwhile, Adidas faced sub-brand dependency.",
+"i0": 543,
+"n": 5,
+"sec": 3
+},
+{
+"id": "S74",
+"start": 250.09,
+"text": "Adidas relied heavily on high-fashion celebrity collaborations,",
+"i0": 548,
+"n": 7,
+"sec": 3
+},
+{
+"id": "S75",
+"start": 253.67,
+"text": "which generated over $1.3 billion in annual sales",
+"i0": 555,
+"n": 8,
+"sec": 3
+},
+{
+"id": "S76",
+"start": 257.39,
+"text": "and approximately 15% of company operating profits.",
+"i0": 563,
+"n": 7,
+"sec": 3
+},
+{
+"id": "S77",
+"start": 260.83,
+"text": "When those partnerships collapsed in 2022 due to public controversies,",
+"i0": 570,
+"n": 10,
+"sec": 3
+},
+{
+"id": "S78",
+"start": 265.07,
+"text": "Adidas was hit with $1 billion in stranded, unsellable inventory overnight,",
+"i0": 580,
+"n": 11,
+"sec": 3
+},
+{
+"id": "S79",
+"start": 270.13,
+"text": "plunging the company into its first annual loss in over 30 years.",
+"i0": 591,
+"n": 12,
+"sec": 3
+},
+{
+"id": "S80",
+"start": 274.77,
+"text": "So where does the battle stand today?",
+"i0": 603,
+"n": 7,
+"sec": 4
+},
+{
+"id": "S81",
+"start": 277.27,
+"text": "Both giants are currently caught in a delicate dual-front war.",
+"i0": 610,
+"n": 10,
+"sec": 4
+},
+{
+"id": "S82",
+"start": 282.27,
+"text": "The retro cash cow?",
+"i0": 620,
+"n": 4,
+"sec": 4
+},
+{
+"id": "S83",
+"start": 283.67,
+"text": "Both Nike and Adidas rely heavily on decades-old retro lifestyle shoes for steady cash flow.",
+"i0": 624,
+"n": 15,
+"sec": 4
+},
+{
+"id": "S84",
+"start": 289.95,
+"text": "Nike with the Dunk, Air Force One, and Jordan 1.",
+"i0": 639,
+"n": 10,
+"sec": 4
+},
+{
+"id": "S85",
+"start": 293.19,
+"text": "Adidas with the Samba, Gazelle, and Campus.",
+"i0": 649,
+"n": 7,
+"sec": 4
+},
+{
+"id": "S86",
+"start": 295.95,
+"text": "But oversaturating the market with retro re-releases risks destroying brand hype.",
+"i0": 656,
+"n": 11,
+"sec": 4
+},
+{
+"id": "S87",
+"start": 301.91,
+"text": "The performance threat.",
+"i0": 667,
+"n": 3,
+"sec": 4
+},
+{
+"id": "S88",
+"start": 303.31,
+"text": "Premium running brands like Hoka, On Running, and Asics",
+"i0": 670,
+"n": 9,
+"sec": 4
+},
+{
+"id": "S89",
+"start": 306.69,
+"text": "are stealing hardcore runners by innovating faster",
+"i0": 679,
+"n": 7,
+"sec": 4
+},
+{
+"id": "S90",
+"start": 309.83,
+"text": "on carbon-plated marathon shoes and super foams.",
+"i0": 686,
+"n": 7,
+"sec": 4
+},
+{
+"id": "S91",
+"start": 313.86,
+"text": "Nike has been forced to return to its wholesale roots,",
+"i0": 693,
+"n": 10,
+"sec": 4
+},
+{
+"id": "S92",
+"start": 317.02,
+"text": "repairing relationships with retail partners to reclaim shelf space.",
+"i0": 703,
+"n": 9,
+"sec": 4
+},
+{
+"id": "S93",
+"start": 321.1,
+"text": "Adidas has executed a rapid inventory liquidation and lean turnaround.",
+"i0": 712,
+"n": 10,
+"sec": 4
+},
+{
+"id": "S94",
+"start": 325.9,
+"text": "The $160 billion war between Oregon marketing and Bavarian engineering",
+"i0": 722,
+"n": 10,
+"sec": 4
+},
+{
+"id": "S95",
+"start": 330.98,
+"text": "is no longer about who can make the prettiest shoe.",
+"i0": 732,
+"n": 10,
+"sec": 4
+},
+{
+"id": "S96",
+"start": 334.12,
+"text": "It's about who can balance supply chain agility,",
+"i0": 742,
+"n": 8,
+"sec": 4
+},
+{
+"id": "S97",
+"start": 336.82,
+"text": "retail relationships, and raw innovation.",
+"i0": 750,
+"n": 5,
+"sec": 4
+}
+]
