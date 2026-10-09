@@ -7,7 +7,7 @@ Canvas 1280x720, y down. A person's (x, y) is the waist base: y 600-640 puts fee
 `@word` appears when that narration word is spoken (case/punctuation ignored, prefix match: `@invest` hits "investment") · `@word#2` 2nd occurrence ·
 `@word+0.3` offset · `@1.5` = seconds from shot start (**seconds need a decimal point**; `@50` means the word "50") · `out@word` vanishes with a puff ·
 `key=a>b:@word:0.6` animates a number from a to b starting at @word over 0.6 s. A word that is not in this shot's narration is an error.
-Every shot needs something NEW tied to a narration word at least every 2.5 s (engine/beats.py measures it).
+Every shot needs something NEW tied to a narration word at least every 2.5 s. engine/beats.py measures the longest stretch between the cut, each @word beat and the end of the speech; only the first beat of a shot may sit at the cut itself.
 
 ## Elements
 | element | meaning |
@@ -17,7 +17,7 @@ Every shot needs something NEW tied to a narration word at least every 2.5 s (en
 | `shake @word amp=0.6` | impact shake + thud (only for real impacts) |
 | `p WHO x y s e=EXPR f=-1..1 pose=NAME pose2=NAME@word e2=EXPR@word legs=0 view=back walk=px/s talk=@w1~@w2 handL=x,y handR=x,y` | person from CAST. f = facing (-1 left, 1 right). handL/handR put that hand exactly on a point |
 | `a NAME x y [s] k=v @word` | asset call `NAME(ctx, x, y, ...)`; with @word it pops in. `move=dx,dy:@word:dur` slides it. `snd=NAME` sets its entrance sound, `snd=none` silences |
-| `kw "TEXT" x y size` | white outlined keyword (use sparingly, keep clear of faces) |
+| `kw "TEXT" x y size @word` | white outlined keyword; give it an @word so it appears on that word |
 | `st "TEXT" x y size rot=` | yellow sticky note (`\n` = 2 lines) |
 | `tx "TEXT" x y size c=#hex anchor=c` | typewriter text (time markers, labels) |
 | `card "TEXT" sub="..."` | black chapter card |
@@ -31,9 +31,10 @@ Every shot needs something NEW tied to a narration word at least every 2.5 s (en
 Poses: carry_R down hips hold_front phone_R point_L point_R raise_both shrug think_R type_L type_R wave_R.
 Expressions: neutral happy sad angry worried shocked smug tired determined.
 
-## House rules (the audits enforce them)
-- No decorative motion (rain, confetti, steam, motorbikes, spinning things) unless the narration says it or the real place has it.
-- Backgrounds: none in more than ~8% of shots, no 3 identical in a row, dark/spotlight only for the cage/map motif. People in >= 55% of shots.
+## House rules (the audits enforce what they can)
+- **Motion only if the narration names it or the real place has it.** No sliding or walking people, no moving vehicles, no spinning, rain, confetti or steam for their own sake. `walk=`, `move=` and `fx` must be tied to a narration word (the audit flags untied ones; a director can list a shot in the episode's AUDIT motion_ok after checking that the narration or the real place really has that motion). If there is no real motion, the shot stays still: pop-ins on words, a slow camera, nothing else.
+- **People appear only when the script makes them relevant** (a character acts, speaks, reacts, or the point is about people). Otherwise show the thing: the place, the object, the chart. Two people interact only when the script describes an interaction (a deal, an argument, a handshake). No quotas.
+- Backgrounds: none in more than ~8% of shots, no 3 identical in a row. Dark/spotlight only for a real emotional beat or the cage/map motif.
 - Sounds are automatic by element category (see audio/sfx/INDEX.md); do not add `pop`. At most 3 entrance sounds per shot.
 - Never put text over a face; keep text in y 90-130 (top) or below the chin of the nearest head; nothing important in the outer 40 px.
 - No logos or seals. Companies = brand colour + plain name lettering + the real kind of place (factory, office, store).

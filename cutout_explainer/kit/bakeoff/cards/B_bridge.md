@@ -1,6 +1,6 @@
 # Card B: red suspension bridge (medium, big landmark)
-File: `asset_bridge.py`, function `draw(ctx, x, y, s=1.0)`. Side-on view. (x, y) = bottom-centre at the WATER LINE in front of the bridge.
-Size at s=1: width 900-1100 px, height 360-450 px (from water to tower tops). Everything scales with s.
+File: `asset_bridge.py`, function `draw(ctx, x, y, s=1.0)`. Side-on view. (x, y) = bottom-centre of the whole picture; the water strip is part of the picture and ends at y.
+Size at s=1: width 900-1100 px, height 360-450 px for the whole picture including the water strip (about 40-60 px tall). Everything scales with s.
 Real thing: a famous orange-red suspension bridge in the Art Deco style (San Francisco's), drawn as the real kind of landmark, no text.
 Signature features:
 1. Two tall towers, each with two legs tapering slightly toward the top

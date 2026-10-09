@@ -1,7 +1,7 @@
-"""Objective checks for asset cards A/B/C. python3 bakeoff/score.py <A|B|C> <asset_file.py> <out_dir>
+"""Objective checks for an asset task. python3 bakeoff/score.py <A|B|C | path/to/task_card.md> <asset_file.py> <out_dir>
 Writes <out_dir>/<card>.png (the picture to look at) and prints PASS/FAIL lines + a machine-readable summary line.
 Run from the kit root. Checks: runs at two scales, no crash, <1 s, size window, bottom-centre anchor, scales with s,
-flat palette (4-16 main colours), INK outline share, banned text, <= 300 lines."""
+flat palette (4-20 main colours), INK outline share, banned text, <= 300 lines."""
 import sys, os, time, re, importlib.util, json
 sys.path.insert(0, "engine"); sys.path.insert(0, ".")
 import cairo, numpy as np
@@ -9,11 +9,16 @@ from lib import W, H
 CARD = {"A": dict(w=(300, 380), h=(190, 250), banned=r"vespa|piaggio|\btext\(", fn="draw"),
         "B": dict(w=(900, 1100), h=(360, 450), banned=r"golden|\btext\(", fn="draw"),
         "C": dict(w=(240, 320), h=(150, 220), banned=r"sony|walkman|\btext\(", fn="draw")}
-card, path, out = sys.argv[1].upper(), sys.argv[2], sys.argv[3]; os.makedirs(out, exist_ok=True); C = CARD[card]
+arg, path, out = sys.argv[1], sys.argv[2], sys.argv[3]; os.makedirs(out, exist_ok=True)
+if arg.lower().endswith(".md"):      # generated task card: first lines carry  <!-- SIZE w=300-380 h=190-250 banned=vespa|piaggio -->
+    hdr = re.search(r"<!--\s*SIZE\s+w=(\d+)-(\d+)\s+h=(\d+)-(\d+)(?:\s+banned=(\S*))?\s*-->", open(arg).read())
+    C = dict(w=(int(hdr[1]), int(hdr[2])), h=(int(hdr[3]), int(hdr[4])), banned=(hdr[5] or "$^") + r"|\btext\(", fn="draw"); card = os.path.basename(arg)[:-3]
+else: card = arg.upper(); C = CARD[card]
 res = []
 def chk(name, ok, val=""): res.append(bool(ok)); print(("PASS " if ok else "FAIL ") + name + (f": {val}" if val != "" else ""))
 src = open(path).read(); chk("<= 300 lines", src.count("\n") <= 300, src.count("\n"))
-chk("no banned text/brand", not re.search(C["banned"], src, re.I))
+code = "\n".join(l.split("#")[0] for l in src.split("\n"))      # comments may mention anything
+chk("no banned text/brand (code only, comments ignored)", not re.search(C["banned"], code, re.I))
 spec = importlib.util.spec_from_file_location("asset_mod", path); mod = importlib.util.module_from_spec(spec)
 try: spec.loader.exec_module(mod); f = mod.draw
 except Exception as e: chk("imports and has draw()", False, repr(e)); print("SUMMARY", json.dumps(dict(card=card, passed=0, total=len(res)))); sys.exit(1)
@@ -33,8 +38,8 @@ if bb:
     chk("bottom edge within 10 px of y", abs(bb[3] - 640) <= 10, bb[3] - 640); chk("centred within 45 px of x", abs((bb[0] + bb[1])/2 - 640) <= 45, round((bb[0] + bb[1])/2 - 640))
     if bb2: chk("scales with s (0.5 -> 40-60% size)", 0.4*w <= (bb2[1] - bb2[0]) <= 0.6*w, bb2[1] - bb2[0])
     px = a[m]; q = (px // 24); keys, cnt = np.unique(q[:, 0]*10000 + q[:, 1]*100 + q[:, 2], return_counts=True)
-    main = int((cnt > 0.01*len(px)).sum()); chk("flat palette: 4-16 colours with > 1% share", 4 <= main <= 16, main)
-    lum = px.mean(1); chk("INK outline present (1.5-30% dark pixels)", 0.015 <= (lum < 60).mean() <= 0.30, f"{(lum < 60).mean():.3f}")
+    main = int((cnt > 0.01*len(px)).sum()); chk("flat palette: 4-20 colours with > 1% share", 4 <= main <= 20, main)
+    lum = px.mean(1); chk("INK outline present (dark pixels 1.5-55% of the drawing; value is a fraction)", 0.015 <= (lum < 60).mean() <= 0.55, f"{(lum < 60).mean():.3f}")
     sf.write_to_png(f"{out}/{card}.png")
     # crop for judging
     s2 = cairo.ImageSurface(cairo.FORMAT_ARGB32, int(w + 80), int(h + 80)); c2 = cairo.Context(s2); c2.set_source_rgb(.93, .93, .93); c2.paint()

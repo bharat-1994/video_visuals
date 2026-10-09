@@ -17,6 +17,7 @@ text(ctx, s, x, y, size=48, c=(1, 1, 1), anchor='c', reveal=1.0, rot=0, outline=
 smooth(ctx, pts, start=True)   # Catmull-Rom spline through pts (continues current path unless start).
 ```
 
+`box(ctx, x, y, w, h, ...)` takes the TOP-LEFT corner; `circle`/`ellipse` take the CENTRE; `text(ctx, s, x, y)` is centred on x by default.
 Colours are RGB tuples 0..1; `hexc('#e5b73b')` makes one (6-digit hex only).
 `poly(ctx, pts, fill, line=INK, lw=3)` fills a closed polygon; `smooth(ctx, pts)` adds a smooth path you then fill/stroke yourself.
 `ctx` is a pycairo Context: ctx.save()/restore(), translate, scale, rotate, arc, curve_to are all allowed.

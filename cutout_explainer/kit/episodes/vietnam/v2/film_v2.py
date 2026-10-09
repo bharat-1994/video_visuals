@@ -43,4 +43,4 @@ NARRATION = "episodes/vietnam/narration.wav" if not ONLY else None
 NARRATION_OFFSET = 0.0
 # chapter music (build_v2.py crossfades 1.5 s between beds; each bed loops seamlessly)
 MUSIC = [(0.0, "music_somber"), (160.9, "music_hopeful"), (252.9, "music_upbeat"), (396.8, "music_tension"), (507.2, "music_reflective")]
-AUDIT = dict(asset_ok={"sticky", "paper", "city_card"}, exempt_run={"kitchen"}, skip={"S01", "S12", "S14", "S15"})
+AUDIT = dict(asset_ok={"sticky", "paper", "city_card"}, exempt_run={"kitchen"}, skip={"S01", "S12", "S14", "S15"}, motion_ok={"S16", "S28", "S34", "S53", "S90", "S104", "S111", "S129", "S142", "S145"})

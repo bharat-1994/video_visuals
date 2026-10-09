@@ -33,7 +33,7 @@ for sid, sh in shots:
 chk("every name exists in the library", not miss, sorted(miss))
 slow = [f"{sid}:{max_gap(sh):.1f}s" for sid, sh in shots if max_gap(sh) > 2.5]; chk("beat gap <= 2.5 s", not slow, slow)
 chk("no bg used more than twice", max(bgs.values()) <= 2, bgs.most_common(3)); chk("no 3 same bg in a row", not any(seq[i] == seq[i-1] == seq[i-2] for i in range(2, len(seq))))
-chk("people in >= 5 of 10", people >= 5, people); chk("dark/spotlight bg at most once", bgs["dark"] + bgs.get("spotlight", 0) <= 1)
+chk("dark/spotlight bg at most once", bgs["dark"] + bgs.get("spotlight", 0) <= 1)
 chk("at most one map-type asset", sum(v for k, v in assets.items() if "map" in k) <= 1)
 F = layout_check.check([(sh.dur, sh.draw) for _, sh in shots], [sid for sid, _ in shots])
 for f in F: print("   ", f)

@@ -1,7 +1,7 @@
 # cutout_explainer
 
 A pipeline for flat 2D cut-out explainer videos: round-headed puppets, pop-in props, handwritten captions, fast literal visuals.
-A strong model directs and builds the key parts, and cheaper models (e.g. Qwen) build the bulk of the shots.
+Sonnet 5.5 directs and builds the key parts; Haiku 5.5 sub-agents build props and shot lines from small task cards; scripts check the work.
 
 ## Start here
 1. `docs/HANDOVER.md`: everything decided and learned so far. Read it first.
@@ -42,9 +42,9 @@ cd kit/examples && python3 ../engine/sheet.py all_shots ../check.jpg   # should 
 
 ## Claude Project setup
 - **Instructions:** paste the text of `PROJECT_INSTRUCTIONS.md`.
-- **Knowledge (11 files, about 70 KB):** `docs/HANDOVER.md`, `kit/STYLE_GUIDE.md`, `docs/DIRECTION_TEMPLATE.md`, `docs/LEARNINGS.md`,
+- **Knowledge (13 files):** `docs/HANDOVER.md`, `kit/STYLE_GUIDE.md`, `docs/DIRECTION_TEMPLATE.md`, `docs/LEARNINGS.md`,
   `docs/MODEL_EVALS.md`, `kit/RUBRIC.md`, `kit/engine/API.md`, `kit/engine/lib.py`, `kit/PROMPT_PRODUCTION.md`,
-  `kit/audio/sfx/INDEX.md`, `README.md`.
+  `kit/audio/sfx/INDEX.md`, `kit/engine/SCENE_LANGUAGE.md`, `kit/bakeoff/RULES.md`, `README.md`.
 - **Optional images:** `kit/reference/original_frames_01.jpg` and `kit/reference/GOOD_v2_example.jpg`.
 - **Repo only:** example code, bake-off files (`PROMPT.md`, `TEST_BRIEF.md`), audio, font, reference images, history.
 

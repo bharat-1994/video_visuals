@@ -2,7 +2,7 @@
 File: `lines_D.py` containing `L = {"S60": "<shot line>", ...}` for ALL ten ids below. One line per shot in the scene mini-language
 (grammar: engine/SCENE_LANGUAGE.md; read that and library/catalog/CATALOG.md only, plus ONE catalog sheet image of your choice).
 Use ONLY names that exist in CATALOG.md (bg, assets, cast); do not write drawing code. Each shot: a literal picture of its narration, new thing tied to a narration word (@word) at least every 2.5 s,
-no text on top of a face, no more than one dark/spotlight bg in the ten, no bg used more than twice, no 3 identical bgs in a row, at most one map-type asset, people in at least 5 of 10.
+no text on top of a face, no more than one dark/spotlight bg in the ten, people only where the narration makes them relevant, no bg used more than twice, no 3 identical bgs in a row, at most one map-type asset.
 Budget: at most TWO runs of `python3 bakeoff/score_lines.py <lines_D.py> <out_dir>`; look at the sheet once.
 
 Narration (shot id, length, words):

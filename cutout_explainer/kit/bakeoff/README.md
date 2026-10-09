@@ -1,3 +1,5 @@
+> **Status: finished 2026-10-09** (Haiku 5.5 vs MiMo v2.6 Flash vs Qwen 3.8 Flash; results in `docs/MODEL_EVALS.md`). Kept so any future candidate model can be tested the same way. `RULES.md` is now the live builder rules.
+
 # Builder bake-off: Haiku 5.5 vs MiMo v2.6 Flash
 
 Question: which cheap model should build props and shot lines for episode 2, at what quality and cost? Same four cards, same rules, same scripts.

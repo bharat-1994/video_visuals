@@ -43,12 +43,14 @@ Abstract claim → physical metaphor (trap, chain, cage, rope bridge, door, ladd
 
 ### 1.5 Look
 * Flat colours, 2–3 tones per material (base, shadow, highlight). Black outlines 2–4 px. No photo textures.
-* Emotional beats: dark background + single spotlight. Story beats: simple real-world settings.
+* Prefer the real place or the real object over an abstract backdrop. A dark background with one spotlight is for a genuine emotional beat or the cage/map motif only; it was badly overused in Vietnam v1.
 * Text: font "Caveat Brush" only. Keywords = white with dark outline, size 56–84, popped in, in empty space.
   Dialogue = white handwritten line + a short tick toward the speaker's head (`dialogue()`), never a bubble.
   Time markers ("1989 · Age 17") typewritered top-left. **Text never covers a face.**
 
 ### 1.6 Motion grammar
+* **Motion only if the narration names it or the real place has it.** No sliding or walking people, moving vehicles, spinning, rain, confetti or steam for their own sake; a still shot with pop-ins on words and a slow camera is fine. If no real motion comes to mind, leave it still.
+* **People only where the script makes them relevant;** two people interact only when the script describes an interaction. No quotas.
 * Props/keywords enter with `popped()` (overshoot + smoke puff), timed to the word that names them.
 * Camera: slow push-in on realizations, pull-out on summaries/reveals, gentle pan for travel. Shake only on impacts (<0.6 s).
 * Hard cuts between shots. Things that vanish go out with a smoke puff.

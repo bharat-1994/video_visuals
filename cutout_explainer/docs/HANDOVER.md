@@ -4,16 +4,17 @@ This file holds everything decided and learned in the founding session (2026-10-
 continue without that conversation. Read this first, then `kit/STYLE_GUIDE.md`.
 
 ## 0. Current workflow (episode 2 onward; supersedes the per-shot Qwen handoff in section 5.1)
-Updated 2026-10-09 after the Vietnam video (151 shots, v1 then v2). Full numbers are in section 7b.
+Updated 2026-10-09 after the Vietnam video (151 shots) and the builder bake-off. Numbers are in sections 7b and docs/MODEL_EVALS.md.
 1. **Audio in:** `python3 tools/prep_audio.py episodes/<slug> part*.wav` gives narration.wav, words.json, segs.json (clause-cut shots), END.txt. The director then hand-fixes segs.json against the script.
-2. **Plan before drawing:** copy `kit/episodes/_template/` to `kit/episodes/<slug>/`. The director writes PLAN.md (chapters, motifs, background budget, new assets, key shots). Search `kit/library/catalog/` first; reuse before drawing anything new.
-3. **One line per shot** in `lines.py` (grammar: `kit/engine/SCENE_LANGUAGE.md`). Key shots are hand-coded by the director only when the scene language cannot express them.
-4. **Checks before any render** (scripts, not eyes): `engine/audit.py` (variety, beat gap, names registered), `engine/layout_check.py` (text on faces, clipped text, duplicate shot ids). Fix until green.
-5. **New props** are built from task cards (`kit/bakeoff/cards/` shows the format) by the cheapest builder that passed the bake-off; `bakeoff/score.py` checks size, anchor, palette and ink automatically. The director looks at the catalog picture, not at code.
-6. **Render, look, fix:** `SHOTS=... RENDER_SCALE=1 engine/sheet.py` for drafts (720p), `engine/build.py` for the final (1080p by default, true vector re-render).
-7. **Model roles:** Sonnet 5.5 directs and judges and writes key shots. A cheap builder (Haiku 5.5 or MiMo v2.6 Flash; the bake-off in `kit/bakeoff/` decides) draws props and writes shot lines from task cards. Scripts check. No middle-manager model. Opus only for a rig or direction problem Sonnet could not solve.
-8. **Fresh chat per episode**, state in `episodes/<slug>/STATE.md`. Builders get budgets in RULES.md (2 runs, 1 look, no helpers).
+2. **Plan before drawing:** copy `kit/episodes/_template/` to `kit/episodes/<slug>/`. The director writes PLAN.md: chapters, motifs, background budget, key shots, which shots move and why, which need people and why, and a one-line-per-asset table. Search `kit/library/catalog/` first; reuse before drawing.
+3. **Cards:** `python3 tools/make_cards.py episodes/<slug>/PLAN.md` turns the asset lines into task cards (`episodes/<slug>/TASKS/`). `python3 tools/make_pack.py [--lines]` builds the fixed builder pack (about 1k tokens; 5k with scene grammar and catalog names).
+4. **Builders = Haiku 5.5 sub-agents at high effort,** one fresh session per batch (about 5 props or 25 shot lines), each getting the pack + its cards + STATE.md. Rules in `kit/bakeoff/RULES.md`: 2 scorer runs and 1 look per item, short tool output, about 60 tool calls, then write STATE.md and stop. A successor session continues from STATE.md. This keeps every request far below Haiku's 100k-token price step (above it, prompts cost about 5x, cache reads included).
+5. **Checks before any render** (scripts, not eyes): `engine/audit.py` (variety, beat gap, names registered, untied motion), `engine/layout_check.py` (text on faces, clipped text, duplicate shot ids), `bakeoff/score.py` (size, anchor, palette, ink for each prop).
+6. **Render, look, fix:** `SHOTS=... RENDER_SCALE=1 engine/sheet.py` for drafts (720p), `engine/build.py` for the final (1080p, true vector re-render).
+7. **Director = Sonnet 5.5:** plan, key shots, fixes, and judging contact sheets and catalog pictures (never reading builder code). If Haiku fails the same item twice, that one item goes to Opus at medium effort. Qwen and MiMo were tested and are not used (see MODEL_EVALS).
+8. **Fresh chat per episode,** state in `episodes/<slug>/STATE.md`.
 9. **Defaults:** engine = `scene_v2.py` + `build.py`; `library/register.py` loads the shared library; 1080p; chapter music from `audio/music/`; sounds automatic by category.
+10. **Beauty and motion rules:** motion only when the narration names it or the real place has it; people only where the script makes them relevant; no quotas (see STYLE_GUIDE 1.6 and engine/SCENE_LANGUAGE.md).
 
 ## 1. Goal
 Make YouTube explainer videos (biography and "why X" topics, around 10 min) in a specific flat 2D cut-out style, cheaply and
